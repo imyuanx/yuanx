@@ -38,3 +38,7 @@ a:after {
 a:hover:after {
     top: 0%;
 }
+
+.important {
+    font-weight: 500;
+}
