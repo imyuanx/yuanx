@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Nav from "../../components/Nav";
-import { ARTICLES } from './articles';
+import { ARTICLES } from './articles.json';
 
 function Blog() {
     return (
