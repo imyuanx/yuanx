@@ -71,27 +71,30 @@ body {
     max-width: 28em;
 }
 
+@keyframes wave {
+    from {
+        background-position-x: 2px;
+    }
+
+    to {
+        background-position-x: 50px;
+    }
+}
+
 .container-home a {
+    display: inline-block;
     text-decoration: none;
     white-space: nowrap;
     color: #121314;
-    position: relative;
+    background-image: url(/wave.svg);
+    background-position-y: bottom;
+    background-position-x: 0px;
+    background-repeat-y: no-repeat;
 }
 
-.container-home a:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 66%;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: 0;
-    transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
-    background-color: rgba(79, 192, 141, 0.5);
-}
-
-.container-home a:hover:after {
-    top: 0%;
+.container-home a:hover {
+    animation: wave 6s infinite ;
+    animation-timing-function: linear;
 }
 
 .container-home .important {

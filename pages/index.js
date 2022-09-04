@@ -16,7 +16,7 @@ export default function Home() {
             <p>My other projects: <a href='https://www.github.com/yunying1/worth' target='_blank' rel="noreferrer">Worth</a>.</p>
             <p>You can following me on <a href='https://www.github.com/yunying1' target='_blank' rel="noreferrer">GitHub</a>, <a href='https://twitter.com/yyuan_x' target='_blank' rel="noreferrer">Twitter</a>, <a href='https://www.zhihu.com/people/yun-ying-37-92' target='_blank' rel="noreferrer">知乎</a> or <a href='https://juejin.cn/user/4292141022723207' target='_blank' rel="noreferrer">掘金</a>.</p>
             <p>Mail me at <a href="mailto:lonelyuanx@gmail.com">lonelyuanx@gmail.com</a>.</p>
-            <p className="important"><a href="mailto:lonelyuanx@gmail.com">I{"'"}m waiting for a job offer.</a></p>
+            <p className="important"><a href="mailto:lonelyuanx@gmail.com">{"I'm waiting for a job offer."}</a></p>
         </div>
     </>
   )
