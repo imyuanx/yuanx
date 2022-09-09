@@ -9,7 +9,7 @@ export default function Home() {
             <Head>
                 <title>x Yuan</title>
             </Head>
-            <h1>Hi, I am x Yuan.</h1>
+            <h1>{"Hi, I'm x Yuan."}</h1>
             <p>{"I'm a front-end engineer and I'm learning English , Usually use React in my work, but I also like Vue."}</p>
             <p>I like open source and building anything. I focus on my ideas and turn them into reality.</p>
             <p>My ideal is to become an independent developer, I have a side project: <a href='https://m-calendar.yuanx.me' target='_blank' rel="noreferrer">米历</a>, It is a calendar app support Chinese holiday, You can download it in AppStore.</p>
