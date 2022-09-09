@@ -6,7 +6,7 @@ const nextConfig = {
   exportPathMap: () => ({
     "/": { page: "/" },
     "/blog": { page: "/blog" },
-    "/blog/article": { page: "/blog/article" },
+    "/blog/posts/[pid]": { page: "/blog/posts/[pid]" },
   }),
   webpack: (
     config,

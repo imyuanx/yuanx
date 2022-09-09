@@ -5,16 +5,16 @@ import Nav from "../../../components/Nav";
 
 function Article() {
     const router = useRouter();
-    const { postId } = router.query;
+    const { pid } = router.query;
     const [markdown, setMarkdown] = useState("");
 
     useEffect(() => {
-        if (postId) {
-            const postPath = require.context(`../../../public/articles/`);
-            const result = postPath(`./${postId}.md`);
+        if (pid) {
+            const postPath = require.context(`../../../posts/`);
+            const result = postPath(`./${pid}.md`);
             setMarkdown(result.default);
         }
-    }, [postId]);
+    }, [pid]);
 
     return (
         <div className="container-article">
