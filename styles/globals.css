@@ -12,6 +12,7 @@ body {
     -webkit-font-smoothing: antialiased;
     color: #121314;
     flex: 1;
+    margin: 0;
 }
 
 .container-nav {
@@ -81,11 +82,12 @@ body {
     }
 }
 
-.container-home a {
+.container-home a, .article-content a {
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
     color: #121314;
+    line-height: 1.5;
     background-image: url(/wave.png);
     background-size: 16px;
     background-position-y: bottom;
@@ -93,7 +95,7 @@ body {
     background-repeat: repeat-x;
 }
 
-.container-home a:hover {
+.container-home a:hover, .article-content a:hover {
     animation: wave 6s infinite ;
     animation-timing-function: linear;
 }
@@ -103,9 +105,9 @@ body {
 }
 
 .container-blog {
-    padding: 60px 20px 20px 20px;
+    padding: 60px 28px 28px 28px;
     max-width: 650px;
-    min-width: 374px;
+    min-width: 330px;
     width: 100%;
     margin: 0 auto;
 }
@@ -157,14 +159,9 @@ body {
 .article-content {
     box-sizing: border-box;
     height: 100%;
-    padding: 60px 20px 20px 20px;
+    padding: 60px 28px 28px 28px;
     width: 100%;
     max-width: 900px;
-}
-
-.container-article {
-    width: 100%;
-    flex-direction: column;
 }
 
 .article-footer {

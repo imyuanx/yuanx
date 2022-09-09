@@ -18,8 +18,8 @@ function Article() {
 
     return (
         <div className="container-article">
+            <Nav active="blog" />
             <div className="article-content">
-                <Nav active="blog" />
                 <div className="article">
                     <ReactMarkdown
                         components={{
