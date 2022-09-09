@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Nav from "../../components/Nav";
-import { ARTICLES } from './articles.json';
+import articleEnv from './articles.json';
+
+const ARTICLES = articleEnv.ARTICLES;
 
 function Blog() {
     return (
@@ -11,7 +13,7 @@ function Blog() {
                 <ul>
                     {
                         ARTICLES.map((articleItem) => {
-                            return (<li key={articleItem.link}><Link href={`/blog/article?h=${articleItem.link}`}><a><span className='article-title'>{articleItem.title}</span><span className='article-date'>{articleItem.date}</span></a></Link></li>);
+                            return (<li key={articleItem.link}><Link href={`/blog/article/${articleItem.postId}`}><a><span className='article-title'>{articleItem.title}</span><span className='article-date'>{articleItem.date}</span></a></Link></li>);
                         })
                     }
                 </ul>
