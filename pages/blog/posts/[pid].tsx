@@ -1,9 +1,11 @@
+import React from "react";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import Nav from "../../../components/Nav";
 
-function Article() {
+const Article: NextPage = () => {
     const router = useRouter();
     const { pid } = router.query;
     const [markdown, setMarkdown] = useState("");

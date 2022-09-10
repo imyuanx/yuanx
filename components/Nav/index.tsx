@@ -1,11 +1,16 @@
+import React from 'react';
 import Link from 'next/link';
+
+interface Props {
+    active: string;
+}
 
 const NAV_LIST = [
     { name: "home", path: "/" },
     { name: "blog", path: "/blog" },
 ];
 
-function Nav(props) {
+function Nav(props: Props) {
     const { active } = props;
     return (
         <header className="container-nav">

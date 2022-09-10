@@ -1,10 +1,11 @@
+import type { NextPage } from "next";
 import Link from 'next/link';
 import Nav from "../../components/Nav";
 import articleEnv from '../../posts/posts.json';
 
 const ARTICLES = articleEnv.ARTICLES;
 
-function Blog() {
+const Blog: NextPage = () => {
     return (
         <>
             <Nav active="blog" />
