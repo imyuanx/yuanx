@@ -15,12 +15,12 @@ const Home: NextPage = () => {
                     }
                 </p>
                 <p>
-                    I like open source and building anything. I focus on my
-                    ideas and turn them into reality.
+                    {
+                        "I like open source and building anything. I focus on my ideas and turn them into reality."
+                    }
                 </p>
                 <p>
-                    My ideal is to become an independent developer, I have a
-                    side project:{" "}
+                    {"My ideal is to become an independent developer, I have a side project: "}
                     <a
                         href="https://m-calendar.yuanx.me"
                         target="_blank"
@@ -28,11 +28,10 @@ const Home: NextPage = () => {
                     >
                         米历
                     </a>
-                    , It is a calendar app support Chinese holiday, You can
-                    download it in AppStore.
+                    {", It is a calendar app support Chinese holiday, You can download it in AppStore."}
                 </p>
                 <p>
-                    My other projects:{" "}
+                    {"My other projects: "}
                     <a
                         href="https://www.github.com/yunying1/worth"
                         target="_blank"
@@ -40,10 +39,10 @@ const Home: NextPage = () => {
                     >
                         Worth
                     </a>
-                    .
+                    {"."}
                 </p>
                 <p>
-                    You can following me on{" "}
+                    {"You can following me on "}
                     <a
                         href="https://www.github.com/yunying1"
                         target="_blank"
@@ -51,7 +50,7 @@ const Home: NextPage = () => {
                     >
                         GitHub
                     </a>
-                    ,{" "}
+                    {", "}
                     <a
                         href="https://twitter.com/yyuan_x"
                         target="_blank"
@@ -59,15 +58,15 @@ const Home: NextPage = () => {
                     >
                         Twitter
                     </a>
-                    ,{" "}
+                    {", "}
                     <a
                         href="https://www.zhihu.com/people/yun-ying-37-92"
                         target="_blank"
                         rel="noreferrer"
                     >
                         知乎
-                    </a>{" "}
-                    or{" "}
+                    </a>
+                    {" or "}
                     <a
                         href="https://juejin.cn/user/4292141022723207"
                         target="_blank"
@@ -75,14 +74,14 @@ const Home: NextPage = () => {
                     >
                         掘金
                     </a>
-                    .
+                    {"."}
                 </p>
                 <p>
-                    Mail me at{" "}
+                    {"Mail me at "}
                     <a href="mailto:lonelyuanx@gmail.com">
                         lonelyuanx@gmail.com
                     </a>
-                    .
+                    {"."}
                 </p>
                 <p className="important">
                     <a href="mailto:lonelyuanx@gmail.com">
