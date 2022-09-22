@@ -33,7 +33,7 @@ const Home: NextPage = () => {
                 <p>
                     {"My other projects: "}
                     <a
-                        href="https://www.github.com/yunying1/worth"
+                        href="https://worth.yuanx.me"
                         target="_blank"
                         rel="noreferrer"
                     >
