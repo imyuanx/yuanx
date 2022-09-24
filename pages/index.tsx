@@ -2,26 +2,30 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Nav from "../components/Nav";
 
+const CLASS_A = "inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave";
+const CLASS_P = "text-1.6em font-light max-w-28em leading-1.4 mt-1em";
+
 const Home: NextPage = () => {
     return (
         <>
             <Nav active="home" />
-            <div className="container-home">
+            <div className="container-home pt-10vh pr-10vw pb-3vh pl-10vw">
                 <Head><title>x Yuan</title></Head>
-                <h1>{"Hi, I'm x Yuan."}</h1>
-                <p>
+                <h1 className="text-4.5em font-medium mb-0 mt-2.7">{"Hi, I'm x Yuan."}</h1>
+                <p className={CLASS_P}>
                     {
                         "I'm a front-end engineer and I'm learning English , Usually use React in my work, but I also like Vue."
                     }
                 </p>
-                <p>
+                <p className={CLASS_P}>
                     {
                         "I like open source and building anything. I focus on my ideas and turn them into reality."
                     }
                 </p>
-                <p>
+                <p className={CLASS_P}>
                     {"My ideal is to become an independent developer, I have a side project: "}
                     <a
+                        className={CLASS_A}
                         href="https://m-calendar.yuanx.me"
                         target="_blank"
                         rel="noreferrer"
@@ -30,9 +34,10 @@ const Home: NextPage = () => {
                     </a>
                     {", It is a calendar app support Chinese holiday, You can download it in AppStore."}
                 </p>
-                <p>
+                <p className={CLASS_P}>
                     {"My other projects: "}
                     <a
+                        className={CLASS_A}
                         href="https://worth.yuanx.me"
                         target="_blank"
                         rel="noreferrer"
@@ -41,9 +46,10 @@ const Home: NextPage = () => {
                     </a>
                     {"."}
                 </p>
-                <p>
+                <p className={CLASS_P}>
                     {"You can following me on "}
                     <a
+                        className={CLASS_A}
                         href="https://www.github.com/yunying1"
                         target="_blank"
                         rel="noreferrer"
@@ -52,6 +58,7 @@ const Home: NextPage = () => {
                     </a>
                     {", "}
                     <a
+                        className={CLASS_A}
                         href="https://twitter.com/yyuan_x"
                         target="_blank"
                         rel="noreferrer"
@@ -60,6 +67,7 @@ const Home: NextPage = () => {
                     </a>
                     {", "}
                     <a
+                        className={CLASS_A}
                         href="https://www.zhihu.com/people/yun-ying-37-92"
                         target="_blank"
                         rel="noreferrer"
@@ -68,6 +76,7 @@ const Home: NextPage = () => {
                     </a>
                     {" or "}
                     <a
+                        className={CLASS_A}
                         href="https://juejin.cn/user/4292141022723207"
                         target="_blank"
                         rel="noreferrer"
@@ -76,15 +85,15 @@ const Home: NextPage = () => {
                     </a>
                     {"."}
                 </p>
-                <p>
+                <p className={CLASS_P}>
                     {"Mail me at "}
-                    <a href="mailto:lonelyuanx@gmail.com">
+                    <a className={CLASS_A} href="mailto:lonelyuanx@gmail.com">
                         lonelyuanx@gmail.com
                     </a>
                     {"."}
                 </p>
-                <p className="important">
-                    <a href="mailto:lonelyuanx@gmail.com">
+                <p className="text-1.6em font-medium max-w-28em leading-1.4 mt-1em">
+                    <a className={CLASS_A} href="mailto:lonelyuanx@gmail.com">
                         {"I'm waiting for a job offer."}
                     </a>
                 </p>

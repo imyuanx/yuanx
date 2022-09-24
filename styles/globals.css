@@ -54,23 +54,17 @@ body {
 .container-nav .li-active a {
     color: #000;
 }
-
+/* 
 .container-home {
     padding: 10vh 10vw 3vh 10vw;
-}
+} */
 
-.container-home h1 {
-    font-size: 4.5em;
-    font-weight: 500;
-    margin-bottom: 0;
-}
-
-.container-home p {
+/* .container-home p {
     font-size: 1.6em;
     font-weight: 300;
     line-height: 1.4;
     max-width: 28em;
-}
+} */
 
 @keyframes wave {
     from {
@@ -82,29 +76,7 @@ body {
     }
 }
 
-.container-home a, .article-content a {
-    display: inline-block;
-    text-decoration: none;
-    white-space: nowrap;
-    color: #121314;
-    line-height: 1.5;
-    background-image: url(/wave.png);
-    background-size: 16px;
-    background-position-y: bottom;
-    background-position-x: 0px;
-    background-repeat: repeat-x;
-}
-
-.container-home a:hover, .article-content a:hover {
-    animation: wave 6s infinite ;
-    animation-timing-function: linear;
-}
-
-.container-home .important {
-    font-weight: 500;
-}
-
-.container-blog {
+/* .container-blog {
     padding: 60px 28px 28px 28px;
     max-width: 650px;
     min-width: 330px;
@@ -126,43 +98,43 @@ body {
     font-size: 18px;
     color: #121314;
     margin-right: 10px;
-}
+} */
 
-.container-blog ul .article-title:hover {
+/* .container-blog ul .article-title:hover {
     color: #000000;
     text-decoration: underline;
     cursor: pointer;
-}
+} */
 
-.container-blog ul li {
+/* .container-blog ul li {
     margin-bottom: 30px;
 }
 
 .container-blog ul li a {
     text-decoration: none;
-}
+} */
 
-.container-blog .article-date {
+/* .container-blog .article-date {
     font-size: 16px;
     color: #575757;
     font-style: oblique;
-}
+} */
 
-.container-article {
+/* .container-article {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.article-content {
+/* .article-content {
     box-sizing: border-box;
     height: 100%;
     padding: 60px 28px 28px 28px;
     width: 100%;
     max-width: 900px;
-}
+} */
 
 .article-footer {
     text-align: center;

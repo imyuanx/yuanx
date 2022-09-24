@@ -19,24 +19,23 @@ const Article: NextPage = () => {
     }, [pid]);
 
     return (
-        <div className="container-article">
+        <div className="container-article w-full h-full flex justify-center content-center">
             <Nav active="blog" />
-            <div className="article-content">
+            <div className="box-border article-content max-w-900px w-full h-full pt-60px pr-28px pb-28px pl-28px">
                 <div className="article">
                     <ReactMarkdown
                         components={{
+                            h1: ({ children }) => (<h1 className="text-2em leading-1.2 font-bold mb-2.7 mt-2.7">{ children }</h1>),
                             p: ({ children }) => {
                                 return (
                                     <p
-                                        style={{
-                                            fontSize: 18,
-                                            lineHeight: 1.5,
-                                        }}
+                                        className="text-18px leading-1.5 mt-1em"
                                     >
                                         {children}
                                     </p>
                                 );
                             },
+                            a: ({ children, href }) => (<a className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave" href={href} target="_blank" rel="noreferrer">{ children }</a>)
                         }}
                     >
                         {markdown}
@@ -44,6 +43,7 @@ const Article: NextPage = () => {
                 </div>
                 <div className="article-footer">
                     <a
+                        className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave"
                         target="_blank"
                         href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
                         rel="noreferrer"
