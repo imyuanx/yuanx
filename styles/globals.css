@@ -1,58 +1,58 @@
 html,
 #__next {
-    min-height: 100%;
-    box-sizing: border-box;
-    display: flex;
+  min-height: 100%;
+  box-sizing: border-box;
+  display: flex;
 }
 
 body {
-    font-family: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    font-size: calc(10px + 0.33vw);
-    -webkit-font-smoothing: antialiased;
-    color: #121314;
-    flex: 1;
-    margin: 0;
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: calc(10px + 0.33vw);
+  -webkit-font-smoothing: antialiased;
+  color: #121314;
+  flex: 1;
+  margin: 0;
 }
 
 .container-nav {
-    height: 60px;
-    width: 100%;
-    padding: 0px 30px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
+  height: 60px;
+  width: 100%;
+  padding: 0px 30px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .container-nav ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 .container-nav li {
-    margin-left: 35px;
-    cursor: pointer;
+  margin-left: 35px;
+  cursor: pointer;
 }
 
 .container-nav li a {
-    font-size: 18px;
-    color: #808080;
-    text-decoration: none;
-    text-transform: capitalize;
+  font-size: 18px;
+  color: #808080;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 .container-nav li a:hover {
-    color: #303030;
+  color: #303030;
 }
 
 .container-nav .li-active a {
-    color: #000;
+  color: #000;
 }
 /* 
 .container-home {
@@ -67,13 +67,13 @@ body {
 } */
 
 @keyframes wave {
-    from {
-        background-position-x: 2px;
-    }
+  from {
+    background-position-x: 2px;
+  }
 
-    to {
-        background-position-x: 50px;
-    }
+  to {
+    background-position-x: 50px;
+  }
 }
 
 /* .container-blog {
@@ -137,7 +137,7 @@ body {
 } */
 
 .article-footer {
-    text-align: center;
-    color: #808080;
-    margin-top: 30px;
+  text-align: center;
+  color: #808080;
+  margin-top: 30px;
 }

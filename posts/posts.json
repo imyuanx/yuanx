@@ -1,9 +1,9 @@
 {
-    "ARTICLES": [
-        {
-            "title": "[奇技淫巧] 使用 Arc 的 Note 功能写 Blog",
-            "date": "2022/9/3",
-            "postId": "create-blog-with-arc"
-        }
-    ]
+  "ARTICLES": [
+    {
+      "title": "[奇技淫巧] 使用 Arc 的 Note 功能写 Blog",
+      "date": "2022/9/3",
+      "postId": "create-blog-with-arc"
+    }
+  ]
 }
