@@ -15,57 +15,6 @@ body {
   margin: 0;
 }
 
-.container-nav {
-  height: 60px;
-  width: 100%;
-  padding: 0px 30px;
-  background-color: #ffffff;
-  box-sizing: border-box;
-  /* border: 1px solid red; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.container-nav ul {
-  list-style: none;
-  display: flex;
-}
-
-.container-nav li {
-  margin-left: 35px;
-  cursor: pointer;
-}
-
-.container-nav li a {
-  font-size: 18px;
-  color: #808080;
-  text-decoration: none;
-  text-transform: capitalize;
-}
-
-.container-nav li a:hover {
-  color: #303030;
-}
-
-.container-nav .li-active a {
-  color: #000;
-}
-/* 
-.container-home {
-    padding: 10vh 10vw 3vh 10vw;
-} */
-
-/* .container-home p {
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.4;
-    max-width: 28em;
-} */
-
 @keyframes wave {
   from {
     background-position-x: 2px;

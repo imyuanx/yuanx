@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        '#808080': '#808080',
+        '#303030': '#303030',
+      },
       padding: {
         '10vh': '10vh',
         '10vw': '10vw',
@@ -15,6 +19,7 @@ module.exports = {
         '60px': '60px',
       },
       fontSize: {
+        '20px': '20px',
         '18px': '18px',
         '16px': '16px',
         '1.6em': '1.6em',
@@ -29,11 +34,15 @@ module.exports = {
       minWidth: {
         '330px': '330px',
       },
+      height: {
+        '60px': '60px',
+      },
       lineHeight: {
         1: '1',
         1.2: '1.2',
         1.4: '1.4',
         1.5: '1.5',
+        '18px': '18px',
       },
       margin: {
         2.7: '0.67em',
