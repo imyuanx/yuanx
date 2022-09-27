@@ -21,8 +21,8 @@ const Article: NextPage = () => {
   return (
     <div className="container-article w-full h-full flex justify-center content-center">
       <Nav active="blog" />
-      <div className="box-border article-content max-w-900px w-full h-full pt-60px pr-28px pb-28px pl-28px">
-        <div className="article">
+      <main className="box-border article-content max-w-900px w-full h-full pt-60px pr-28px pb-28px pl-28px">
+        <article className="article">
           <ReactMarkdown
             components={{
               h1: ({ children }) => (
@@ -49,8 +49,8 @@ const Article: NextPage = () => {
           >
             {markdown}
           </ReactMarkdown>
-        </div>
-        <div className="text-center mt-30px">
+        </article>
+        <footer className="text-center mt-30px">
           <a
             className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white"
             target="_blank"
@@ -60,8 +60,8 @@ const Article: NextPage = () => {
             CC BY-NC-SA 4.0
           </a>
           <span className='text-#808080'>{' 2022-PRESENT © x Yuan'}</span>
-        </div>
-      </div>
+        </footer>
+      </main>
     </div>
   );
 };
