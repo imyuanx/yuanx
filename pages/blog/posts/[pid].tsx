@@ -37,7 +37,7 @@ const Article: NextPage = () => {
               },
               a: ({ children, href }) => (
                 <a
-                  className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave"
+                  className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white"
                   href={href}
                   target="_blank"
                   rel="noreferrer"
@@ -50,16 +50,16 @@ const Article: NextPage = () => {
             {markdown}
           </ReactMarkdown>
         </div>
-        <div className="article-footer">
+        <div className="text-center mt-30px">
           <a
-            className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave"
+            className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white"
             target="_blank"
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
             rel="noreferrer"
           >
             CC BY-NC-SA 4.0
-          </a>{' '}
-          2022-PRESENT © x Yuan
+          </a>
+          <span className='text-#808080'>{' 2022-PRESENT © x Yuan'}</span>
         </div>
       </div>
     </div>

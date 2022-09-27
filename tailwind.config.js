@@ -9,6 +9,8 @@ module.exports = {
       colors: {
         '#808080': '#808080',
         '#303030': '#303030',
+        '#141414': '#141414',
+        '#a1a1a1': '#a1a1a1',
       },
       padding: {
         '10vh': '10vh',
@@ -72,4 +74,5 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: ['class']
 };

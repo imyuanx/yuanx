@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Nav from '../components/Nav';
 
-const CLASS_A =
-  'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave';
-const CLASS_P = 'text-1.6em font-light max-w-28em leading-1.4 mt-1em';
+const CLASS_A:string =
+  'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
+const CLASS_P:string = 'text-1.6em font-light max-w-28em leading-1.4 mt-1em';
 
 const Home: NextPage = () => {
   return (
