@@ -67,7 +67,7 @@ module.exports = {
         },
       },
       animation: {
-        wave: 'wave 6s infinite',
+        wave: 'wave 6s infinite linear',
       },
     },
   },
