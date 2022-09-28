@@ -12,7 +12,19 @@ const NAV_LIST = [
   { name: 'blog', path: '/blog' },
 ];
 
-const TEXT_COLOR = 'text-#808080 hover:text-black dark:text-#a1a1a1 dark:hover:!text-white';
+const TEXT_COLOR =
+  'text-#808080 hover:text-black dark:text-#a1a1a1 dark:hover:!text-white';
+
+const NAV_LINK = [
+  {
+    url: 'https://twitter.com/yyuan_x',
+    icon: 'iconoir:twitter',
+  },
+  {
+    url: 'https://www.github.com/yunying1',
+    icon: 'iconoir:github',
+  },
+];
 
 function Nav(props: Props) {
   const { active } = props;
@@ -25,13 +37,12 @@ function Nav(props: Props) {
         <ul className="flex list-none">
           {NAV_LIST.map((navItem) => {
             return (
-              <li
-                className={`ml-30px`}
-                key={navItem.path}
-              >
+              <li className={`ml-30px`} key={navItem.path}>
                 <Link href={navItem.path}>
                   <a
-                    className={`text-18px no-underline capitalize ${TEXT_COLOR} ${active === navItem.name && '!text-black dark:!text-white'}`}
+                    className={`text-18px no-underline capitalize ${TEXT_COLOR} ${
+                      active === navItem.name && '!text-black dark:!text-white'
+                    }`}
                   >
                     {navItem.name}
                   </a>
@@ -39,43 +50,26 @@ function Nav(props: Props) {
               </li>
             );
           })}
-          <li className="flex items-center ml-30px">
-            <a
-              href="https://twitter.com/yyuan_x"
-              target="_blank"
-              rel="noreferrer"
-              className={`flex items-center ${TEXT_COLOR}`}
-            >
-              <Icon icon="iconoir:twitter" className="text-18px" />
-            </a>
-          </li>
-          <li className="flex items-center ml-30px">
-            <a
-              href="https://www.github.com/yunying1"
-              target="_blank"
-              rel="noreferrer"
-              className={`flex items-center ${TEXT_COLOR}`}
-            >
-              <Icon icon="iconoir:github" className="text-18px" />
-            </a>
-          </li>
-          {
-            !isDark ? <li className="flex items-center ml-30px cursor-pointer">
+          {NAV_LINK.map((item, index) => (
+            <li key={item.url} className="flex items-center ml-30px">
               <a
-                onClick={() => toggleDark()}
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
                 className={`flex items-center ${TEXT_COLOR}`}
               >
-                <Icon icon="ph:sun-dim" className="text-18px" />
+                <Icon icon={item.icon} className="text-18px" />
               </a>
-            </li> : (<li className="flex items-center ml-30px cursor-pointer">
-              <a
-                onClick={() => toggleDark()}
-                className={`flex items-center ${TEXT_COLOR}`}
-              >
-                <Icon icon="carbon:moon" className="text-18px" />
-              </a>
-            </li>)
-          }
+            </li>
+          ))}
+          <li className="flex items-center ml-30px cursor-pointer">
+            <a
+              onClick={() => toggleDark()}
+              className={`flex items-center ${TEXT_COLOR}`}
+            >
+              <Icon icon={isDark ? "carbon:moon" : "ph:sun-dim"} className="text-18px" />
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
