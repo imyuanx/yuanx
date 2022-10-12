@@ -13,9 +13,9 @@ const Home: NextPage = () => {
         <title>x Yuan</title>
       </Head>
       <Nav active="home" />
-      <main className="container-home pt-10vh pr-10vw pb-3vh pl-10vw">
-        <h1 className="text-4.5em font-medium mb-0 mt-2.7">
-          {"Hi, I'm x Yuan."}
+      <main className="relative container-home pt-10vh pr-10vw pb-3vh pl-10vw">
+        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-#00000014 dark:text-#ffffff14">
+          {"I'm x Yuan."}
         </h1>
         <article>
           <p className={CLASS_P}>

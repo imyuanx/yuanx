@@ -31,7 +31,7 @@ function Nav(props: Props) {
   const [isDark, toggleDark] = useDarkMode();
 
   return (
-    <header className="flex justify-between items-center fixed box-border bg-white w-full h-60px pl-30px pr-30px t-0 l-0 dark:bg-#141414">
+    <header className="flex justify-between items-center fixed box-border bg-#ffffffb3 w-full h-60px pl-30px pr-30px t-0 l-0 dark:bg-#141414b3 z-10 backdrop-blur">
       <div></div>
       <nav>
         <ul className="flex list-none">

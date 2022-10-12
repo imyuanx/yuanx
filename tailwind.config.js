@@ -11,6 +11,10 @@ module.exports = {
         '#303030': '#303030',
         '#141414': '#141414',
         '#a1a1a1': '#a1a1a1',
+        '#00000014': '#00000014',
+        '#141414b3': '#141414b3',
+        '#ffffffb3': '#ffffffb3',
+        '#ffffff14': '#ffffff14',
       },
       padding: {
         '10vh': '10vh',
@@ -27,6 +31,7 @@ module.exports = {
         '1.6em': '1.6em',
         '2em': '2em',
         '4.5em': '4.5em',
+        '6rem': '6rem',
       },
       maxWidth: {
         '28em': '28em',
@@ -74,5 +79,5 @@ module.exports = {
     },
   },
   plugins: [],
-  darkMode: ['class']
+  darkMode: ['class'],
 };
