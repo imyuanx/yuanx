@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
   exportPathMap: () => ({
     '/': { page: '/' },
     '/blog': { page: '/blog' },
-    '/blog/posts/[pid]': { page: '/blog/posts/[pid]' },
+    // '/blog/posts/[pid]': { page: '/blog/posts/[pid]' },
+    '/blog/posts/create-blog-with-arc': { page: '/blog/posts/[pid]' },
   }),
   webpack: (
     config,
