@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Nav from '../../components/Nav';
 import articleEnv from '../../posts/posts.json';
 
-const ARTICLES = articleEnv.ARTICLES;
+const ARTICLES = articleEnv.ARTICLES.sort((cur, last) => last.id - cur.id);
 
 const Blog: NextPage = () => {
   return (
