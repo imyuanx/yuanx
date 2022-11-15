@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <Nav active="home" />
       <main className="relative container-home pt-10vh pr-10vw pb-3vh pl-10vw">
-        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-#00000014 dark:text-#ffffff14">
+        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-#00000014 dark:text-#ffffff14 z-[-1]">
           {"I'm x Yuan."}
         </h1>
         <article>
