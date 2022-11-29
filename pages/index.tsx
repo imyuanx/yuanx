@@ -48,6 +48,15 @@ const Home: NextPage = () => {
             {'My other projects: '}
             <a
               className={CLASS_A}
+              href="https://github.com/yunying1/sharing-GUI"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Sharing GUI
+            </a>
+            {', '}
+            <a
+              className={CLASS_A}
               href="https://worth.yuanx.me"
               target="_blank"
               rel="noreferrer"
