@@ -11,6 +11,12 @@
       "title": "我的第一个独立 App “米历” 发布两周了！",
       "date": "2022/11/7",
       "postId": "m-calendar-release-14-day"
+    },
+    {
+      "id" : 3,
+      "title": "“Sharing GUI” 轻松跨设备共享文件的开源客户端",
+      "date": "2022/11/29",
+      "postId": "create-sharing-gui"
     }
   ]
 }
