@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <article>
           <p className={CLASS_P}>
             {
-              "I'm a front-end engineer and I'm learning English , Usually use React in my work, but I also like Vue."
+              "I'm a front-end engineer and amateur designer. I'm learning English, Usually use React in my work, but I also like Vue."
             }
           </p>
           <p className={CLASS_P}>
