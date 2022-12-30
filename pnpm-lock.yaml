@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@iconify/react': ^4.0.0
   '@types/ackee-tracker': ^5.0.2
   '@types/node': ^18.7.16
   '@types/react': ^18.0.18
@@ -24,7 +23,6 @@ specifiers:
   typescript: ^4.8.3
 
 dependencies:
-  '@iconify/react': 4.0.0_react@18.2.0
   '@types/ackee-tracker': 5.0.2
   ackee-tracker: 5.1.0
   next: 12.2.5_biqbaboplfbrettd7655fr4n2y
@@ -100,19 +98,6 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
-
-  /@iconify/react/4.0.0_react@18.2.0:
-    resolution: {integrity: sha512-YE+z5PCegYyuJtLR6KBbJNlssmuVgRyFyRxcgxSPVkN3Gsm7npSzrUh+gWlBxrNb5g4Q6Nnb1gczPBNcwtUpng==}
-    peerDependencies:
-      react: '>=16'
-    dependencies:
-      '@iconify/types': 2.0.0
-      react: 18.2.0
-    dev: false
-
-  /@iconify/types/2.0.0:
-    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-    dev: false
 
   /@next/env/12.2.5:
     resolution: {integrity: sha512-vLPLV3cpPGjUPT3PjgRj7e3nio9t6USkuew3JE/jMeon/9Mvp1WyR18v3iwnCuX7eUAm1HmAbJHHLAbcu/EJcw==}
