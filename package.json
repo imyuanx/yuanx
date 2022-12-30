@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@iconify/react": "^4.0.0",
     "@types/ackee-tracker": "^5.0.2",
     "ackee-tracker": "^5.1.0",
     "next": "12.2.5",

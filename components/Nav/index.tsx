@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Icon } from '@iconify/react';
 import { useDarkMode } from '../../common/useTheme';
+import GithubIcon from '../../components/Icon/github';
+import TwitterIcon from '../../components/Icon/twitter';
+import MoonIcon from '../../components/Icon/moon';
+import SunIcon from '../../components/Icon/sun';
 
 interface Props {
   active: string;
@@ -18,11 +21,11 @@ const TEXT_COLOR =
 const NAV_LINK = [
   {
     url: 'https://twitter.com/yyuan_x',
-    icon: 'iconoir:twitter',
+    Icon: TwitterIcon,
   },
   {
     url: 'https://www.github.com/yunying1',
-    icon: 'iconoir:github',
+    Icon: GithubIcon,
   },
 ];
 
@@ -50,15 +53,15 @@ function Nav(props: Props) {
               </li>
             );
           })}
-          {NAV_LINK.map((item, index) => (
-            <li key={item.url} className="flex items-center ml-30px">
+          {NAV_LINK.map(({ url, Icon }, index) => (
+            <li key={url} className="flex items-center ml-30px">
               <a
-                href={item.url}
+                href={url}
                 target="_blank"
                 rel="noreferrer"
                 className={`flex items-center ${TEXT_COLOR}`}
               >
-                <Icon icon={item.icon} className="text-18px" />
+                <Icon />
               </a>
             </li>
           ))}
@@ -67,7 +70,7 @@ function Nav(props: Props) {
               onClick={() => toggleDark()}
               className={`flex items-center ${TEXT_COLOR}`}
             >
-              <Icon icon={isDark ? "carbon:moon" : "ph:sun-dim"} className="text-18px" />
+              {isDark ? <MoonIcon /> : <SunIcon />}
             </a>
           </li>
         </ul>
