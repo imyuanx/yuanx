@@ -2,19 +2,23 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Nav from '../components/Nav';
 
+interface Props {
+  setBackground: Function;
+}
+
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
 const CLASS_P: string = 'text-1.6em font-light max-w-28em leading-1.4 mt-1em';
 
-const Home: NextPage = () => {
+const Home: NextPage<Props> = ({ setBackground }) => {
   return (
     <>
       <Head>
         <title>x Yuan</title>
       </Head>
-      <Nav active="home" />
+      <Nav active="home" setBackground={setBackground} />
       <main className="relative container-home pt-10vh pr-10vw pb-3vh pl-10vw">
-        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-#00000014 dark:text-#ffffff14 z-[-1]">
+        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-[#ebebeb] dark:text-[#292929] z-[-1]">
           {"I'm x Yuan."}
         </h1>
         <article>

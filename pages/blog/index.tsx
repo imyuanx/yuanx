@@ -3,12 +3,16 @@ import Link from 'next/link';
 import Nav from '../../components/Nav';
 import articleEnv from '../../posts/posts.json';
 
+interface Props {
+  setBackground: Function;
+}
+
 const ARTICLES = articleEnv.ARTICLES.sort((cur, last) => last.id - cur.id);
 
-const Blog: NextPage = () => {
+const Blog: NextPage<Props> = ({ setBackground }) => {
   return (
     <>
-      <Nav active="blog" />
+      <Nav active="blog" setBackground={setBackground} />
       <main className="box-content pt-60px pr-7 pb-7 pl-7 max-w-650px min-w-330px w-full mx-auto my-0">
         <h1 className="text-2em font-bold mb-40px mt-2.7">My Blog</h1>
         <article>
