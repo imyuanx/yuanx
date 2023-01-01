@@ -4,12 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import articleEnv from '../../../posts/posts.json';
-import Nav from '../../../components/Nav';
 import Link from 'next/link';
-
-interface Props {
-  setBackground: Function;
-}
 
 interface NextPost {
   id: 0;
@@ -18,7 +13,7 @@ interface NextPost {
   postId: '';
 }
 
-const Article: NextPage<Props> = ({ setBackground }) => {
+const Article: NextPage = () => {
   const router = useRouter();
   const { pid } = router.query;
   const [markdown, setMarkdown] = useState('');
@@ -49,7 +44,6 @@ const Article: NextPage<Props> = ({ setBackground }) => {
 
   return (
     <div className="container-article w-full h-full flex justify-center content-center">
-      <Nav active="blog" setBackground={setBackground} />
       <main className="box-border article-content max-w-900px w-full h-full pt-60px pr-28px pb-28px pl-28px">
         <article className="article">
           <ReactMarkdown
