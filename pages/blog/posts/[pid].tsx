@@ -44,18 +44,18 @@ const Article: NextPage = () => {
 
   return (
     <div className="container-article w-full h-full flex justify-center content-center">
-      <main className="box-border article-content max-w-900px w-full h-full pt-60px pr-28px pb-28px pl-28px">
+      <main className="box-border article-content max-w-[900px] w-full h-full pt-[60px] pr-[28px] pb-[28px] pl-[28px]">
         <article className="article">
           <ReactMarkdown
             components={{
               h1: ({ children }) => (
-                <h1 className="text-2em leading-1.2 font-bold mb-2.7 mt-2.7">
+                <h1 className="text-[2em] leading-[1.2] font-bold mb-[0.67em] mt-[0.67em]">
                   {children}
                 </h1>
               ),
               p: ({ children }) => {
                 return (
-                  <p className="text-18px leading-1.5 mt-1em">{children}</p>
+                  <p className="text-[18px] leading-[1.5] mt-[1em]">{children}</p>
                 );
               },
               a: ({ children, href }) => (
@@ -73,7 +73,7 @@ const Article: NextPage = () => {
             {markdown}
           </ReactMarkdown>
         </article>
-        <div className="mt-30px flex">
+        <div className="mt-[30px] flex">
           <span>下一篇：</span>
           {nextPost.current?.postId ? (
             <Link href={nextPost.current?.postId}>
@@ -85,7 +85,7 @@ const Article: NextPage = () => {
             </div>
           )}
         </div>
-        <footer className="text-center mt-30px">
+        <footer className="text-center mt-[30px]">
           <a
             className="inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white"
             target="_blank"
@@ -94,7 +94,7 @@ const Article: NextPage = () => {
           >
             CC BY-NC-SA 4.0
           </a>
-          <span className="text-#808080">{' 2022-PRESENT © x Yuan'}</span>
+          <span className="text-[#808080]">{' 2022-PRESENT © x Yuan'}</span>
         </footer>
       </main>
     </div>

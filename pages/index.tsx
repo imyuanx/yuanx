@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
-const CLASS_P: string = 'text-1.6em font-light max-w-28em leading-1.4 mt-1em';
+const CLASS_P: string = 'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
 
 const Home: NextPage = () => {
   return (
@@ -11,8 +11,8 @@ const Home: NextPage = () => {
       <Head>
         <title>x Yuan</title>
       </Head>
-      <main className="relative container-home pt-10vh pr-10vw pb-3vh pl-10vw">
-        <h1 className="absolute text-6rem font-medium mb-0 mt-0 text-[#ebebeb] dark:text-[#292929] z-[-1]">
+      <main className="relative container-home pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
+        <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ebebeb] dark:text-[#292929] z-[-1]">
           {"I'm x Yuan."}
         </h1>
         <article>
@@ -109,7 +109,7 @@ const Home: NextPage = () => {
             </a>
             {'.'}
           </p>
-          <p className="text-1.6em font-medium max-w-28em leading-1.4 mt-1em">
+          <p className="text-[1.6em] font-medium max-w-[28em] leading-[1.4] mt-[1em]">
             <a className={CLASS_A} href="mailto:lonelyuanx@gmail.com">
               {"I'm waiting for a job offer."}
             </a>

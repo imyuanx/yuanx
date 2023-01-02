@@ -18,7 +18,7 @@ const NAV_LIST = [
 ];
 
 const TEXT_COLOR =
-  'text-#808080 hover:text-black dark:text-#a1a1a1 dark:hover:!text-white';
+  'text-[#808080] hover:text-black dark:text-[#a1a1a1] dark:hover:!text-white';
 
 const NAV_LINK = [
   {
@@ -43,16 +43,16 @@ function Nav(props: Props) {
   };
 
   return (
-    <header className="flex justify-between items-center fixed box-border bg-#ffffffb3 w-full h-60px pl-30px pr-30px t-0 l-0 dark:bg-#141414b3 z-10 backdrop-blur select-none">
+    <header className="flex justify-between items-center fixed box-border bg-[#ffffffb3] w-full h-[60px] pl-[30px] pr-[30px] t-0 l-0 dark:bg-[#141414b3] z-10 backdrop-blur select-none">
       <div></div>
       <nav>
         <ul className="flex list-none pl-0">
           {NAV_LIST.map((navItem, index) => {
             return (
-              <li className={`${index !== 0 && 'ml-30px'}`} key={navItem.path}>
+              <li className={`${index !== 0 && 'ml-[30px]'}`} key={navItem.path}>
                 <Link href={navItem.path}>
                   <a
-                    className={`text-18px no-underline capitalize ${TEXT_COLOR} ${
+                    className={`text-[18px] no-underline capitalize ${TEXT_COLOR} ${
                       active === navItem.name && '!text-black dark:!text-white'
                     }`}
                   >
@@ -63,7 +63,7 @@ function Nav(props: Props) {
             );
           })}
           {NAV_LINK.map(({ url, Icon }, index) => (
-            <li key={url} className="flex items-center ml-30px">
+            <li key={url} className="flex items-center ml-[30px]">
               <a
                 href={url}
                 target="_blank"
@@ -74,7 +74,7 @@ function Nav(props: Props) {
               </a>
             </li>
           ))}
-          <li className="flex items-center ml-30px cursor-pointer">
+          <li className="flex items-center ml-[30px] cursor-pointer">
             <a
               onClick={toggleBackground}
               className={`flex items-center ${TEXT_COLOR}`}
@@ -82,7 +82,7 @@ function Nav(props: Props) {
               <ThemeIcon />
             </a>
           </li>
-          <li className="flex items-center ml-30px cursor-pointer">
+          <li className="flex items-center ml-[30px] cursor-pointer">
             <a
               onClick={() => toggleDark()}
               className={`flex items-center ${TEXT_COLOR}`}
