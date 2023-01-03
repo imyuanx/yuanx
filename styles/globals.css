@@ -38,3 +38,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+::selection{ 
+  background-color:#00000024;
+}
