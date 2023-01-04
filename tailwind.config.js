@@ -20,9 +20,14 @@ module.exports = {
           '0%': { backgroundPositionX: '2px' },
           '100%': { backgroundPositionX: '50px' },
         },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         wave: 'wave 6s infinite linear',
+        rotate: 'rotate 12s infinite linear',
       },
     },
   },

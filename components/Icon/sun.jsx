@@ -6,6 +6,7 @@ function SunIcon() {
       height="18"
       preserveAspectRatio="xMidYMid meet"
       viewBox="0 0 256 256"
+      className="hover:animate-rotate"
     >
       <path
         fill="currentColor"
