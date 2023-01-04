@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useDarkMode } from '../../common/useTheme';
-import GithubIcon from '../../components/Icon/github';
-import TwitterIcon from '../../components/Icon/twitter';
-import ThemeIcon from '../../components/Icon/theme';
-import MoonIcon from '../../components/Icon/moon';
-import SunIcon from '../../components/Icon/sun';
+import GithubIcon from '../Icon/github';
+import TwitterIcon from '../Icon/twitter';
+import ThemeIcon from '../Icon/theme';
+import MoonIcon from '../Icon/moon';
+import SunIcon from '../Icon/sun';
 
 interface Props {
   active: string;
@@ -49,7 +49,10 @@ function Nav(props: Props) {
         <ul className="flex list-none pl-0">
           {NAV_LIST.map((navItem, index) => {
             return (
-              <li className={`${index !== 0 && 'ml-[30px]'}`} key={navItem.path}>
+              <li
+                className={`${index !== 0 && 'ml-[30px]'}`}
+                key={navItem.path}
+              >
                 <Link href={navItem.path}>
                   <a
                     className={`text-[18px] no-underline capitalize ${TEXT_COLOR} ${
