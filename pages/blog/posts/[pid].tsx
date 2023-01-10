@@ -55,7 +55,7 @@ const Article: NextPage = () => {
               ),
               p: ({ children }) => {
                 return (
-                  <p className="text-[18px] leading-[1.5] mt-[1em]">{children}</p>
+                  <p className="text-[18px] leading-[1.8] mt-[1em]">{children}</p>
                 );
               },
               a: ({ children, href }) => (
