@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import articleEnv from '../../../posts/posts.json';
+import rehypeRaw from 'rehype-raw';
 import Link from 'next/link';
+import articleEnv from '../../../posts/posts.json';
 
 interface NextPost {
   id: 0;
@@ -47,6 +49,7 @@ const Article: NextPage = () => {
       <main className="box-border article-content max-w-[900px] w-full h-full pt-[60px] pr-[28px] pb-[28px] pl-[28px]">
         <article className="article">
           <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
             components={{
               h1: ({ children }) => (
                 <h1 className="text-[2em] leading-[1.2] font-bold mb-[0.67em] mt-[0.67em]">
