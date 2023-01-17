@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useResizeObserver } from '../../common/useResizeObserver';
 
-const BACKGROUND_RATE = Math.floor((1_440 * 900) / 7_000);
+const BACKGROUND_RATE = Math.floor((1_440 * 900) / 7_100);
 
 function Background() {
   const [backgroundNum, setBackgroundNum] = useState(0);
