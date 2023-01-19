@@ -45,6 +45,6 @@ body {
   overflow: hidden;
 }
 
-::selection{ 
-  background-color:#00000024;
+::selection {
+  background-color: #00000024;
 }
