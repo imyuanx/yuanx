@@ -58,7 +58,9 @@ const Article: NextPage = () => {
               ),
               p: ({ children }) => {
                 return (
-                  <p className="text-[18px] leading-[1.8] mt-[1em]">{children}</p>
+                  <p className="text-[18px] leading-[1.8] mt-[1em]">
+                    {children}
+                  </p>
                 );
               },
               a: ({ children, href }) => (
@@ -70,6 +72,11 @@ const Article: NextPage = () => {
                 >
                   {children}
                 </a>
+              ),
+              code: ({ children }) => (
+                <code className="relative mx-[4px] rounded-[6px] after:content-[''] after:absolute after:z-[-1] after:top-[66%] after:left-[-0.1em] after:right-[-0.1em] after:bottom-[0] after:bg-[#ebebeb]">
+                  {children}
+                </code>
               ),
             }}
           >
