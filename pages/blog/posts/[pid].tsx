@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -21,37 +21,43 @@ const Article: NextPage = () => {
   const [markdown, setMarkdown] = useState('');
   const nextPost = useRef<NextPost | null>(null);
 
-  useEffect(() => {
-    if (pid) {
-      const postPath = require.context(`../../../posts/`);
-      const result = postPath(`./${pid}.md`);
-      setMarkdown(result.default);
-      let nextPostInfo = getNextPost();
-      nextPost.current = nextPostInfo;
-    }
-  }, [pid]);
-
   /**
-   * @desc Get the env of article by `postId`
+   * @desc Get the env of article by `postId` or by `id`
    * @param {String} pid article id
    */
-  const getPostEnv = (pid: String): NextPost | null => {
-    const post = articleEnv.ARTICLES.find((item) => item.postId === pid);
+  function getPostEnv(pid?: String | undefined): NextPost | null;
+  function getPostEnv(id?: Number | undefined): NextPost | null;
+  function getPostEnv(_id?: unknown): NextPost | null {
+    const post = articleEnv.ARTICLES.find(({ postId, id }) =>
+      typeof _id === 'string' ? postId === _id : id === _id,
+    );
     if (!post) return null;
     return post as NextPost;
-  };
+  }
 
   /**
    * @desc Get the next article
    */
-  const getNextPost = (): NextPost | null => {
-    if (!pid || typeof pid !== 'string') return null;
-    const curPost = getPostEnv(pid);
-    if (!curPost) return null;
-    const nextPost = getPostEnv(`${curPost.id + 1}`);
-    if (!nextPost) return null;
-    return nextPost as NextPost;
-  };
+  const getNextPost = useCallback(
+    (pid: String): NextPost | null => {
+      const curPost = getPostEnv(pid);
+      if (!curPost) return null;
+      const nextPost = getPostEnv(curPost.id + 1);
+      if (!nextPost) return null;
+      return nextPost as NextPost;
+    },
+    [getPostEnv],
+  );
+
+  useEffect(() => {
+    if (pid && typeof pid === 'string') {
+      const postPath = require.context(`../../../posts/`);
+      const result = postPath(`./${pid}.md`);
+      setMarkdown(result.default);
+      let nextPostInfo = getNextPost(pid);
+      nextPost.current = nextPostInfo;
+    }
+  }, [pid, getNextPost]);
 
   /**
    * @desc Get the title of the current article
