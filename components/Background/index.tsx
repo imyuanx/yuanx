@@ -10,7 +10,6 @@ function Background() {
   useEffect(() => {
     const { width, height } = sizes;
     if (!height || !width) return;
-    console.log((width * height) / BACKGROUND_RATE);
     setBackgroundNum((width * height) / BACKGROUND_RATE);
   }, [sizes]);
 
