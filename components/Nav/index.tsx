@@ -22,7 +22,7 @@ const TEXT_COLOR =
 
 const NAV_LINK = [
   {
-    url: 'https://twitter.com/yyuan_x',
+    url: 'https://twitter.com/imyuanx',
     Icon: TwitterIcon,
   },
   {
