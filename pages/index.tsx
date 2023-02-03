@@ -46,7 +46,7 @@ const Home: NextPage = () => {
             {'My other projects: '}
             <a
               className={CLASS_A}
-              href="https://github.com/yunying1/sharing-GUI"
+              href="https://github.com/imyuanx/sharing-GUI"
               target="_blank"
               rel="noreferrer"
             >
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
             {'You can following me on '}
             <a
               className={CLASS_A}
-              href="https://www.github.com/yunying1"
+              href="https://www.github.com/imyuanx"
               target="_blank"
               rel="noreferrer"
             >
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
             {', '}
             <a
               className={CLASS_A}
-              href="https://twitter.com/yyuan_x"
+              href="https://twitter.com/imyuanx"
               target="_blank"
               rel="noreferrer"
             >

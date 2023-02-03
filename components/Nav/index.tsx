@@ -26,7 +26,7 @@ const NAV_LINK = [
     Icon: TwitterIcon,
   },
   {
-    url: 'https://www.github.com/yunying1',
+    url: 'https://www.github.com/imyuanx',
     Icon: GithubIcon,
   },
 ];
