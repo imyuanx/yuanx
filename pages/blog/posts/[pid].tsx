@@ -89,13 +89,13 @@ const Article: NextPage = () => {
                   </h1>
                 ),
                 h2: ({ children }) => (
-                  <h1 className="text-[2.2em] font-bold">{children}</h1>
-                ),
-                h3: ({ children }) => (
                   <h1 className="text-[2em] font-bold">{children}</h1>
                 ),
-                h4: ({ children }) => (
+                h3: ({ children }) => (
                   <h1 className="text-[1.8em] font-bold">{children}</h1>
+                ),
+                h4: ({ children }) => (
+                  <h1 className="text-[1.6em] font-bold">{children}</h1>
                 ),
                 p: ({ children }) => {
                   return (
