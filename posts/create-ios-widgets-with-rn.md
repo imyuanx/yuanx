@@ -37,15 +37,15 @@ $ npx expo run:ios
 
 这时我们就得到了一个最基础的小组件。
 
-<img src="/create-ios-widgets-with-rn-1.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-1.jpg" style="max-width: 100%" />
 
 我们可以修改小组件的唯一标识符`kind`、名称、描述、尺寸。
 
-<img src="/create-ios-widgets-with-rn-2.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-2.jpg" style="max-width: 100%" />
 
 其中名称和描述会在添加小组件时展示
 
-<img src="/create-ios-widgets-with-rn-3.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-3.jpg" style="max-width: 100%" />
 
 如果`supportedFamilies`没有设置的话默认为所有尺寸各一个。
 
@@ -65,17 +65,17 @@ $ npx expo run:ios
 
 首先我们创建一个`App Groups`
 
-<img src="/create-ios-widgets-with-rn-4.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-4.jpg" style="max-width: 100%" />
 
 添加完成后为小组件勾选上`App Groups`
 
-<img src="/create-ios-widgets-with-rn-5.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-5.jpg" style="max-width: 100%" />
 
 此时当我们在主程序中为刚刚创建的`App Groups`储存数据后，在小组件中就可以读取到主程序存入的数据。
 
 在主程序中，我们可以这样为`App Groups`存入一个键值对
 
-<img src="/create-ios-widgets-with-rn-6.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-6.jpg" style="max-width: 100%" />
 
 起初我想通过 RN 调用原生项目中的函数（也就是图中写的那个函数）为`App Groups`存入数据，但是我们还需要将这个原生方法暴露给 RN 去掉用，手动处理的过程比较麻烦。
 [react-native-shared-group-preferences](https://github.com/KjellConnelly/react-native-shared-group-preferences)这个库可以直接通过 JS 操作`App Groups`，为我们节省了上述步骤。
@@ -106,7 +106,7 @@ const saveUserDataToSharedStorage = async (data) => {
 
 在小组件中我们只需要根据写入的`key`去`App Groups`中读取对应的`value`即可
 
-<img src="/create-ios-widgets-with-rn-7.png" style="max-width: 100%" />
+<img src="/create-ios-widgets-with-rn-7.jpg" style="max-width: 100%" />
 
 ### 刷新小组件
 
