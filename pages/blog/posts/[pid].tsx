@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import Link from 'next/link';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import articleEnv from '../../../posts/posts.json';
 
 interface NextPost {
@@ -81,9 +84,18 @@ const Article: NextPage = () => {
               rehypePlugins={[rehypeRaw]}
               components={{
                 h1: ({ children }) => (
-                  <h1 className="text-[2em] leading-[1.2] font-bold mb-[0.67em] mt-[0.67em]">
+                  <h1 className="text-[2.5em] leading-[1.2] font-bold mb-[0.67em] mt-[0.67em]">
                     {children}
                   </h1>
+                ),
+                h2: ({ children }) => (
+                  <h1 className="text-[2.2em] font-bold">{children}</h1>
+                ),
+                h3: ({ children }) => (
+                  <h1 className="text-[2em] font-bold">{children}</h1>
+                ),
+                h4: ({ children }) => (
+                  <h1 className="text-[1.8em] font-bold">{children}</h1>
                 ),
                 p: ({ children }) => {
                   return (
@@ -102,10 +114,48 @@ const Article: NextPage = () => {
                     {children}
                   </a>
                 ),
-                code: ({ children }) => (
-                  <code className="relative mx-[4px] rounded-[6px] after:content-[''] after:absolute after:z-[-1] after:top-[66%] after:left-[-0.1em] after:right-[-0.1em] after:bottom-[0] after:bg-[#ebebeb]">
+                code({ node, inline, className, children, style, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  console.log('match', match, className, inline);
+                  return !inline && match ? (
+                    <>
+                      <SyntaxHighlighter
+                        className={'rounded max-w-pre-mobile block dark:hidden'}
+                        style={oneLight}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, '')}
+                      </SyntaxHighlighter>
+                      <SyntaxHighlighter
+                        className={'rounded max-w-pre-mobile hidden dark:block'}
+                        style={oneDark}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, '')}
+                      </SyntaxHighlighter>
+                    </>
+                  ) : (
+                    <code className="relative mx-[4px] rounded-[6px] whitespace-nowrap after:content-[''] after:absolute after:z-[-1] after:top-[66%] after:left-[-0.1em] after:right-[-0.1em] after:bottom-[0] after:bg-[#ebebeb] after:dark:bg-[#333333]">
+                      {children}
+                    </code>
+                  );
+                },
+                blockquote: ({ children }) => (
+                  <blockquote className="border-0 border-l-4 border-solid border-l-[#ebebeb] m-0 pl-[16px] text-[#555555] dark:text-[#acacac] dark:border-l-[#7a7a7a]">
                     {children}
-                  </code>
+                  </blockquote>
+                ),
+                ul: ({ children }) => (
+                  <ul className="flex flex-col gap-[10px] text-[18px]">
+                    {children}
+                  </ul>
+                ),
+                li: ({ children }) => (
+                  <li className="leading-[1.6]">{children}</li>
                 ),
               }}
             >
