@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        'pre-mobile': 'calc(100vw - 56px)',
+      },
       backgroundImage: {
         wave: 'url(/wave.png)',
       },
