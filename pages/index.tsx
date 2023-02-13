@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <title>x Yuan</title>
       </Head>
       <main className="relative container-home pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
-        <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ebebeb] dark:text-[#292929] z-[-1]">
+        <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ebebeb] dark:text-[#292929] z-[-1] select-none">
           {"I'm x Yuan."}
         </h1>
         <article>
