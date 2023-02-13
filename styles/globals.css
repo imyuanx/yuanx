@@ -54,6 +54,10 @@ body {
   background-color: #00000024;
 }
 
+.dark ::selection {
+  background-color: #ffffff24;
+}
+
 .global-background {
   background: linear-gradient(
         90deg,
