@@ -1,3 +1,8 @@
+:root {
+  --custom-background-color: #ffffff;
+  --custom-background-color-dark: #141414;
+}
+
 *,
 ::before,
 ::after {
@@ -36,7 +41,7 @@ body {
 }
 
 .dark body {
-  background-color: #141414;
+  background-color: var(--custom-background-color-dark);
   color: white;
 }
 
@@ -47,4 +52,29 @@ body {
 
 ::selection {
   background-color: #00000024;
+}
+
+.global-background {
+  background: linear-gradient(
+        90deg,
+        var(--custom-background-color) 14.5px,
+        transparent 1%
+      )
+      50%,
+    linear-gradient(var(--custom-background-color) 14.5px, transparent 1%) 50%;
+  background-color: #bfbfbf;
+  background-size: 16px 16px;
+}
+
+.dark .global-background {
+  background: linear-gradient(
+        90deg,
+        var(--custom-background-color-dark) 14.5px,
+        transparent 1%
+      )
+      50%,
+    linear-gradient(var(--custom-background-color-dark) 14.5px, transparent 1%)
+      50%;
+  background-color: #535353;
+  background-size: 16px 16px;
 }
