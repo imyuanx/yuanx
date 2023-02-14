@@ -3,7 +3,8 @@ import Head from 'next/head';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
-const CLASS_P: string = 'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
+const CLASS_P: string =
+  'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
 
 const Home: NextPage = () => {
   return (
@@ -17,19 +18,16 @@ const Home: NextPage = () => {
         </h1>
         <article>
           <p className={CLASS_P}>
+            {'Hey, my name is '}
+            <span className="font-medium">yuanx</span>
+            {' / '}
+            <span className="font-medium">袁先</span>
             {
-              "I'm a front-end engineer and amateur designer. I'm learning English, Usually use React in my work, but I also like Vue."
+              ", I'm a front-end engineer and amateur designer. I like open source and building anything."
             }
           </p>
           <p className={CLASS_P}>
-            {
-              'I like open source and building anything. I focus on my ideas and turn them into reality.'
-            }
-          </p>
-          <p className={CLASS_P}>
-            {
-              'My ideal is to become an independent developer, I have a side project: '
-            }
+            {'Creator of '}
             <a
               className={CLASS_A}
               href="https://m-calendar.yuanx.me"
@@ -38,12 +36,7 @@ const Home: NextPage = () => {
             >
               米历
             </a>
-            {
-              ', It is a calendar app support Chinese holiday, You can download it in AppStore.'
-            }
-          </p>
-          <p className={CLASS_P}>
-            {'My other projects: '}
+            {', '}
             <a
               className={CLASS_A}
               href="https://github.com/imyuanx/sharing-GUI"
@@ -61,10 +54,34 @@ const Home: NextPage = () => {
             >
               Worth
             </a>
+            {' and '}
+            <a
+              className={CLASS_A}
+              href="https://www.github.com/imyuanx"
+              target="_blank"
+              rel="noreferrer"
+            >
+              others
+            </a>
             {'.'}
           </p>
           <p className={CLASS_P}>
-            {'You can following me on '}
+            {
+              'Creativity is the fuel for my enthusiasm for coding, I focus on wild ideas and turn them into reality.'
+            }
+          </p>
+          <p className={CLASS_P}>
+            {
+              'I usually use React in my work and side projects, and I also like Vue. I am very concerned about the development experience, so I embrace all new things that can bring change.'
+            }
+          </p>
+          <p className={CLASS_P}>
+            {
+              'Outside of programming, I have recently been learning English and trying to make friends with animals, I have a cat friend who has known me for about 3 months, we will date once or twice almost every working day.'
+            }
+          </p>
+          <p className={CLASS_P}>
+            {'You can find me on '}
             <a
               className={CLASS_A}
               href="https://www.github.com/imyuanx"
@@ -91,6 +108,15 @@ const Home: NextPage = () => {
             >
               知乎
             </a>
+            {', '}
+            <a
+              className={CLASS_A}
+              href="https://weibo.com/u/6018607591"
+              target="_blank"
+              rel="noreferrer"
+            >
+              微博
+            </a>
             {' or '}
             <a
               className={CLASS_A}
@@ -109,10 +135,14 @@ const Home: NextPage = () => {
             </a>
             {'.'}
           </p>
-          <p className="text-[1.6em] font-medium max-w-[28em] leading-[1.4] mt-[1em]">
-            <a className={CLASS_A} href="mailto:lonelyuanx@gmail.com">
-              {"I'm waiting for a job offer."}
+          <p className={CLASS_P}>
+            <a
+              className={`${CLASS_A} font-medium`}
+              href="mailto:lonelyuanx@gmail.com"
+            >
+              {"I'm waiting for a job offer"}
             </a>
+            {", Let's create incredible things together."}
           </p>
         </article>
       </main>
