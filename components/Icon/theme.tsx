@@ -14,16 +14,10 @@ function ThemeIcon() {
         data-tooltip-id="tips"
         data-tooltip-content="Show / Hide Background"
       >
-        <circle cx="5" cy="5" r="2.75" stroke="currentColor" strokeWidth="1" />
-        <circle cx="5" cy="13" r="2.75" stroke="currentColor" strokeWidth="1" />
-        <circle cx="13" cy="5" r="2.75" stroke="currentColor" strokeWidth="1" />
-        <circle
-          cx="13"
-          cy="13"
-          r="2.75"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
+        <circle cx="5" cy="5" r="2.75" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="5" cy="13" r="2.75" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="13" cy="5" r="2.75" stroke="currentColor" strokeWidth="1.2" />
+        <circle cx="13" cy="13" r="2.75" stroke="currentColor" strokeWidth="1.2" />
       </svg>
       <Tooltip id="tips" className="rounded-[5px]" />
     </>
