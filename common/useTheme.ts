@@ -1,40 +1,73 @@
 import { useEffect, useState } from 'react';
 
-/**
- * @desc 主题切换
- */
-function useDarkMode ():[boolean, ((isDark_?: boolean|null) => void)] {
-  const [isDark, setDark] = useState(false);
+const THEME = {
+  SYSTEM: '0',
+  LIGHT: '1',
+  DARK: '2',
+};
+
+function useSystemTheme() {
+  const [light, setLight] = useState(true);
   useEffect(() => {
-    setDark(localStorage['yuanx.me_theme'] === 'dark');
+    const listenLight = ({ matches }: MediaQueryListEvent) => setLight(matches);
+
+    matchMedia('(prefers-color-scheme: light)').addEventListener(
+      'change',
+      listenLight,
+    );
+    return () => {
+      matchMedia('(prefers-color-scheme: light)').removeEventListener(
+        'change',
+        listenLight,
+      );
+    };
+  }, []);
+  return light;
+}
+
+function useTheme() {
+  const [theme, setTheme] = useState('');
+  const light = useSystemTheme();
+
+  useEffect(() => {
+    setTheme(
+      localStorage['yuanx.me_theme']
+        ? localStorage['yuanx.me_theme']
+        : THEME['SYSTEM'],
+    );
   }, []);
 
-  const toggleDark = (isDark_: boolean|null = null) => {
-    if (isDark_ !== null ? isDark_ : isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage['yuanx.me_theme'] = 'light';
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage['yuanx.me_theme'] = 'dark';
+  useEffect(() => {
+    theme && changeTheme(theme);
+  }, [theme, light]);
+
+  /**
+   * @desc Change site theme
+   */
+  const changeTheme = (theme: string) => {
+    switch (theme) {
+      case THEME['DARK']:
+        document.documentElement.classList.add('dark');
+        localStorage['yuanx.me_theme'] = THEME['DARK'];
+        break;
+      case THEME['LIGHT']:
+        document.documentElement.classList.remove('dark');
+        localStorage['yuanx.me_theme'] = THEME['LIGHT'];
+        break;
+      default:
+      case THEME['SYSTEM']:
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        localStorage['yuanx.me_theme'] = THEME['SYSTEM'];
+        break;
     }
-    setDark(!isDark);
   };
 
-  return [isDark, toggleDark];
+  return [theme, setTheme];
 }
 
-function initTheme() {
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  if (
-    localStorage['yuanx.me_theme'] === 'dark' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-}
-
-export { useDarkMode };
-export { initTheme };
+export { useTheme };
+export { THEME };

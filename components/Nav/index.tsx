@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { useDarkMode } from '../../common/useTheme';
 import GithubIcon from '../Icon/github';
 import TwitterIcon from '../Icon/twitter';
 import ThemeIcon from '../Icon/theme';
-import MoonIcon from '../Icon/moon';
-import SunIcon from '../Icon/sun';
+import ThemeMode from '../ThemeMode';
 
 interface Props {
   active: string;
@@ -33,7 +31,6 @@ const NAV_LINK = [
 
 function Nav(props: Props) {
   const { active, setBackground } = props;
-  const [isDark, toggleDark] = useDarkMode();
 
   /**
    * @desc Change global background
@@ -86,12 +83,7 @@ function Nav(props: Props) {
             </a>
           </li>
           <li className="flex items-center ml-[30px] cursor-pointer">
-            <a
-              onClick={() => toggleDark()}
-              className={`flex items-center ${TEXT_COLOR}`}
-            >
-              {isDark ? <MoonIcon /> : <SunIcon />}
-            </a>
+            <ThemeMode />
           </li>
         </ul>
       </nav>
