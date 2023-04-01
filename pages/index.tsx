@@ -39,7 +39,7 @@ const Home: NextPage = () => {
             {', '}
             <a
               className={CLASS_A}
-              href="http://sharing-gui.yuanx.me/"
+              href="https://sharing-gui.yuanx.me"
               target="_blank"
               rel="noreferrer"
             >
