@@ -54,6 +54,24 @@ const Home: NextPage = () => {
             >
               Worth
             </a>
+            {', '}
+            <a
+              className={CLASS_A}
+              href="https://ai-lawyer.yuanx.me/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              AI Lawyer
+            </a>
+            {', '}
+            <a
+              className={CLASS_A}
+              href="https://github.com/imyuanx/chatgpt-proxy"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ChatGPT Proxy
+            </a>
             {' and '}
             <a
               className={CLASS_A}
