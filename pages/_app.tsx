@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {showBackground && <Background />}
+      {showBackground && <Background pointer={route === '/'} />}
       <Nav active={active} setBackground={setBackground} />
       <Component {...pageProps} />
     </>
