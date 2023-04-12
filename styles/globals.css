@@ -70,7 +70,7 @@ body {
   background: transparent;
   pointer-events: none;
   background-image: radial-gradient(#bfbfbf 0.5px, transparent 0);
-  background-size: 12px 12px;
+  background-size: 11px 11px;
   z-index: -4;
 }
 
