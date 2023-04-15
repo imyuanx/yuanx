@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import OGA from '../components/OGA';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
@@ -28,59 +29,71 @@ const Home: NextPage = () => {
           </p>
           <p className={CLASS_P}>
             {'Creator of '}
-            <a
-              className={CLASS_A}
-              href="https://m-calendar.yuanx.me"
-              target="_blank"
-              rel="noreferrer"
-            >
-              米历
-            </a>
+            <OGA target="https://m-calendar.yuanx.me">
+              <a
+                className={CLASS_A}
+                href="https://m-calendar.yuanx.me"
+                target="_blank"
+                rel="noreferrer"
+              >
+                米历
+              </a>
+            </OGA>
             {', '}
-            <a
-              className={CLASS_A}
-              href="https://sharing-gui.yuanx.me"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Sharing GUI
-            </a>
+            <OGA target="https://sharing-gui.yuanx.me">
+              <a
+                className={CLASS_A}
+                href="https://sharing-gui.yuanx.me"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Sharing GUI
+              </a>
+            </OGA>
             {', '}
-            <a
-              className={CLASS_A}
-              href="https://worth.yuanx.me"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Worth
-            </a>
+            <OGA target="https://worth.yuanx.me">
+              <a
+                className={CLASS_A}
+                href="https://worth.yuanx.me"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Worth
+              </a>
+            </OGA>
             {', '}
-            <a
-              className={CLASS_A}
-              href="https://ai-lawyer.yuanx.me/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              AI Lawyer
-            </a>
+            <OGA target="https://ai-lawyer.yuanx.me/">
+              <a
+                className={CLASS_A}
+                href="https://ai-lawyer.yuanx.me/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                AI Lawyer
+              </a>
+            </OGA>
             {', '}
-            <a
-              className={CLASS_A}
-              href="https://github.com/imyuanx/chatgpt-proxy"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ChatGPT Proxy
-            </a>
+            <OGA target="https://github.com/imyuanx/chatgpt-proxy">
+              <a
+                className={CLASS_A}
+                href="https://github.com/imyuanx/chatgpt-proxy"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ChatGPT Proxy
+              </a>
+            </OGA>
             {' and '}
-            <a
-              className={CLASS_A}
-              href="https://www.github.com/imyuanx"
-              target="_blank"
-              rel="noreferrer"
-            >
-              others
-            </a>
+            <OGA target="https://www.github.com/imyuanx">
+              <a
+                className={CLASS_A}
+                href="https://www.github.com/imyuanx"
+                target="_blank"
+                rel="noreferrer"
+              >
+                others
+              </a>
+            </OGA>
             {'.'}
           </p>
           <p className={CLASS_P}>
