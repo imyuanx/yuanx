@@ -42,9 +42,9 @@ function OGCard({ target }: Props) {
   }, []);
 
   return (
-    <div className="relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] overflow-hidden bg-[#ffffff]">
+    <div className="relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314]">
       {!ogInfo && !loading && (
-        <div className="flex justify-center items-center w-full h-full text-[#121314]">
+        <div className="flex justify-center items-center w-full h-full text-[#121314] dark:text-[#ffffff]">
           No Preview
         </div>
       )}
@@ -54,17 +54,17 @@ function OGCard({ target }: Props) {
             {ogInfo.ogImage && <img src={ogInfo.ogImage} className="w-full" />}
           </div>
           <div className="p-[14px] pt-[12px] pb-[10px]">
-            <div className="text-[#121314] text-[14px] font-[700] mb-[8px] line-clamp-1">
+            <div className="text-[#121314] dark:text-[#ffffff] text-[14px] font-[700] mb-[8px] line-clamp-1">
               {ogInfo.ogTitle}
             </div>
-            <div className="text-[#737373] text-[12px] line-clamp-3">
+            <div className="text-[#737373] dark:text-[#808080] text-[12px] line-clamp-3">
               {ogInfo.ogDescription}
             </div>
           </div>
         </>
       )}
       {loading && (
-        <div className="absolute flex justify-center items-center gap-2 bg-[rgba(255,255,255,38%)] backdrop-blur-md w-full h-full t-0 l-0 text-[#121314]">
+        <div className="absolute flex justify-center items-center gap-2 bg-[rgba(255,255,255,38%)] dark:bg-[rgba(0,0,0,38%)] backdrop-blur-md w-full h-full t-0 l-0 text-[#121314] dark:text-[#ffffff]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
