@@ -1,69 +1,35 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import useOGInfo from '../../common/useOGInfo';
 
 export interface Props {
   target: string;
 }
 
-export interface ogInfo {
-  ogTitle: string;
-  ogDescription: string;
-  ogImage: string;
-}
-
 function OGCard({ target }: Props) {
-  const [ogInfo, setOgInfo] = useState<ogInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .post(
-        '/api/getOGInfo',
-        { target },
-        { headers: { 'Content-Type': 'application/json' } },
-      )
-      .then(({ data }) => {
-        if (data.msg) return;
-        const { ogTitle, ogDescription, ogImage } = data;
-        const ogInfo =
-          !ogTitle && !ogDescription && !ogImage
-            ? null
-            : { ogTitle, ogDescription, ogImage };
-
-        setOgInfo(ogInfo);
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+  const { OGInfo, isError, isLoading } = useOGInfo(target);
 
   return (
     <div className="relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314]">
-      {!ogInfo && !loading && (
+      {((!OGInfo && !isLoading) || isError) && (
         <div className="flex justify-center items-center w-full h-full text-[#121314] dark:text-[#ffffff]">
           No Preview
         </div>
       )}
-      {ogInfo && (
+      {OGInfo && (
         <>
           <div className="w-full h-[158px] overflow-hidden">
-            {ogInfo.ogImage && <img src={ogInfo.ogImage} className="w-full" />}
+            {OGInfo.ogImage && <img src={OGInfo.ogImage} className="w-full" />}
           </div>
           <div className="p-[14px] pt-[12px] pb-[10px]">
             <div className="text-[#121314] dark:text-[#ffffff] text-[14px] font-[700] mb-[8px] line-clamp-1">
-              {ogInfo.ogTitle}
+              {OGInfo.ogTitle}
             </div>
             <div className="text-[#737373] dark:text-[#808080] text-[12px] line-clamp-3">
-              {ogInfo.ogDescription}
+              {OGInfo.ogDescription}
             </div>
           </div>
         </>
       )}
-      {loading && (
+      {isLoading && (
         <div className="absolute flex justify-center items-center gap-2 bg-[rgba(255,255,255,38%)] dark:bg-[rgba(0,0,0,38%)] backdrop-blur-md w-full h-full t-0 l-0 text-[#121314] dark:text-[#ffffff]">
           <svg
             xmlns="http://www.w3.org/2000/svg"

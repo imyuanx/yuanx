@@ -17,9 +17,10 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data | ErrData>,
 ) {
-  const { target } = req.body;
-  if (!target) {
-    res.status(200).json({ msg: 'Target is must required!' });
+  const { target } = req.query;
+  if (!target || typeof target !== 'string') {
+    res.status(200).json({ msg: 'Parameter error!' });
+    return;
   }
   axios
     .get(target)
@@ -37,7 +38,7 @@ export default function handler(
       });
     })
     .catch((error) => {
-      console.log('getOGInfo', error);
+      console.log('getOGInfo/error', error);
       res.status(200).json({ msg: error });
     });
 }
