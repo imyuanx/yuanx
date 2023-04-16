@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import useOGInfo from '../../common/useOGInfo';
 
 export interface Props {
@@ -16,8 +17,14 @@ function OGCard({ target }: Props) {
       )}
       {OGInfo && (
         <>
-          <div className="w-full h-[158px] overflow-hidden">
-            {OGInfo.ogImage && <img src={OGInfo.ogImage} className="w-full" />}
+          <div className="relative w-full h-[158px] overflow-hidden">
+            {OGInfo.ogImage && (
+              <Image
+                src={OGInfo.ogImage}
+                className="object-cover"
+                layout="fill"
+              />
+            )}
           </div>
           <div className="p-[14px] pt-[12px] pb-[10px]">
             <div className="text-[#121314] dark:text-[#ffffff] text-[14px] font-[700] mb-[8px] line-clamp-1">

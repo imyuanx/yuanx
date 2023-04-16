@@ -45,6 +45,17 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    domains: [
+      'm-calendar.yuanx.me',
+      'framerusercontent.com',
+      'worth.yuanx.me',
+      'ai-lawyer.yuanx.me',
+      'github.com',
+      'opengraph.githubassets.com',
+      'avatars.githubusercontent.com',
+    ],
+  },
 };
 
 module.exports = nextConfig;
