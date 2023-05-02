@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image'; // TODO: migrating to `next/image` of the next.js v13
+import Image from 'next/image';
 import useOGInfo from '../../common/useOGInfo';
 
 export interface Props {
@@ -21,8 +21,10 @@ function OGCard({ target }: Props) {
             {OGInfo.ogImage && (
               <Image
                 src={OGInfo.ogImage}
+                alt="og image"
                 className="object-cover"
-                layout="fill"
+                sizes="100vw"
+                fill
               />
             )}
           </div>
