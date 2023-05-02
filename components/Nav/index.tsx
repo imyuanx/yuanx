@@ -50,14 +50,13 @@ function Nav(props: Props) {
                 className={`${index !== 0 && 'ml-[30px]'}`}
                 key={navItem.path}
               >
-                <Link href={navItem.path}>
-                  <a
-                    className={`text-[18px] no-underline capitalize ${TEXT_COLOR} ${
-                      active === navItem.name && '!text-black dark:!text-white'
-                    }`}
-                  >
-                    {navItem.name}
-                  </a>
+                <Link
+                  href={navItem.path}
+                  className={`text-[18px] no-underline capitalize ${TEXT_COLOR} ${
+                    active === navItem.name && '!text-black dark:!text-white'
+                  }`}
+                >
+                  {navItem.name}
                 </Link>
               </li>
             );

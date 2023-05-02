@@ -18,15 +18,16 @@ const Blog: NextPage = () => {
             {ARTICLES.map((articleItem) => {
               return (
                 <li className="mb-[30px]" key={articleItem.postId}>
-                  <Link href={`/blog/posts/${articleItem.postId}`}>
-                    <a className="no-underline">
-                      <span className="article-title no-underline text-[18px] text-[#121314] mr-[10px] hover:text-[#000000] hover:underline dark:!text-white">
-                        {articleItem.title}
-                      </span>
-                      <span className="article-date text-[16px] text-[#808080] italic">
-                        {articleItem.date}
-                      </span>
-                    </a>
+                  <Link
+                    href={`/blog/posts/${articleItem.postId}`}
+                    className="no-underline"
+                  >
+                    <span className="article-title no-underline text-[18px] text-[#121314] mr-[10px] hover:text-[#000000] hover:underline dark:!text-white">
+                      {articleItem.title}
+                    </span>
+                    <span className="article-date text-[16px] text-[#808080] italic">
+                      {articleItem.date}
+                    </span>
                   </Link>
                 </li>
               );

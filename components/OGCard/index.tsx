@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image'; // TODO: migrating to `next/image` of the next.js v13
 import useOGInfo from '../../common/useOGInfo';
 
 export interface Props {

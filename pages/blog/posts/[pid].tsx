@@ -165,7 +165,7 @@ const Article: NextPage = () => {
             <span>下一篇：</span>
             {nextPost.current?.postId ? (
               <Link href={nextPost.current?.postId}>
-                <a>{nextPost.current?.title}</a>
+                {nextPost.current?.title}
               </Link>
             ) : (
               <div>

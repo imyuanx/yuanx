@@ -4,7 +4,7 @@ const articleEnv = require('./posts/posts.json');
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
-  swcMinify: false, // TODO: https://github.com/ReactTooltip/react-tooltip#nextjs-typeerror-f-is-not-a-function
+  swcMinify: true,
   trailingSlash: true,
   exportPathMap: () => {
     let pathMap = {
