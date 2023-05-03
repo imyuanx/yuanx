@@ -20,6 +20,8 @@ const Home: NextPage<{ host: string }> = (props) => {
     <>
       <Head>
         <title>x Yuan</title>
+        <meta property="og:title" content="yuanx" />
+        <meta property="og:description" content="yuanx's personal website" />
         <meta
           property="og:image"
           content={`https://${props.host}/api/og`}
