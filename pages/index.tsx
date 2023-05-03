@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
 import OGA from '../components/OGA';
 
@@ -7,11 +7,25 @@ const CLASS_A: string =
 const CLASS_P: string =
   'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
 
-const Home: NextPage = () => {
+export async function getServerSideProps({ req }: { req: NextApiRequest }) {
+  return {
+    props: {
+      host: req.headers.host,
+    },
+  };
+}
+
+const Home: NextPage<{ host: string }> = (props) => {
   return (
     <>
       <Head>
         <title>x Yuan</title>
+        <meta property="og:title" content="yuanx" />
+        <meta property="og:description" content="yuanx's personal website" />
+        <meta
+          property="og:image"
+          content={`https://${props.host}/api/og`}
+        ></meta>
       </Head>
       <main className="relative container-home pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
         <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ffffff] dark:text-[#141414] z-[-5] select-none">
