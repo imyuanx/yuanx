@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import articleEnv from '../../../posts/posts.json';
+import articleEnv from '@/posts/posts.json';
 
 interface NextPost {
   id: 0;

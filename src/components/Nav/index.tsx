@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import GithubIcon from '../Icon/github';
-import TwitterIcon from '../Icon/twitter';
-import ThemeIcon from '../Icon/theme';
-import ThemeMode from '../ThemeMode';
+import GithubIcon from '@/components/Icon/github';
+import TwitterIcon from '@/components/Icon/twitter';
+import ThemeIcon from '@/components/Icon/theme';
+import ThemeMode from '@/components/ThemeMode';
 
 interface Props {
   active: string;

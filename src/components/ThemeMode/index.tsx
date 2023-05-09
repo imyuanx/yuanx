@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import MoonIcon from '../Icon/moon';
-import SunIcon from '../Icon/sun';
-import SystemIcon from '../Icon/system';
+import MoonIcon from '@/components/Icon/moon';
+import SunIcon from '@/components/Icon/sun';
+import SystemIcon from '@/components/Icon/system';
 
 const TEXT_COLOR =
   'text-[#808080] hover:text-black dark:text-[#a1a1a1] dark:hover:!text-white';
