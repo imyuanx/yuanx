@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const articleEnv = require('./posts/posts.json');
+const articleEnv = require('./src/posts/posts.json');
 
 const nextConfig = {
   output: 'standalone',

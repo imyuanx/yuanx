@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import useOGInfo from '../../common/useOGInfo';
+import useOGInfo from '@/common/useOGInfo';
 
 export interface Props {
   target: string;

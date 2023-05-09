@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import articleEnv from '../../posts/posts.json';
+import articleEnv from '@/posts/posts.json';
 
 const ARTICLES = articleEnv.ARTICLES.sort((cur, last) => last.id - cur.id);
 

@@ -3,11 +3,11 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { create as ackeeTrackerCreate } from 'ackee-tracker';
 import { ThemeProvider } from 'next-themes';
-import Nav from '../components/Nav';
-import Background from '../components/Background';
-import { useBackground } from '../common/useBackground';
-import '../styles/globals.css';
-import '../styles/tailwind.css';
+import Nav from '@/components/Nav';
+import Background from '@/components/Background';
+import { useBackground } from '@/common/useBackground';
+import '@/styles/globals.css';
+import '@/styles/tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter();
