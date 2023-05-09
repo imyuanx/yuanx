@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { create as ackeeTrackerCreate } from 'ackee-tracker';
+import { ThemeProvider } from 'next-themes';
 import Nav from '../components/Nav';
 import Background from '../components/Background';
 import { useBackground } from '../common/useBackground';
@@ -33,11 +34,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [route]);
 
   return (
-    <>
+    <ThemeProvider attribute="class">
       {showBackground && <Background pointer={route === '/'} />}
       <Nav active={active} setBackground={setBackground} />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 
