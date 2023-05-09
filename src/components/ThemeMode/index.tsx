@@ -25,7 +25,7 @@ function ThemeMode() {
         nextTheme = 'dark';
         break;
       case 'dark':
-        nextTheme = 'light';
+        nextTheme = 'system';
         break;
     }
     setTheme(nextTheme);
