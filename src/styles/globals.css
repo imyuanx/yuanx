@@ -81,3 +81,7 @@ body {
 .global-color-block {
   background: linear-gradient(-45deg, #0bd1ff 0%, #ffa3ff 50%, #ffd34e 100%);
 }
+
+.dark .invert {
+  filter: invert(1);
+}
