@@ -22,10 +22,7 @@ const Home: NextPage<{ host: string }> = (props) => {
         <title>x Yuan</title>
         <meta property="og:title" content="yuanx" />
         <meta property="og:description" content="yuanx's personal website" />
-        <meta
-          property="og:image"
-          content={`https://${props.host}/api/og`}
-        ></meta>
+        <meta property="og:image" content={`https://${props.host}/api/og`} />
       </Head>
       <main className="relative container-home pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
         <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ffffff] dark:text-[#141414] z-[-5] select-none">
