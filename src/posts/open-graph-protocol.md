@@ -10,9 +10,9 @@
 
 ## 什么是 Open Graph Protocol？
 
-> 简称：OG 协议，由 Facebook 在 2010 年公布，用于在社交媒体平台上共享网页内容时指定[**元数据**](https://developer.mozilla.org/en-US/docs/Glossary/Metadata)。
+> 简称：OG 协议，由 Facebook 在 2010 年公布，用于在社交媒体平台上共享网页内容时指定 [**元数据**](https://developer.mozilla.org/en-US/docs/Glossary/Metadata)。
 
-简单来说，OG 协议通过图文形式直观地展示链接指向网站的信息，以提高链接的曝光度和点击率。其中的图片、标题等信息就是[元数据 / Metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata)。
+简单来说，OG 协议通过图文形式直观地展示链接指向网站的信息，以提高链接的曝光度和点击率。其中的图片、标题等信息就是 [元数据 / Metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata)。
 
 <img class="w-full invert" src="/open-graph-protocol-2.webp" alt="Work Flow" />
 
@@ -30,7 +30,7 @@
 
 ## OG 协议变种
 
-一些社交媒体平台支持 OG 协议的同时，可能还会支持其他自定义协议。例如，Twitter 公布的 [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph)。
+一些社交媒体平台支持 OG 协议的同时，可能还会支持其他自定义协议。例如，Twitter 公布的  [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph)。
 
 ```html
 <meta name="twitter:card" content="summary" />
