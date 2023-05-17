@@ -13,7 +13,6 @@ const font = fetch(
 export default async function handler(req: NextRequest) {
   const origin = req.nextUrl.origin;
   const fontData = await font;
-  console.log('fontData', fontData, fontData.byteLength);
 
   return new ImageResponse(
     (
