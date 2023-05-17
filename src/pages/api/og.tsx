@@ -5,8 +5,15 @@ export const config = {
   runtime: 'edge',
 };
 
-export default function handler(req: NextRequest) {
+// Make sure the font exists in the specified path:
+const font = fetch(
+  new URL('../../../public/font/SmileySans-Oblique.ttf', import.meta.url),
+).then((res) => res.arrayBuffer());
+
+export default async function handler(req: NextRequest) {
   const origin = req.nextUrl.origin;
+  const fontData = await font;
+  console.log('fontData', fontData, fontData.byteLength);
 
   return new ImageResponse(
     (
@@ -56,13 +63,14 @@ export default function handler(req: NextRequest) {
             />
             <b style={{ fontSize: 40 }}>yuanx</b>
           </div>
-          <p>
-            {/*
-              // TODO: https://github.com/vercel/satori/issues/470
-              Hey, my name is yuanx / 袁先, I'm a front-end engineer and amateur
-            */}
+          <p
+            style={{
+              letterSpacing: 2,
+              lineHeight: '32px',
+            }}
+          >
             {
-              "Hey, my name is yuanx, I'm a front-end engineer and amateur designer. I like open source and building anything."
+              "Hey, my name is yuanx / 袁先, I'm a front-end engineer and amateur designer. I like open source and building anything."
             }
           </p>
         </div>
@@ -71,6 +79,13 @@ export default function handler(req: NextRequest) {
     {
       width: 800,
       height: 400,
+      fonts: [
+        {
+          name: 'SmileySans',
+          data: fontData,
+          style: 'normal',
+        },
+      ],
     },
   );
 }
