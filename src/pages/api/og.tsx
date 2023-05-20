@@ -1,5 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
+import { ogData } from '../../config/og.mjs';
 
 export const config = {
   runtime: 'edge',
@@ -7,7 +8,10 @@ export const config = {
 
 // Make sure the font exists in the specified path:
 const font = fetch(
-  new URL('../../../public/font/SmileySans-Oblique.ttf', import.meta.url),
+  new URL(
+    '../../../public/font/SmileySans-Oblique-Reduce.ttf',
+    import.meta.url,
+  ),
 ).then((res) => res.arrayBuffer());
 
 export default async function handler(req: NextRequest) {
@@ -60,7 +64,7 @@ export default async function handler(req: NextRequest) {
                 filter: 'invert(0)',
               }}
             />
-            <b style={{ fontSize: 40 }}>yuanx</b>
+            <b style={{ fontSize: 40 }}>{ogData.name}</b>
           </div>
           <p
             style={{
@@ -68,9 +72,7 @@ export default async function handler(req: NextRequest) {
               lineHeight: '32px',
             }}
           >
-            {
-              "Hey, my name is yuanx / 袁先, I'm a front-end engineer and amateur designer. I like open source and building anything."
-            }
+            {ogData.bio}
           </p>
         </div>
       </div>
