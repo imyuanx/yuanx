@@ -22,58 +22,92 @@ export default async function handler(req: NextRequest) {
     (
       <div
         style={{
+          display: 'flex',
+          position: 'relative',
           height: '100%',
           width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          flexWrap: 'nowrap',
           backgroundColor: 'white',
-          backgroundImage: 'radial-gradient(#bfbfbf 0.5px,transparent 0%)',
-          backgroundSize: '11px 11px',
-          fontSize: 24,
-          fontStyle: 'normal',
-          color: 'black',
-          // filter: 'invert(.92)', // TODO: dark mode
         }}
       >
         <div
           style={{
+            position: 'absolute',
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'center',
-            width: '60%',
+            alignItems: 'center',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            filter: 'blur(88px)',
           }}
         >
           <div
             style={{
               display: 'flex',
-              alignItems: 'center',
-              height: 60,
-              gap: 12,
+              width: '400px',
+              height: '400px',
+              borderRadius: '50%',
+              opacity: 0.5,
+              background:
+                'linear-gradient(128deg, #0bd1ff 0%, #ffa3ff 50%, #ffd34e 100%)',
             }}
-          >
-            <img
-              src={`${origin}/avatar.jpg`}
-              alt="avatar"
-              style={{
-                borderRadius: '50%',
-                width: 60,
-                height: 60,
-                filter: 'invert(0)',
-              }}
-            />
-            <b style={{ fontSize: 40 }}>{ogData.name}</b>
-          </div>
-          <p
+          ></div>
+        </div>
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            flexWrap: 'nowrap',
+            backgroundImage: 'radial-gradient(#bfbfbf 0.5px,transparent 0%)',
+            backgroundSize: '11px 11px',
+            fontSize: 24,
+            fontStyle: 'normal',
+            color: 'black',
+            // filter: 'invert(.92)', // TODO: dark mode
+          }}
+        >
+          <div
             style={{
-              letterSpacing: 2,
-              lineHeight: '32px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              width: '60%',
             }}
           >
-            {ogData.bio}
-          </p>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                height: 60,
+                gap: 12,
+              }}
+            >
+              <img
+                src={`${origin}/avatar.jpg`}
+                alt="avatar"
+                style={{
+                  borderRadius: '50%',
+                  width: 60,
+                  height: 60,
+                  filter: 'invert(0)',
+                }}
+              />
+              <b style={{ fontSize: 40 }}>{ogData.name}</b>
+            </div>
+            <p
+              style={{
+                letterSpacing: 2,
+                lineHeight: '32px',
+              }}
+            >
+              {ogData.bio}
+            </p>
+          </div>
         </div>
       </div>
     ),
