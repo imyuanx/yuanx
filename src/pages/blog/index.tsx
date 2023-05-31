@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import articleEnv from '@/posts/posts.json';
-import { NextPost } from './posts/[pid]';
+import type { NextPost } from './posts/[pid]';
 
 const ARTICLES = articleEnv.ARTICLES;
 
