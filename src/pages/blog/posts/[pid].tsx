@@ -11,12 +11,12 @@ import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import articleEnv from '@/posts/posts.json';
 
-interface NextPost {
-  id: 0;
-  title: '';
-  date: '';
-  postId: '';
-}
+export type NextPost = {
+  id: number;
+  title: string;
+  date: string;
+  postId: string;
+};
 
 const Article: NextPage = () => {
   const router = useRouter();
