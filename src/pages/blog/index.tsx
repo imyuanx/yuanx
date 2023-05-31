@@ -35,7 +35,7 @@ const Blog: NextPage = () => {
                   (a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf(),
                 );
                 return (
-                  <div>
+                  <div key={year}>
                     <div className="text-[36px] mb-4 font-light">{year}</div>
                     {ARTICLES_YEAR.map((articleItem) => {
                       return (
