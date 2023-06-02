@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import type { NextPage } from 'next';
+import type { GetStaticPaths, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import articleEnv from '@/posts/posts.json';
+import articleEnv from '@/config/posts.json';
 
 export type NextPost = {
   id: number;
@@ -18,10 +18,9 @@ export type NextPost = {
   postId: string;
 };
 
-const Article: NextPage = () => {
+const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
   const router = useRouter();
   const { pid } = router.query;
-  const [markdown, setMarkdown] = useState('');
   const nextPost = useRef<NextPost | null>(null);
 
   /**
@@ -54,9 +53,6 @@ const Article: NextPage = () => {
 
   useEffect(() => {
     if (pid && typeof pid === 'string') {
-      const postPath = require.context(`../../../posts/`);
-      const result = postPath(`./${pid}.md`);
-      setMarkdown(result.default);
       let nextPostInfo = getNextPost(pid);
       nextPost.current = nextPostInfo;
     }
@@ -158,7 +154,7 @@ const Article: NextPage = () => {
                 ),
               }}
             >
-              {markdown}
+              {postMarkdown}
             </ReactMarkdown>
           </article>
           <div className="mt-[30px] flex">
@@ -188,6 +184,28 @@ const Article: NextPage = () => {
       </div>
     </>
   );
+};
+
+export async function getStaticProps({ params }: { params: any }) {
+  const { pid } = params;
+  const postMarkdown = require(`../../../posts/${pid}.md`);
+  return {
+    props: {
+      postMarkdown: postMarkdown.default,
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = {
+    paths: articleEnv.ARTICLES.map((item) => ({
+      params: {
+        pid: item.postId,
+      },
+    })),
+    fallback: false,
+  };
+  return res;
 };
 
 export default Article;
