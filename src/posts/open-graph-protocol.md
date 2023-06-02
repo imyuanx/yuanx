@@ -30,7 +30,7 @@
 
 ## OG 协议变种
 
-一些社交媒体平台支持 OG 协议的同时，可能还会支持其他自定义协议。例如，Twitter 公布的  [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph)。
+一些社交媒体平台支持 OG 协议的同时，可能还会支持其他自定义协议。例如，Twitter 公布的 [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started#opengraph)。
 
 ```html
 <meta name="twitter:card" content="summary" />
