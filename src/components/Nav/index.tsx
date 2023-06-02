@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import GithubIcon from '@/components/Icon/github';
 import TwitterIcon from '@/components/Icon/twitter';
+import RssIcon from '@/components/Icon/rss';
 import ThemeIcon from '@/components/Icon/theme';
 import ThemeMode from '@/components/ThemeMode';
 
@@ -26,6 +27,10 @@ const NAV_LINK = [
   {
     url: 'https://www.github.com/imyuanx',
     Icon: GithubIcon,
+  },
+  {
+    url: `/feed.xml`,
+    Icon: RssIcon,
   },
 ];
 
