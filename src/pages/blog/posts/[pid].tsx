@@ -9,7 +9,8 @@ import Link from 'next/link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import articleEnv from '@/posts/posts.json';
+import articleEnv from '@/config/posts.json';
+import usePost from '@/common/usePost';
 
 export type NextPost = {
   id: number;
@@ -21,8 +22,8 @@ export type NextPost = {
 const Article: NextPage = () => {
   const router = useRouter();
   const { pid } = router.query;
-  const [markdown, setMarkdown] = useState('');
   const nextPost = useRef<NextPost | null>(null);
+  const { post: postMarkdown, isError, isLoading } = usePost(pid as string);
 
   /**
    * @desc Get the env of article by `postId` or by `id`
@@ -54,9 +55,6 @@ const Article: NextPage = () => {
 
   useEffect(() => {
     if (pid && typeof pid === 'string') {
-      const postPath = require.context(`../../../posts/`);
-      const result = postPath(`./${pid}.md`);
-      setMarkdown(result.default);
       let nextPostInfo = getNextPost(pid);
       nextPost.current = nextPostInfo;
     }
@@ -158,7 +156,7 @@ const Article: NextPage = () => {
                 ),
               }}
             >
-              {markdown}
+              {postMarkdown}
             </ReactMarkdown>
           </article>
           <div className="mt-[30px] flex">
