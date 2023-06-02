@@ -1,24 +1,10 @@
 /** @type {import('next').NextConfig} */
-const articleEnv = require('./src/posts/posts.json');
 
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
-  exportPathMap: () => {
-    let pathMap = {
-      '/': { page: '/' },
-      '/blog': { page: '/blog' },
-    };
-    articleEnv.ARTICLES.map(
-      (item) =>
-        (pathMap[`/blog/posts/${item.postId}`] = {
-          page: '/blog/posts/[pid]',
-        }),
-    );
-    return pathMap;
-  },
   webpack: (
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },

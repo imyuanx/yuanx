@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import type { NextPage } from 'next';
+import type { GetStaticPaths, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -10,7 +10,6 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import articleEnv from '@/config/posts.json';
-import usePost from '@/common/usePost';
 
 export type NextPost = {
   id: number;
@@ -19,11 +18,10 @@ export type NextPost = {
   postId: string;
 };
 
-const Article: NextPage = () => {
+const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
   const router = useRouter();
   const { pid } = router.query;
   const nextPost = useRef<NextPost | null>(null);
-  const { post: postMarkdown, isError, isLoading } = usePost(pid as string);
 
   /**
    * @desc Get the env of article by `postId` or by `id`
@@ -186,6 +184,28 @@ const Article: NextPage = () => {
       </div>
     </>
   );
+};
+
+export async function getStaticProps({ params }: { params: any }) {
+  const { pid } = params;
+  const postMarkdown = require(`../../../posts/${pid}.md`);
+  return {
+    props: {
+      postMarkdown: postMarkdown.default,
+    },
+  };
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = {
+    paths: articleEnv.ARTICLES.map((item) => ({
+      params: {
+        pid: item.postId,
+      },
+    })),
+    fallback: false,
+  };
+  return res;
 };
 
 export default Article;
