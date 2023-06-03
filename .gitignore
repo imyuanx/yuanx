@@ -38,3 +38,4 @@ next-env.d.ts
 # custom
 .history
 /public/feed.xml
+/public/font/SmileySans-Oblique-Reduce.ttf

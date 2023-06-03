@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm run generate-feed && next dev",
-    "build": "pnpm run generate-feed && next build",
+    "dev": "pnpm run reduce-font && pnpm run generate-feed && next dev",
+    "build": "pnpm run reduce-font && pnpm run generate-feed && next build",
     "start": "next start",
     "lint": "next lint",
     "reduce-font": "node ./scripts/reduceFont.mjs",
