@@ -36,7 +36,7 @@ articleEnv.ARTICLES.map((article) => {
 
 const outputPath = './public/feed.xml';
 if (fs.existsSync(outputPath)) {
-  console.log('Removing old font file...');
+  console.log('Removing old feed.xml...');
   fs.rmSync(outputPath);
 }
 fs.writeFileSync(outputPath, feed.xml({ indent: true }));
