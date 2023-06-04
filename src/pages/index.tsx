@@ -1,11 +1,46 @@
 import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
 import OGA from '@/components/OGA';
+import GithubFilledIcon from '@/icons/github-filled.svg';
+import TwitterFilledIcon from '@/icons/twitter-filled.svg';
+import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
+import WeiboFilledIcon from '@/icons/weibo-filled.svg';
+import JuejinFilledIcon from '@/icons/juejin-filled.svg';
+import MailIcon from '@/icons/mail.svg';
+import { Fragment } from 'react';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
 const CLASS_P: string =
   'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
+
+const SOCIAL_MEDIA = [
+  {
+    name: 'GitHub',
+    src: 'https://www.github.com/imyuanx',
+    Icon: GithubFilledIcon,
+  },
+  {
+    name: 'Twitter',
+    src: 'https://twitter.com/imyuanx',
+    Icon: TwitterFilledIcon,
+  },
+  {
+    name: '知乎',
+    src: 'https://www.zhihu.com/people/yun-ying-37-92',
+    Icon: ZhihuFilledIcon,
+  },
+  {
+    name: '微博',
+    src: 'https://weibo.com/u/6018607591',
+    Icon: WeiboFilledIcon,
+  },
+  {
+    name: '掘金',
+    src: 'https://juejin.cn/user/4292141022723207',
+    Icon: JuejinFilledIcon,
+  },
+];
 
 export async function getServerSideProps({ req }: { req: NextApiRequest }) {
   return {
@@ -135,55 +170,34 @@ const Home: NextPage<{ host: string }> = (props) => {
           </p>
           <p className={CLASS_P}>
             {'You can find me on '}
-            <a
-              className={CLASS_A}
-              href="https://www.github.com/imyuanx"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            {', '}
-            <a
-              className={CLASS_A}
-              href="https://twitter.com/imyuanx"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Twitter
-            </a>
-            {', '}
-            <a
-              className={CLASS_A}
-              href="https://www.zhihu.com/people/yun-ying-37-92"
-              target="_blank"
-              rel="noreferrer"
-            >
-              知乎
-            </a>
-            {', '}
-            <a
-              className={CLASS_A}
-              href="https://weibo.com/u/6018607591"
-              target="_blank"
-              rel="noreferrer"
-            >
-              微博
-            </a>
-            {' or '}
-            <a
-              className={CLASS_A}
-              href="https://juejin.cn/user/4292141022723207"
-              target="_blank"
-              rel="noreferrer"
-            >
-              掘金
-            </a>
-            {'.'}
+            {SOCIAL_MEDIA.map(({ name, src, Icon }, index) => {
+              return (
+                <Fragment key={name}>
+                  <a
+                    className={`${CLASS_A} inline-flex items-center gap-1`}
+                    href={src}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {Icon && <Icon />}
+                    {name}
+                  </a>
+                  {index === SOCIAL_MEDIA.length - 2
+                    ? ' or '
+                    : index === SOCIAL_MEDIA.length - 1
+                    ? '.'
+                    : ', '}
+                </Fragment>
+              );
+            })}
           </p>
           <p className={CLASS_P}>
             {'Mail me at '}
-            <a className={CLASS_A} href="mailto:lonelyuanx@gmail.com">
+            <a
+              className={`${CLASS_A} inline-flex items-center gap-1`}
+              href="mailto:lonelyuanx@gmail.com"
+            >
+              <MailIcon />
               lonelyuanx@gmail.com
             </a>
             {'.'}
