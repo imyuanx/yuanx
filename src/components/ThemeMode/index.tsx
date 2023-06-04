@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import MoonIcon from '@/components/Icon/moon';
-import SunIcon from '@/components/Icon/sun';
-import SystemIcon from '@/components/Icon/system';
+import MoonIcon from '@/icons/moon.svg';
+import SunIcon from '@/icons/sun.svg';
+import SystemIcon from '@/icons/system.svg';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const TEXT_COLOR =
   'text-[#808080] hover:text-black dark:text-[#a1a1a1] dark:hover:!text-white';
@@ -43,7 +45,15 @@ function ThemeMode() {
     <a onClick={onClickHandle} className={`flex items-center ${TEXT_COLOR}`}>
       {theme === 'dark' && <MoonIcon />}
       {theme === 'light' && <SunIcon />}
-      {(theme === 'system' || theme === 'undefined') && <SystemIcon />}
+      {(theme === 'system' || theme === 'undefined') && (
+        <>
+          <SystemIcon
+            data-tooltip-id="system-theme-tips"
+            data-tooltip-content="Follow System Theme"
+          />
+          <Tooltip id="system-theme-tips" className="rounded-[5px]" />
+        </>
+      )}
     </a>
   );
 }

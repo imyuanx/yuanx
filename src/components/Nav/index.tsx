@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import GithubIcon from '@/components/Icon/github';
-import TwitterIcon from '@/components/Icon/twitter';
-import RssIcon from '@/components/Icon/rss';
-import ThemeIcon from '@/components/Icon/theme';
+import GithubIcon from '@/icons/github.svg';
+import TwitterIcon from '@/icons/twitter.svg';
+import RssIcon from '@/icons/rss.svg';
+import ThemeIcon from '@/icons/theme.svg';
 import ThemeMode from '@/components/ThemeMode';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 interface Props {
   active: string;
@@ -87,8 +89,11 @@ function Nav(props: Props) {
             <a
               onClick={toggleBackground}
               className={`flex items-center ${TEXT_COLOR}`}
+              data-tooltip-id="tips"
+              data-tooltip-content="Show / Hide Background"
             >
               <ThemeIcon />
+              <Tooltip id="tips" className="rounded-[5px]" />
             </a>
           </li>
           <li className="flex items-center ml-[30px] cursor-pointer">
