@@ -23,10 +23,12 @@ const NAV_LINK = [
   {
     url: 'https://twitter.com/imyuanx',
     Icon: TwitterIcon,
+    className: 'hidden sm:block',
   },
   {
     url: 'https://www.github.com/imyuanx',
     Icon: GithubIcon,
+    className: 'hidden sm:block',
   },
   {
     url: `/feed.xml`,
@@ -66,8 +68,11 @@ function Nav(props: Props) {
               </li>
             );
           })}
-          {NAV_LINK.map(({ url, Icon }, index) => (
-            <li key={url} className="flex items-center ml-[30px]">
+          {NAV_LINK.map(({ url, Icon, className }, index) => (
+            <li
+              key={url}
+              className={`flex items-center ml-[30px] ${className}`}
+            >
               <a
                 href={url}
                 target="_blank"
