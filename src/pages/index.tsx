@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
 import OGA from '@/components/OGA';
@@ -7,7 +8,6 @@ import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
 import WeiboFilledIcon from '@/icons/weibo-filled.svg';
 import JuejinFilledIcon from '@/icons/juejin-filled.svg';
 import MailIcon from '@/icons/mail.svg';
-import { Fragment } from 'react';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
