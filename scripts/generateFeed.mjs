@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import articleEnv from '../src/config/posts.json' assert { type: 'json' };
 
 console.log(`Script Start - ${chalk.green('generateFeed')}`);
-const md = markdownIt();
+const md = markdownIt({ html: true });
 const feed = new RSS({
   title: 'yuanx / 袁先',
   description: `yuanx' blog`,
