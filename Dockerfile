@@ -25,6 +25,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+RUN yarn global add pnpm@8.1.0
 RUN pnpm build
 
 # If using npm comment out above and use below instead
