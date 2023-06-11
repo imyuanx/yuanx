@@ -76,7 +76,7 @@ const Home: NextPage<{ host: string }> = (props) => {
         <meta property="twitter:site" content="@yuanx" />
         <meta property="twitter:creator" content="@yuanx" />
       </Head>
-      <main className="relative container-home pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
+      <main className="relative w-full pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
         <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ffffff] dark:text-[#141414] z-[-5] select-none">
           {"I'm x Yuan."}
         </h1>
