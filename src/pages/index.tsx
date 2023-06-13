@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
 import OGA from '@/components/OGA';
+import DuolingoLogo from '@/components/DuolingoLogo';
 import GithubFilledIcon from '@/icons/github-filled.svg';
 import TwitterFilledIcon from '@/icons/twitter-filled.svg';
 import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
@@ -170,8 +171,10 @@ const Home: NextPage<{ host: string }> = (props) => {
             }
           </p>
           <p className={CLASS_P}>
+            {'Outside of programming, I persistently use '}
+            <DuolingoLogo />
             {
-              'Outside of programming, I have recently been learning English and trying to make friends with animals, I have a cat friend who has known me for about 3 months, we will date once or twice almost every working day.'
+              ' to learn English, and trying to make friends with animals, I have a cat friend who has known me for about 3 months, we will date once or twice almost every working day.'
             }
           </p>
           <p className={CLASS_P}>
