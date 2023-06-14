@@ -1,6 +1,6 @@
 import { ImageResponse } from '@vercel/og';
 import { NextRequest } from 'next/server';
-import { ogData } from '../../config/og.mjs';
+import { ogData } from '@/config/og.mjs';
 
 export const config = {
   runtime: 'edge',
