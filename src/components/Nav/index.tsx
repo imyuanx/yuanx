@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
+import { Tooltip } from 'react-tooltip';
 import GithubIcon from '@/icons/github.svg';
 import TwitterIcon from '@/icons/twitter.svg';
 import RssIcon from '@/icons/rss.svg';
 import ThemeIcon from '@/icons/theme.svg';
 import ThemeMode from '@/components/ThemeMode';
-import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 interface Props {

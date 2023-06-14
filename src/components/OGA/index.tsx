@@ -6,8 +6,8 @@ import {
   useState,
 } from 'react';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css';
 import OGCard from '@/components/OGCard';
+import 'react-tooltip/dist/react-tooltip.css';
 
 export interface Props {
   children: ReactNode;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { Tooltip } from 'react-tooltip';
 import MoonIcon from '@/icons/moon.svg';
 import SunIcon from '@/icons/sun.svg';
 import SystemIcon from '@/icons/system.svg';
-import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 const TEXT_COLOR =
