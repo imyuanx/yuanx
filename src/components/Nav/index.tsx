@@ -25,12 +25,12 @@ const NAV_LINK = [
   {
     url: 'https://twitter.com/imyuanx',
     Icon: TwitterIcon,
-    className: 'hidden sm:block',
+    className: 'hidden sm:flex',
   },
   {
     url: 'https://www.github.com/imyuanx',
     Icon: GithubIcon,
-    className: 'hidden sm:block',
+    className: 'hidden sm:flex',
   },
   {
     url: `/feed.xml`,
