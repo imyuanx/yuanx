@@ -25,6 +25,15 @@ function dateIsSame(datetime1: number, datetime2: number) {
   );
 }
 
+function getDayGap(datetime1: number, datetime2: number) {
+  return Math.abs(
+    dayjs(dayjs(datetime1).format('YYYY-MM-DD')).diff(
+      dayjs(datetime2).format('YYYY-MM-DD'),
+      'day',
+    ),
+  );
+}
+
 function DotIcon({ cx, cy }: { cx: number; cy: number }) {
   return (
     <circle
@@ -68,8 +77,23 @@ function DuolingoCard() {
           return acc;
         }, [] as DuolingoCalendar[])
         .sort((acc, cur) => cur.datetime - acc.datetime)
-        .slice(0, 7)
-        .reverse();
+        .reduce((acc, cur) => {
+          if (acc.length === 0) return [cur];
+          if (acc.length === 7) return acc;
+          const lastCalendar = acc[0];
+          const gap = getDayGap(cur.datetime, lastCalendar.datetime) - 1;
+          if (gap === 0) return [cur, ...acc];
+          const patchLen = 7 - acc.length - gap >= 0 ? gap : acc.length - gap;
+          const patchCalendar = Array.from({ length: patchLen }, (v, k) => {
+            const patchDay = dayjs(cur.datetime).add(k + 1, 'day');
+            return {
+              name: patchDay.format('D'),
+              experience: 0,
+              datetime: patchDay.valueOf(),
+            };
+          });
+          return [cur, ...patchCalendar, ...acc];
+        }, [] as DuolingoCalendar[]);
       setCalendar(newCalendar as DuolingoCalendar[]);
     }
     if (languages) {
