@@ -34,6 +34,11 @@ function getDayGap(datetime1: number, datetime2: number) {
   );
 }
 
+function getFlagY(language: string) {
+  const index = country.findIndex((countryItem) => countryItem === language);
+  return `-${index * 66 + 23}`;
+}
+
 function DotIcon({ cx, cy }: { cx: number; cy: number }) {
   return (
     <circle
@@ -109,11 +114,6 @@ function DuolingoCard() {
       );
     }
   }, [duolingoInfo]);
-
-  function getFlagY(language: string) {
-    const index = country.findIndex((countryItem) => countryItem === language);
-    return `-${index * 66 + 23}`;
-  }
 
   return (
     <div
