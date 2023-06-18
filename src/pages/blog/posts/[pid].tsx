@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useState } from 'react';
 import type { GetStaticPaths, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -18,60 +18,57 @@ export type NextPost = {
   postId: string;
 };
 
+/**
+ * @desc Get the env of article by `postId` or by `id`
+ * @param {String} pid article id
+ */
+function getPostEnv(pid?: string | undefined): NextPost | null;
+function getPostEnv(id?: number | undefined): NextPost | null;
+function getPostEnv(_id?: unknown): NextPost | null {
+  const post = articleEnv.ARTICLES.find(({ postId, id }) =>
+    typeof _id === 'string' ? postId === _id : id === _id,
+  );
+  if (!post) return null;
+  return post as NextPost;
+}
+
+/**
+ * @desc Get the next article
+ */
+function getNextPost(pid: string): NextPost | null {
+  const curPost = getPostEnv(pid);
+  if (!curPost) return null;
+  const nextPost = getPostEnv(curPost.id + 1);
+  if (!nextPost) return null;
+  return nextPost as NextPost;
+}
+
+/**
+ * @desc Get the title of the current article
+ */
+const getPostTitle = (pid: string): string => {
+  if (!pid || typeof pid !== 'string') return '';
+  const curPost = getPostEnv(pid);
+  if (!curPost) return '';
+  return curPost.title;
+};
+
 const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
   const router = useRouter();
   const { pid } = router.query;
-  const nextPost = useRef<NextPost | null>(null);
-
-  /**
-   * @desc Get the env of article by `postId` or by `id`
-   * @param {String} pid article id
-   */
-  function getPostEnv(pid?: String | undefined): NextPost | null;
-  function getPostEnv(id?: Number | undefined): NextPost | null;
-  function getPostEnv(_id?: unknown): NextPost | null {
-    const post = articleEnv.ARTICLES.find(({ postId, id }) =>
-      typeof _id === 'string' ? postId === _id : id === _id,
-    );
-    if (!post) return null;
-    return post as NextPost;
-  }
-
-  /**
-   * @desc Get the next article
-   */
-  const getNextPost = useCallback(
-    (pid: String): NextPost | null => {
-      const curPost = getPostEnv(pid);
-      if (!curPost) return null;
-      const nextPost = getPostEnv(curPost.id + 1);
-      if (!nextPost) return null;
-      return nextPost as NextPost;
-    },
-    [getPostEnv],
-  );
+  const [nextPost, setNextPost] = useState<NextPost | null>(null);
 
   useEffect(() => {
     if (pid && typeof pid === 'string') {
-      let nextPostInfo = getNextPost(pid);
-      nextPost.current = nextPostInfo;
+      const nextPostInfo = getNextPost(pid);
+      setNextPost(nextPostInfo);
     }
-  }, [pid, getNextPost]);
-
-  /**
-   * @desc Get the title of the current article
-   */
-  const getCurPostTitle = (): string => {
-    if (!pid || typeof pid !== 'string') return '';
-    const curPost = getPostEnv(pid);
-    if (!curPost) return '';
-    return curPost.title;
-  };
+  }, [pid]);
 
   return (
     <>
       <Head>
-        <title>{getCurPostTitle()}</title>
+        <title>{getPostTitle(pid as string)}</title>
       </Head>
       <div className="container-article w-full h-full flex justify-center content-center">
         <main className="box-border article-content max-w-[900px] w-full h-full pt-[60px] pr-[28px] pb-[28px] pl-[28px]">
@@ -159,10 +156,8 @@ const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
           </article>
           <div className="mt-[30px] flex">
             <span>下一篇：</span>
-            {nextPost.current?.postId ? (
-              <Link href={nextPost.current?.postId}>
-                {nextPost.current?.title}
-              </Link>
+            {nextPost?.postId ? (
+              <Link href={nextPost?.postId}>{nextPost?.title}</Link>
             ) : (
               <div>
                 <a>已经是最后一篇了哦</a>
