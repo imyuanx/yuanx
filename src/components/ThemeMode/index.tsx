@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Tooltip } from 'react-tooltip';
+import clsx from 'clsx';
 import MoonIcon from '@/icons/moon.svg';
 import SunIcon from '@/icons/sun.svg';
 import SystemIcon from '@/icons/system.svg';
@@ -42,7 +43,10 @@ function ThemeMode() {
   }
 
   return (
-    <a onClick={onClickHandle} className={`flex items-center ${TEXT_COLOR}`}>
+    <a
+      onClick={onClickHandle}
+      className={clsx('flex items-center', TEXT_COLOR)}
+    >
       {theme === 'dark' && <MoonIcon />}
       {theme === 'light' && <SunIcon />}
       {(theme === 'system' || theme === 'undefined') && (

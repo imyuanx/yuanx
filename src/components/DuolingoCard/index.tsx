@@ -117,9 +117,7 @@ function DuolingoCard() {
   }, [duolingoInfo]);
 
   return (
-    <div
-      className={`relative box-border flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314] pt-[18px] pr-[20px] pb-[18px] pl-[20px] text-[14px] font-normal text-[#121314] dark:!text-white`}
-    >
+    <div className="relative box-border flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314] pt-[18px] pr-[20px] pb-[18px] pl-[20px] text-[14px] font-normal text-[#121314] dark:!text-white">
       <DuolingoLogoIcon className="absolute w-[145px] right-[10px] top-[16px] opacity-[0.16]" />
       <div className="flex flex-col gap-[4px] mb-[20px]">
         <div className="font-bold text-[24px]">{duolingoInfo?.username}</div>

@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
+import clsx from 'clsx';
 import OGA from '@/components/OGA';
 import DuolingoLogo from '@/components/DuolingoLogo';
 import GithubFilledIcon from '@/icons/github-filled.svg';
@@ -183,7 +184,7 @@ const Home: NextPage<{ host: string }> = (props) => {
               return (
                 <Fragment key={name}>
                   <a
-                    className={`${CLASS_A} inline-flex items-center gap-1`}
+                    className={clsx(CLASS_A, 'inline-flex items-center gap-1')}
                     href={src}
                     target="_blank"
                     rel="noreferrer"
@@ -203,7 +204,7 @@ const Home: NextPage<{ host: string }> = (props) => {
           <p className={CLASS_P}>
             {'Mail me at '}
             <a
-              className={`${CLASS_A} inline-flex items-center gap-1`}
+              className={clsx(CLASS_A, 'inline-flex items-center gap-1')}
               href="mailto:lonelyuanx@gmail.com"
             >
               <MailIcon />
@@ -213,7 +214,7 @@ const Home: NextPage<{ host: string }> = (props) => {
           </p>
           <p className={CLASS_P}>
             <a
-              className={`${CLASS_A} font-medium`}
+              className={clsx(CLASS_A, 'font-medium')}
               href="mailto:lonelyuanx@gmail.com"
             >
               {"I'm waiting for a job offer"}
