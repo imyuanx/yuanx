@@ -56,7 +56,7 @@ function Background({ pointer }: Props) {
         <animated.div
           ref={colorBlockRef}
           style={animatedProps}
-          className={`absolute opacity-0 z-[-6] w-[180px] h-[180px] global-color-block`}
+          className="absolute opacity-0 z-[-6] w-[180px] h-[180px] global-color-block"
         />
       )}
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Tooltip } from 'react-tooltip';
+import clsx from 'clsx';
 import GithubIcon from '@/icons/github.svg';
 import TwitterIcon from '@/icons/twitter.svg';
 import RssIcon from '@/icons/rss.svg';
@@ -56,14 +57,16 @@ function Nav(props: Props) {
           {NAV_LIST.map((navItem, index) => {
             return (
               <li
-                className={`${index !== 0 && 'ml-[30px]'}`}
+                className={clsx(index !== 0 && 'ml-[30px]')}
                 key={navItem.path}
               >
                 <Link
                   href={navItem.path}
-                  className={`text-[18px] no-underline capitalize ${TEXT_COLOR} ${
-                    active === navItem.name && '!text-black dark:!text-white'
-                  }`}
+                  className={clsx(
+                    'text-[18px] no-underline capitalize',
+                    TEXT_COLOR,
+                    active === navItem.name && '!text-black dark:!text-white',
+                  )}
                 >
                   {navItem.name}
                 </Link>
@@ -73,13 +76,13 @@ function Nav(props: Props) {
           {NAV_LINK.map(({ url, Icon, className }, index) => (
             <li
               key={url}
-              className={`flex items-center ml-[30px] ${className}`}
+              className={clsx('flex items-center ml-[30px]', className)}
             >
               <a
                 href={url}
                 target="_blank"
                 rel="noreferrer"
-                className={`flex items-center ${TEXT_COLOR}`}
+                className={clsx('flex items-center', TEXT_COLOR)}
               >
                 <Icon />
               </a>
@@ -88,7 +91,7 @@ function Nav(props: Props) {
           <li className="flex items-center ml-[30px] cursor-pointer">
             <a
               onClick={toggleBackground}
-              className={`flex items-center ${TEXT_COLOR}`}
+              className={clsx('flex items-center', TEXT_COLOR)}
               data-tooltip-id="tips"
               data-tooltip-content="Show / Hide Background"
             >

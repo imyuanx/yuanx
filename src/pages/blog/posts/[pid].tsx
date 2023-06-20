@@ -80,7 +80,7 @@ const reactMarkdownComponents = {
     return !inline && match ? (
       <>
         <SyntaxHighlighter
-          className={'rounded max-w-pre-mobile block dark:hidden'}
+          className="rounded max-w-pre-mobile block dark:hidden"
           style={oneLight}
           language={match[1]}
           PreTag="div"
@@ -89,7 +89,7 @@ const reactMarkdownComponents = {
           {String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
         <SyntaxHighlighter
-          className={'rounded max-w-pre-mobile hidden dark:block'}
+          className="rounded max-w-pre-mobile hidden dark:block"
           style={oneDark}
           language={match[1]}
           PreTag="div"
