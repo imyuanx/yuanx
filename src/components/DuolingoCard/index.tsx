@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import { XAxis, AreaChart, Area } from 'recharts';
 import country from '@/config/country.json';
 import useDuolingoInfo from '@/common/useDuolingoInfo';
+import LoadingIcon from '@/icons/loading.svg';
 import DuolingoHotIcon from '@/icons/duolingo-hot.svg';
 import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
@@ -181,7 +182,11 @@ function DuolingoCard() {
       </AreaChart>
       {(isLoading || isError) && (
         <div className="absolute left-0 top-0 flex justify-center items-center w-full h-full backdrop-blur bg-white/30 dark:bg-black/30 z-10 text-xl font-light">
-          {isLoading && 'Loading...'}
+          {isLoading && (
+            <div className="flex items-center gap-2">
+              <LoadingIcon /> Loading...
+            </div>
+          )}
           {!isLoading && isError && 'Sorry, there has an error.'}
         </div>
       )}
