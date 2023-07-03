@@ -1,12 +1,13 @@
 import Image from 'next/image';
-import useOGInfo from '@/common/useOGInfo';
+import useOGInfo, { OGInfo } from '@/common/useOGInfo';
 import LoadingIcon from '@/icons/loading.svg';
 
 export interface Props {
   target: string;
+  staticData?: Partial<OGInfo>;
 }
 
-function OGCard({ target }: Props) {
+function OGCard({ target, staticData }: Props) {
   const { OGInfo, isError, isLoading } = useOGInfo(target);
 
   return (
@@ -16,12 +17,12 @@ function OGCard({ target }: Props) {
           No Preview
         </div>
       )}
-      {OGInfo && (
+      {!isLoading && (
         <>
           <div className="relative w-full h-[158px] overflow-hidden">
-            {OGInfo.ogImage && (
+            {(staticData?.ogImage || OGInfo?.ogImage) && (
               <Image
-                src={OGInfo.ogImage}
+                src={(staticData?.ogImage || OGInfo?.ogImage) as string}
                 alt="og image"
                 className="object-cover"
                 sizes="100vw"
@@ -31,10 +32,10 @@ function OGCard({ target }: Props) {
           </div>
           <div className="p-[14px] pt-[12px] pb-[10px]">
             <div className="text-[#121314] dark:text-[#ffffff] text-[14px] font-[700] mb-[8px] line-clamp-1">
-              {OGInfo.ogTitle}
+              {staticData?.ogTitle || OGInfo?.ogTitle}
             </div>
             <div className="text-[#737373] dark:text-[#808080] text-[12px] line-clamp-3">
-              {OGInfo.ogDescription}
+              {staticData?.ogDescription || OGInfo?.ogDescription}
             </div>
           </div>
         </>
