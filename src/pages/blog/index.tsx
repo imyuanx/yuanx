@@ -24,9 +24,11 @@ const Blog: NextPage = () => {
       <Head>
         <title>x Yuan | Blog</title>
       </Head>
-      <main className="box-content pt-[60px] pr-7 pb-7 pl-7 max-w-[650px] min-w-[330px] w-full mx-auto my-0">
-        <h1 className="text-[2em] font-bold mb-[40px] mt-[0.67em]">My Blog</h1>
-        <article>
+      <main className="flex flex-col items-center box-content pt-[60px] pr-7 pb-7 pl-7 w-full mx-auto my-0">
+        <div className="mt-[0.67em] max-w-[650px] min-w-[330px] w-full">
+          <h1 className="text-[2em] font-bold">My Blog</h1>
+        </div>
+        <article className="max-w-[650px] min-w-[330px] w-full">
           <ul className="list-none p-0">
             {Object.keys(ARTICLES_GROUP)
               .sort((a, b) => dayjs(b).valueOf() - dayjs(a).valueOf())
