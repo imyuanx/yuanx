@@ -26,7 +26,7 @@ const Projects: NextPage = () => {
           {PROJECTS_LINK_LIST.map((projectLink, index) => (
             <OGCard
               key={projectLink}
-              className="hover:scale-105 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] transition-all duration-200 hover:duration-300"
+              className="hover:scale-105 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)] transition-all duration-200 hover:duration-300"
               target={projectLink}
               linkTarget
             />
