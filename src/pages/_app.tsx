@@ -30,6 +30,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       setActive('home');
     } else if (route.indexOf('/blog') === 0) {
       setActive('blog');
+    } else if (route.indexOf('/projects') === 0) {
+      setActive('projects');
     }
   }, [route]);
 

@@ -45,6 +45,9 @@ const nextConfig = {
       'github.com',
       'opengraph.githubassets.com',
       'avatars.githubusercontent.com',
+      'crossroads.yuanx.me',
+      'xiatunan.yuanx.me',
+      'juejin-id-card.yuanx.me',
     ],
   },
 };
