@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import clsx from 'clsx';
 import useOGInfo, { OGInfo } from '@/common/useOGInfo';
 import LoadingIcon from '@/icons/loading.svg';
 
@@ -20,7 +21,10 @@ function OGCard({
 
   return (
     <div
-      className={`relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314] ${className}`}
+      className={clsx(
+        'relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314]',
+        className,
+      )}
     >
       {((!staticData && !OGInfo && !isLoading) || isError) && (
         <div className="flex justify-center items-center w-full h-full text-[#121314] dark:text-[#ffffff]">
