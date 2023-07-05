@@ -17,6 +17,7 @@ interface Props {
 const NAV_LIST = [
   { name: 'home', path: '/' },
   { name: 'blog', path: '/blog' },
+  { name: 'projects', path: '/projects' },
 ];
 
 const TEXT_COLOR =
