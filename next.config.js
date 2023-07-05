@@ -7,7 +7,7 @@ const nextConfig = {
   trailingSlash: true,
   webpack: (
     config,
-    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
     // Important: return the modified config
     config.module.rules.push({
@@ -38,6 +38,7 @@ const nextConfig = {
   },
   images: {
     domains: [
+      'yuanx.me',
       'm-calendar.yuanx.me',
       'framerusercontent.com',
       'worth.yuanx.me',
