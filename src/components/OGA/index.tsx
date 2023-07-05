@@ -5,8 +5,8 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { Tooltip } from 'react-tooltip';
 import OGCard from '@/components/OGCard';
+import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 export interface Props {
@@ -33,7 +33,7 @@ function OGA({ children, target }: Props) {
       {_children}
       <Tooltip
         anchorSelect={`#${eleId}`}
-        className="bg-[transparent] opacity-100 p-0 pointer-events-auto shadow-[0px_0px_10px_rgba(0,0,0,0.12)]"
+        className="pointer-events-auto bg-[transparent] p-0 opacity-100 shadow-[0px_0px_10px_rgba(0,0,0,0.12)]"
       >
         <OGCard target={target} />
       </Tooltip>

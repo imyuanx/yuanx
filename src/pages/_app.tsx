@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { create as ackeeTrackerCreate } from 'ackee-tracker';
-import { ThemeProvider } from 'next-themes';
-import Nav from '@/components/Nav';
-import Background from '@/components/Background';
 import { useBackground } from '@/common/useBackground';
+import Background from '@/components/Background';
+import Nav from '@/components/Nav';
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
+import { create as ackeeTrackerCreate } from 'ackee-tracker';
+import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { route } = useRouter();
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     ackeeTrackerCreate('https://ackee.yuanx.me').record(
-      'cff959e0-1e4b-4a3e-b91b-5ffd06b6c870',
+      'cff959e0-1e4b-4a3e-b91b-5ffd06b6c870'
     );
   }, []);
 

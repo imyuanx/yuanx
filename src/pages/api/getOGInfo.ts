@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import * as cheerio from 'cheerio';
 import axios from 'axios';
+import * as cheerio from 'cheerio';
 
 type Data = {
   ogTitle: string;
@@ -15,7 +15,7 @@ type ErrData = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data | ErrData>,
+  res: NextApiResponse<Data | ErrData>
 ) {
   const { target } = req.query;
   if (!target || typeof target !== 'string') {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { animated, useSpring } from 'react-spring';
 
 export interface Props {
   pointer: boolean;
@@ -51,12 +51,12 @@ function Background({ pointer }: Props) {
 
   return (
     <div className="global-background">
-      <div className="absolute z-[-5] w-full h-full backdrop-blur-[86px]"></div>
+      <div className="absolute z-[-5] h-full w-full backdrop-blur-[86px]"></div>
       {pointer && (
         <animated.div
           ref={colorBlockRef}
           style={animatedProps}
-          className="absolute opacity-0 z-[-6] w-[180px] h-[180px] global-color-block"
+          className="global-color-block absolute z-[-6] h-[180px] w-[180px] opacity-0"
         />
       )}
     </div>

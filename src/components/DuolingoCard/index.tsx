@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import dayjs from 'dayjs';
-import { XAxis, AreaChart, Area } from 'recharts';
-import country from '@/config/country.json';
 import useDuolingoInfo from '@/common/useDuolingoInfo';
-import LoadingIcon from '@/icons/loading.svg';
+import country from '@/config/country.json';
 import DuolingoHotIcon from '@/icons/duolingo-hot.svg';
-import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
+import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
+import LoadingIcon from '@/icons/loading.svg';
+import dayjs from 'dayjs';
+import { Area, AreaChart, XAxis } from 'recharts';
 
 export type DuolingoCalendar = {
   name: string;
@@ -30,8 +30,8 @@ function getDayGap(datetime1: number, datetime2: number) {
   return Math.abs(
     dayjs(dayjs(datetime1).format('YYYY-MM-DD')).diff(
       dayjs(datetime2).format('YYYY-MM-DD'),
-      'day',
-    ),
+      'day'
+    )
   );
 }
 
@@ -69,7 +69,7 @@ function DuolingoCard() {
       const newCalendar = calendar
         .reduce((acc, cur) => {
           const index = acc.findIndex((accItem) =>
-            dateIsSame(accItem.datetime, cur.datetime),
+            dateIsSame(accItem.datetime, cur.datetime)
           );
           if (index === -1) {
             acc.push({
@@ -111,37 +111,37 @@ function DuolingoCard() {
           points: language.points,
         }));
       setLanguages(
-        newLanguages.length > 2 ? newLanguages.slice(0, 2) : newLanguages,
+        newLanguages.length > 2 ? newLanguages.slice(0, 2) : newLanguages
       );
     }
   }, [duolingoInfo]);
 
   return (
-    <div className="relative box-border flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314] pt-[18px] pr-[20px] pb-[18px] pl-[20px] text-[14px] font-normal text-[#121314] dark:!text-white">
-      <DuolingoLogoIcon className="absolute w-[145px] right-[10px] top-[16px] opacity-[0.16]" />
-      <div className="flex flex-col gap-[4px] mb-[20px]">
-        <div className="font-bold text-[24px]">{duolingoInfo?.username}</div>
+    <div className="relative box-border flex h-[254px] w-[300px] flex-col overflow-hidden rounded-[6px] bg-[#ffffff] px-[20px] py-[18px] text-[14px] font-normal text-[#121314] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:!text-white dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]">
+      <DuolingoLogoIcon className="absolute right-[10px] top-[16px] w-[145px] opacity-[0.16]" />
+      <div className="mb-[20px] flex flex-col gap-[4px]">
+        <div className="text-[24px] font-bold">{duolingoInfo?.username}</div>
         <div className="flex items-center gap-[2px]">
           {`${duolingoInfo?.streak} day streak`}
           <DuolingoHotIcon className="w-[16px]" />
         </div>
       </div>
-      <div className="flex justify-between mb-[8px] gap-[8px]">
+      <div className="mb-[8px] flex justify-between gap-[8px]">
         {languages.map((language) => (
           <div
             key={language.language}
-            className="box-border border-[2px] border-solid border-[#E5E5E5] dark:border-[#E5E5E5]/20 rounded-[6px] w-full h-[76px] pt-[8px] pr-[10px] pb-[8px] pl-[10px]"
+            className="box-border h-[76px] w-full rounded-[6px] border-[2px] border-solid border-[#E5E5E5] px-[10px] py-[8px] dark:border-[#E5E5E5]/20"
           >
             <div className="flex items-center gap-[6px]">
-              <div className="w-[24px] h-[19px] overflow-hidden">
+              <div className="h-[19px] w-[24px] overflow-hidden">
                 <DuolingoIconsIcon
                   width={24}
                   style={{ marginTop: getFlagY(language.language) }}
                 />
               </div>
-              <div className="uppercase font-medium">{language.language}</div>
+              <div className="font-medium uppercase">{language.language}</div>
             </div>
-            <div className="h-[1px] w-full bg-[#F2F2F2] dark:bg-[#F2F2F2]/20 mt-[7.5px] mb-[7.5px]" />
+            <div className="my-[7.5px] h-[1px] w-full bg-[#F2F2F2] dark:bg-[#F2F2F2]/20" />
             <div className="flex items-center gap-[5px] text-[12px] font-normal">
               <DuolingoLightningIcon />
               {`${language.points} points`}
@@ -179,7 +179,7 @@ function DuolingoCard() {
         />
       </AreaChart>
       {(isLoading || isError) && (
-        <div className="absolute left-0 top-0 flex justify-center items-center w-full h-full backdrop-blur bg-white/30 dark:bg-black/30 z-10 text-xl font-light">
+        <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-white/30 text-xl font-light backdrop-blur dark:bg-black/30">
           {isLoading && (
             <div className="flex items-center gap-2">
               <LoadingIcon /> Loading...

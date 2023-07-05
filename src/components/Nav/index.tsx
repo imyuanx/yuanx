@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import { Tooltip } from 'react-tooltip';
-import clsx from 'clsx';
+import ThemeMode from '@/components/ThemeMode';
 import GithubIcon from '@/icons/github.svg';
-import TwitterIcon from '@/icons/twitter.svg';
 import RssIcon from '@/icons/rss.svg';
 import ThemeIcon from '@/icons/theme.svg';
-import ThemeMode from '@/components/ThemeMode';
+import TwitterIcon from '@/icons/twitter.svg';
+import clsx from 'clsx';
+import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 interface Props {
@@ -50,7 +50,7 @@ function Nav(props: Props) {
   };
 
   return (
-    <header className="flex justify-between items-center fixed box-border bg-[#ffffffb3] w-full h-[60px] pl-[30px] pr-[30px] t-0 l-0 dark:bg-[#141414b3] z-10 backdrop-blur select-none">
+    <header className="t-0 l-0 fixed z-10 box-border flex h-[60px] w-full select-none items-center justify-between bg-[#ffffffb3] px-[30px] backdrop-blur dark:bg-[#141414b3]">
       <div></div>
       <nav>
         <ul className="flex list-none pl-0">
@@ -63,9 +63,9 @@ function Nav(props: Props) {
                 <Link
                   href={navItem.path}
                   className={clsx(
-                    'text-[18px] no-underline capitalize',
+                    'text-[18px] capitalize no-underline',
                     TEXT_COLOR,
-                    active === navItem.name && '!text-black dark:!text-white',
+                    active === navItem.name && '!text-black dark:!text-white'
                   )}
                 >
                   {navItem.name}
@@ -76,7 +76,7 @@ function Nav(props: Props) {
           {NAV_LINK.map(({ url, Icon, className }, index) => (
             <li
               key={url}
-              className={clsx('flex items-center ml-[30px]', className)}
+              className={clsx('ml-[30px] flex items-center', className)}
             >
               <a
                 href={url}
@@ -88,7 +88,7 @@ function Nav(props: Props) {
               </a>
             </li>
           ))}
-          <li className="flex items-center ml-[30px] cursor-pointer">
+          <li className="ml-[30px] flex cursor-pointer items-center">
             <a
               onClick={toggleBackground}
               className={clsx('flex items-center', TEXT_COLOR)}
@@ -99,7 +99,7 @@ function Nav(props: Props) {
               <Tooltip id="tips" className="rounded-[5px]" />
             </a>
           </li>
-          <li className="flex items-center ml-[30px] cursor-pointer">
+          <li className="ml-[30px] flex cursor-pointer items-center">
             <ThemeMode />
           </li>
         </ul>

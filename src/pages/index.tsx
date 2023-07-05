@@ -1,15 +1,15 @@
 import { Fragment } from 'react';
 import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
-import clsx from 'clsx';
-import OGA from '@/components/OGA';
 import DuolingoLogo from '@/components/DuolingoLogo';
+import OGA from '@/components/OGA';
 import GithubFilledIcon from '@/icons/github-filled.svg';
-import TwitterFilledIcon from '@/icons/twitter-filled.svg';
-import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
-import WeiboFilledIcon from '@/icons/weibo-filled.svg';
 import JuejinFilledIcon from '@/icons/juejin-filled.svg';
 import MailIcon from '@/icons/mail.svg';
+import TwitterFilledIcon from '@/icons/twitter-filled.svg';
+import WeiboFilledIcon from '@/icons/weibo-filled.svg';
+import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
+import clsx from 'clsx';
 
 const CLASS_A: string =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
@@ -78,8 +78,8 @@ const Home: NextPage<{ host: string }> = (props) => {
         <meta property="twitter:site" content="@yuanx" />
         <meta property="twitter:creator" content="@yuanx" />
       </Head>
-      <main className="relative w-full pt-[10vh] pr-[10vw] pb-[3vh] pl-[10vw]">
-        <h1 className="absolute text-[6rem] font-medium mb-0 mt-0 text-[#ffffff] dark:text-[#141414] z-[-5] select-none">
+      <main className="relative w-full px-[10vw] pb-[3vh] pt-[10vh]">
+        <h1 className="absolute z-[-5] my-0 select-none text-[6rem] font-medium text-[#ffffff] dark:text-[#141414]">
           {"I'm x Yuan."}
         </h1>
         <article>
