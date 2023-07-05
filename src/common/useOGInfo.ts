@@ -1,5 +1,5 @@
-import useSWR from 'swr';
 import axios from 'axios';
+import useSWR from 'swr';
 
 export interface OGInfo {
   ogTitle: string;
@@ -17,7 +17,7 @@ const fetcher = (url: string) =>
 export default function useOGInfo(target: string) {
   const { data, error, isLoading } = useSWR(
     `/api/getOGInfo?target=${target}`,
-    fetcher,
+    fetcher
   );
 
   return {

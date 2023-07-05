@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import { Tooltip } from 'react-tooltip';
-import clsx from 'clsx';
 import MoonIcon from '@/icons/moon.svg';
 import SunIcon from '@/icons/sun.svg';
 import SystemIcon from '@/icons/system.svg';
+import clsx from 'clsx';
+import { useTheme } from 'next-themes';
+import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 const TEXT_COLOR =

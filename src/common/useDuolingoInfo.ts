@@ -1,6 +1,6 @@
-import useSWR from 'swr';
-import axios from 'axios';
 import type { DuolingoInfo } from '@/pages/api/getDuolingoInfo';
+import axios from 'axios';
+import useSWR from 'swr';
 
 const fetcher = (url: string) =>
   axios.get(url).then((res) => {

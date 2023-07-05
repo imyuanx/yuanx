@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import dayjs from 'dayjs';
 import articleEnv from '@/config/posts.json';
 import type { NextPost } from '@/pages/blog/posts/[pid]';
+import dayjs from 'dayjs';
 
 const ARTICLES = articleEnv.ARTICLES;
 
@@ -15,7 +15,7 @@ const ARTICLES_GROUP = ARTICLES.reduce(
     ];
     return acc;
   },
-  {},
+  {}
 );
 
 const Blog: NextPage = () => {
@@ -34,11 +34,11 @@ const Blog: NextPage = () => {
               .sort((a, b) => dayjs(b).valueOf() - dayjs(a).valueOf())
               .map((year) => {
                 const ARTICLES_YEAR = ARTICLES_GROUP[year].sort(
-                  (a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf(),
+                  (a, b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf()
                 );
                 return (
                   <div key={year}>
-                    <div className="text-[36px] mb-4 font-light">{year}</div>
+                    <div className="mb-4 text-[36px] font-light">{year}</div>
                     {ARTICLES_YEAR.map((articleItem) => {
                       return (
                         <li className="mb-[30px]" key={articleItem.postId}>
@@ -46,10 +46,10 @@ const Blog: NextPage = () => {
                             href={`/blog/posts/${articleItem.postId}`}
                             className="no-underline"
                           >
-                            <span className="article-title no-underline text-[18px] text-[#121314] mr-[10px] hover:text-[#000000] hover:underline dark:!text-white">
+                            <span className="article-title mr-[10px] text-[18px] text-[#121314] no-underline hover:text-[#000000] hover:underline dark:!text-white">
                               {articleItem.title}
                             </span>
-                            <span className="article-date text-[16px] text-[#808080] italic">
+                            <span className="article-date text-[16px] italic text-[#808080]">
                               {articleItem.date}
                             </span>
                           </Link>

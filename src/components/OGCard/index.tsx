@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import clsx from 'clsx';
 import useOGInfo, { OGInfo } from '@/common/useOGInfo';
 import LoadingIcon from '@/icons/loading.svg';
+import clsx from 'clsx';
 
 export interface Props {
   className?: string;
@@ -23,7 +23,7 @@ function OGCard({
     <div
       className={clsx(
         'relative flex flex-col w-[300px] h-[254px] rounded-[6px] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)] overflow-hidden bg-[#ffffff] dark:bg-[#121314]',
-        className,
+        className
       )}
     >
       {((!staticData && !OGInfo && !isLoading) || isError) && (
@@ -65,7 +65,7 @@ function OGCard({
         </>
       )}
       {isLoading && (
-        <div className="absolute flex justify-center items-center gap-2 bg-[rgba(255,255,255,38%)] dark:bg-[rgba(0,0,0,38%)] backdrop-blur-md w-full h-full t-0 l-0 text-[#121314] dark:text-[#ffffff]">
+        <div className="t-0 l-0 absolute flex h-full w-full items-center justify-center gap-2 bg-[rgba(255,255,255,38%)] text-[#121314] backdrop-blur-md dark:bg-[rgba(0,0,0,38%)] dark:text-[#ffffff]">
           <LoadingIcon />
           Loading...
         </div>

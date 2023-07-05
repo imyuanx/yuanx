@@ -37,7 +37,7 @@ export type ErrData = {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<DuolingoInfo | ErrData>,
+  res: NextApiResponse<DuolingoInfo | ErrData>
 ) {
   if (!DUOLINGO_USERNAME || !DUOLINGO_TOKEN) {
     res.status(500).json({
@@ -62,7 +62,7 @@ export default function handler(
       res.status(200).json({
         languages,
         calendar: (calendar as DuolingoCalendar[]).map(
-          ({ skill_id, ...calendarItem }) => calendarItem,
+          ({ skill_id, ...calendarItem }) => calendarItem
         ),
         streak,
         username,
