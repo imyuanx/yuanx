@@ -1,12 +1,21 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { OGInfo } from '@/common/useOGInfo';
 import OGCard from '@/components/OGCard';
 
-const PROJECTS_LINK_LIST = [
+export type PROJECTS_ITEM_TYPE = {
+  link: string;
+  OGInfo?: Partial<OGInfo>;
+};
+
+const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
   'https://m-calendar.yuanx.me',
   'https://worth.yuanx.me',
   'https://sharing-gui.yuanx.me',
-  'https://github.com/imyuanx/chatgpt-proxy',
+  {
+    link: 'https://github.com/imyuanx/chatgpt-proxy',
+    OGInfo: { ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png' },
+  },
   'https://crossroads-site.yuanx.me/',
   'https://xiatunan.yuanx.me/',
   'https://juejin-id-card.yuanx.me/',
@@ -23,11 +32,14 @@ const Projects: NextPage = () => {
           <h1 className="text-[2em] font-bold">My Projects</h1>
         </div>
         <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
-          {PROJECTS_LINK_LIST.map((projectLink, index) => (
+          {PROJECTS_LIST.map((project, index) => (
             <OGCard
-              key={projectLink}
+              key={typeof project === 'string' ? project : project.link}
               className="transition-all duration-200 hover:scale-105 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]"
-              target={projectLink}
+              target={typeof project === 'string' ? project : project.link}
+              staticData={
+                typeof project === 'string' ? undefined : project.OGInfo
+              }
               linkTarget
             />
           ))}
