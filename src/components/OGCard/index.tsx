@@ -26,12 +26,11 @@ function OGCard({
         className
       )}
     >
-      {((!staticData && !OGInfo && !isLoading) || isError) && (
+      {(!staticData && !OGInfo && !isLoading) || isError ? (
         <div className="flex h-full w-full items-center justify-center text-[#121314] dark:text-[#ffffff]">
           No Preview
         </div>
-      )}
-      {!isLoading && (
+      ) : (
         <>
           <div className="relative h-[158px] w-full overflow-hidden">
             {(staticData?.ogImage || OGInfo?.ogImage) && (
