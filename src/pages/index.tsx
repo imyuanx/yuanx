@@ -9,6 +9,7 @@ import MailIcon from '@/icons/mail.svg';
 import TwitterFilledIcon from '@/icons/twitter-filled.svg';
 import WeiboFilledIcon from '@/icons/weibo-filled.svg';
 import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
+import { PROJECTS_ITEM_TYPE } from '@/pages/projects';
 import clsx from 'clsx';
 
 const CLASS_A: string =
@@ -41,6 +42,34 @@ const SOCIAL_MEDIA = [
     name: '掘金',
     src: 'https://juejin.cn/user/4292141022723207',
     Icon: JuejinFilledIcon,
+  },
+];
+
+export type HOME_PROJECTS_ITEM_TYPE = PROJECTS_ITEM_TYPE & {
+  name: string;
+};
+
+const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
+  {
+    name: '米历',
+    link: 'https://m-calendar.yuanx.me',
+  },
+  {
+    name: 'Sharing GUI',
+    link: 'https://sharing-gui.yuanx.me',
+  },
+  {
+    name: 'Worth',
+    link: 'https://worth.yuanx.me',
+  },
+  {
+    name: 'AI Lawyer',
+    link: 'https://ai-lawyer.yuanx.me/',
+  },
+  {
+    name: 'ChatGPT Proxy',
+    link: 'https://github.com/imyuanx/chatgpt-proxy',
+    OGInfo: { ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png' },
   },
 ];
 
@@ -94,60 +123,23 @@ const Home: NextPage<{ host: string }> = (props) => {
           </p>
           <p className={CLASS_P}>
             {'Creator of '}
-            <OGA target="https://m-calendar.yuanx.me">
-              <a
-                className={CLASS_A}
-                href="https://m-calendar.yuanx.me"
-                target="_blank"
-                rel="noreferrer"
-              >
-                米历
-              </a>
-            </OGA>
-            {', '}
-            <OGA target="https://sharing-gui.yuanx.me">
-              <a
-                className={CLASS_A}
-                href="https://sharing-gui.yuanx.me"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Sharing GUI
-              </a>
-            </OGA>
-            {', '}
-            <OGA target="https://worth.yuanx.me">
-              <a
-                className={CLASS_A}
-                href="https://worth.yuanx.me"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Worth
-              </a>
-            </OGA>
-            {', '}
-            <OGA target="https://ai-lawyer.yuanx.me/">
-              <a
-                className={CLASS_A}
-                href="https://ai-lawyer.yuanx.me/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                AI Lawyer
-              </a>
-            </OGA>
-            {', '}
-            <OGA target="https://github.com/imyuanx/chatgpt-proxy">
-              <a
-                className={CLASS_A}
-                href="https://github.com/imyuanx/chatgpt-proxy"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ChatGPT Proxy
-              </a>
-            </OGA>
+            {PROJECTS_LIST.map((project, index) => {
+              return (
+                <>
+                  <OGA key={project.name} target={project.link}>
+                    <a
+                      className={CLASS_A}
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {project.name}
+                    </a>
+                  </OGA>
+                  {PROJECTS_LIST.length - 1 !== index && ', '}
+                </>
+              );
+            })}
             {' and '}
             <a
               className={CLASS_A}
