@@ -3,6 +3,13 @@ import type { NextApiRequest, NextPage } from 'next';
 import Head from 'next/head';
 import DuolingoLogo from '@/components/DuolingoLogo';
 import OGA from '@/components/OGA';
+import {
+  GITHUB_URL,
+  JUEJIN_URL,
+  TWITTER_URL,
+  WEIBO_URL,
+  ZHIHU_URL,
+} from '@/constant';
 import GithubFilledIcon from '@/icons/github-filled.svg';
 import JuejinFilledIcon from '@/icons/juejin-filled.svg';
 import MailIcon from '@/icons/mail.svg';
@@ -19,27 +26,27 @@ const CLASS_P: string =
 const SOCIAL_MEDIA = [
   {
     name: 'GitHub',
-    src: 'https://www.github.com/imyuanx',
+    src: GITHUB_URL,
     Icon: GithubFilledIcon,
   },
   {
     name: 'Twitter',
-    src: 'https://twitter.com/imyuanx',
+    src: TWITTER_URL,
     Icon: TwitterFilledIcon,
   },
   {
     name: '知乎',
-    src: 'https://www.zhihu.com/people/yun-ying-37-92',
+    src: ZHIHU_URL,
     Icon: ZhihuFilledIcon,
   },
   {
     name: '微博',
-    src: 'https://weibo.com/u/6018607591',
+    src: WEIBO_URL,
     Icon: WeiboFilledIcon,
   },
   {
     name: '掘金',
-    src: 'https://juejin.cn/user/4292141022723207',
+    src: JUEJIN_URL,
     Icon: JuejinFilledIcon,
   },
 ];
