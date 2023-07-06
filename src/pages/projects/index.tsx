@@ -44,7 +44,7 @@ const Projects: NextPage = () => {
           </div>
         </div>
         <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
-          {PROJECTS_LIST.map((project, index) => (
+          {PROJECTS_LIST.map((project) => (
             <OGCard
               key={typeof project === 'string' ? project : project.link}
               className="transition-all duration-200 hover:scale-105 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]"
