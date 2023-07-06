@@ -149,16 +149,14 @@ const Home: NextPage<{ host: string }> = (props) => {
               </a>
             </OGA>
             {' and '}
-            <OGA target="https://www.github.com/imyuanx">
-              <a
-                className={CLASS_A}
-                href="https://www.github.com/imyuanx"
-                target="_blank"
-                rel="noreferrer"
-              >
-                others
-              </a>
-            </OGA>
+            <a
+              className={CLASS_A}
+              href="/projects"
+              target="_blank"
+              rel="noreferrer"
+            >
+              others
+            </a>
             {'.'}
           </p>
           <p className={CLASS_P}>

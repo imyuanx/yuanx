@@ -30,6 +30,17 @@ const Projects: NextPage = () => {
       <main className="mx-auto my-0 box-content flex w-full flex-col items-center px-7 pb-7 pt-[60px]">
         <div className="mt-[0.67em] w-full min-w-[330px] max-w-[650px]">
           <h1 className="text-[2em] font-bold">My Projects</h1>
+          <div className="text-[#737373] dark:text-[#808080]">
+            {'Most of my projects are here, and you can find more on my '}
+            <a
+              href="https://github.com/imyuanx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#121314]"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
         <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
           {PROJECTS_LIST.map((project, index) => (
