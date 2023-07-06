@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ThemeMode from '@/components/ThemeMode';
+import { GITHUB_URL, TWITTER_URL } from '@/constant';
 import GithubIcon from '@/icons/github.svg';
 import RssIcon from '@/icons/rss.svg';
 import ThemeIcon from '@/icons/theme.svg';
@@ -25,12 +26,12 @@ const TEXT_COLOR =
 
 const NAV_LINK = [
   {
-    url: 'https://twitter.com/imyuanx',
+    url: TWITTER_URL,
     Icon: TwitterIcon,
     className: 'hidden sm:flex',
   },
   {
-    url: 'https://www.github.com/imyuanx',
+    url: GITHUB_URL,
     Icon: GithubIcon,
     className: 'hidden sm:flex',
   },

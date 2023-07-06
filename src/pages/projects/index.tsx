@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { OGInfo } from '@/common/useOGInfo';
 import OGCard from '@/components/OGCard';
+import { GITHUB_URL } from '@/constant';
 
 export type PROJECTS_ITEM_TYPE = {
   link: string;
@@ -33,7 +34,7 @@ const Projects: NextPage = () => {
           <div className="text-[#737373] dark:text-[#808080]">
             {'Most of my projects are here, and you can find more on my '}
             <a
-              href="https://github.com/imyuanx"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#121314]"
