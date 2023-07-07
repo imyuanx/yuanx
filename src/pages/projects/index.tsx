@@ -13,7 +13,7 @@ const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
   {
     link: 'https://m-calendar.yuanx.me',
     OGInfo: {
-      ogModel: 'https://prod.spline.design/IEaDwsKWIlUJudEM/scene.splinecode',
+      ogModel: 'https://yuanx.me/m-calendar.splinecode',
     },
   },
   'https://worth.yuanx.me',
