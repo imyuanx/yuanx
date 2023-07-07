@@ -14,6 +14,8 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^0.9.378",
     "@vercel/og": "^0.5.4",
     "ackee-tracker": "^5.1.0",
     "axios": "^1.3.5",

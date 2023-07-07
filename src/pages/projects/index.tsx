@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { OGInfo } from '@/common/useOGInfo';
-import OGCard from '@/components/OGCard';
+import ProjectCard from '@/components/ProjectCard';
 import { GITHUB_URL } from '@/constant';
 
 export type PROJECTS_ITEM_TYPE = {
@@ -10,12 +10,19 @@ export type PROJECTS_ITEM_TYPE = {
 };
 
 const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
-  'https://m-calendar.yuanx.me',
+  {
+    link: 'https://m-calendar.yuanx.me',
+    OGInfo: {
+      ogModel: 'https://prod.spline.design/IEaDwsKWIlUJudEM/scene.splinecode',
+    },
+  },
   'https://worth.yuanx.me',
   'https://sharing-gui.yuanx.me',
   {
     link: 'https://github.com/imyuanx/chatgpt-proxy',
-    OGInfo: { ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png' },
+    OGInfo: {
+      ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png',
+    },
   },
   'https://crossroads-site.yuanx.me/',
   'https://xiatunan.yuanx.me/',
@@ -45,14 +52,9 @@ const Projects: NextPage = () => {
         </div>
         <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
           {PROJECTS_LIST.map((project) => (
-            <OGCard
+            <ProjectCard
               key={typeof project === 'string' ? project : project.link}
-              className="transition-all duration-200 hover:scale-105 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]"
-              target={typeof project === 'string' ? project : project.link}
-              staticData={
-                typeof project === 'string' ? undefined : project.OGInfo
-              }
-              linkTarget
+              project={project}
             />
           ))}
         </div>
