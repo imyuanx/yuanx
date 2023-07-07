@@ -5,6 +5,7 @@ export interface OGInfo {
   ogTitle: string;
   ogDescription: string;
   ogImage: string;
+  ogModel?: string;
 }
 
 const fetcher = (url: string) =>

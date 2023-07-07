@@ -1,5 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 const path = require('path');
+const plugin = require('tailwindcss/plugin');
+
+// 3D utilities
+const ThreeDimensional = plugin(function ({ addUtilities }) {
+  addUtilities({
+    '.rotate-y-none': {
+      transform: 'rotateY(0deg)',
+    },
+    '.rotate-y-180': {
+      transform: 'rotateY(180deg)',
+    },
+    '.rotate-y-180-reverse': {
+      transform: 'rotateY(-180deg)',
+    },
+    '.perspective-1000': {
+      perspective: '1000px',
+    },
+    '.backface-hidden': {
+      'backface-visibility': 'hidden',
+    },
+  });
+});
 
 module.exports = {
   content: [
@@ -36,6 +58,6 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [require('@tailwindcss/line-clamp'), ThreeDimensional],
   darkMode: ['class'],
 };
