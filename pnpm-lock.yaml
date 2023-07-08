@@ -10,6 +10,9 @@ dependencies:
   '@vercel/og':
     specifier: ^0.5.4
     version: 0.5.4
+  '@yyuan_x/recharts':
+    specifier: ^2.7.3
+    version: 2.7.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   ackee-tracker:
     specifier: ^5.1.0
     version: 5.1.0
@@ -61,9 +64,6 @@ dependencies:
   react-tooltip:
     specifier: ^5.8.3
     version: 5.8.3(react-dom@18.2.0)(react@18.2.0)
-  recharts:
-    specifier: ^2.6.2
-    version: 2.6.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
   rehype-raw:
     specifier: ^6.1.1
     version: 6.1.1
@@ -2762,6 +2762,28 @@ packages:
   /@xtuc/long@4.2.2:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
     dev: true
+
+  /@yyuan_x/recharts@2.7.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-PoGlUCS2dVAS5QYtoTKAX8E60T4MFHBV+dE8xs9/+TdCKvAObG/xPcDM6tZcBqVb9QBsSXzyhB5XaUKmO3P6Jg==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: 2.3.2
+      eventemitter3: 4.0.7
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-is: 16.13.1
+      react-resize-detector: 8.1.0(react-dom@18.2.0)(react@18.2.0)
+      react-smooth: 2.0.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      recharts-scale: 0.4.5
+      reduce-css-calc: 2.1.8
+      victory-vendor: 36.6.10
+    dev: false
 
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
@@ -8074,28 +8096,6 @@ packages:
     resolution: {integrity: sha512-kivNFO+0OcUNu7jQquLXAxz1FIwZj8nrj+YkOKc5694NbjCvcT6aSZiIzNzd2Kul4o4rTto8QVR9lMNtxD4G1w==}
     dependencies:
       decimal.js-light: 2.5.1
-    dev: false
-
-  /recharts@2.6.2(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-dVhNfgI21LlF+4AesO3mj+i+9YdAAjoGaDWIctUgH/G2iy14YVtb/DSUeic77xr19rbKCiq+pQGfeg2kJQDHig==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      prop-types: ^15.6.0
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.3.2
-      eventemitter3: 4.0.7
-      lodash: 4.17.21
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-is: 16.13.1
-      react-resize-detector: 8.1.0(react-dom@18.2.0)(react@18.2.0)
-      react-smooth: 2.0.3(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
-      recharts-scale: 0.4.5
-      reduce-css-calc: 2.1.8
-      victory-vendor: 36.6.10
     dev: false
 
   /reduce-css-calc@2.1.8:
