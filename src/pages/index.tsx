@@ -132,19 +132,15 @@ const Home: NextPage<{ host: string }> = (props) => {
             {'Creator of '}
             {PROJECTS_LIST.map((project, index) => {
               return (
-                <>
-                  <OGA key={project.name} target={project.link}>
-                    <a
-                      className={CLASS_A}
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {project.name}
-                    </a>
-                  </OGA>
+                <Fragment key={project.name}>
+                  <OGA
+                    key={project.name}
+                    className={CLASS_A}
+                    target={project.link}
+                    name={project.name}
+                  />
                   {PROJECTS_LIST.length - 1 !== index && ', '}
-                </>
+                </Fragment>
               );
             })}
             {' and '}

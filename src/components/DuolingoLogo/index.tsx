@@ -10,7 +10,11 @@ const DuolingoCard = dynamic(() => import('@/components/DuolingoCard'), {
 function DuolingoLogo() {
   return (
     <>
-      <DuolingoLogoIcon id="duolingo-card" className="h-[22px] align-middle" />
+      <DuolingoLogoIcon
+        id="duolingo-card"
+        data-tooltip-wrapper="span"
+        className="h-[22px] align-middle"
+      />
       <Tooltip
         anchorSelect={'#duolingo-card'}
         className="pointer-events-auto bg-[transparent] p-0 opacity-100 shadow-[0px_0px_10px_rgba(0,0,0,0.12)]"
