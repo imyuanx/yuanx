@@ -76,7 +76,9 @@ const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
   {
     name: 'ChatGPT Proxy',
     link: 'https://github.com/imyuanx/chatgpt-proxy',
-    OGInfo: { ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png' },
+    OGInfo: {
+      ogImage: '/chatgpt-proxy-og-image.png',
+    },
   },
 ];
 

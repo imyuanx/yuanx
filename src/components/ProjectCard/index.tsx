@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import OGCard from '@/components/OGCard';
 import LoadingIcon from '@/icons/loading.svg';
 import RefreshIcon from '@/icons/refresh.svg';

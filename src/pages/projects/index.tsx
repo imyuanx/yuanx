@@ -13,7 +13,7 @@ const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
   {
     link: 'https://m-calendar.yuanx.me',
     OGInfo: {
-      ogModel: 'https://yuanx.me/m-calendar.splinecode',
+      ogModel: '/m-calendar.splinecode',
     },
   },
   'https://worth.yuanx.me',
@@ -21,7 +21,7 @@ const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
   {
     link: 'https://github.com/imyuanx/chatgpt-proxy',
     OGInfo: {
-      ogImage: 'https://yuanx.me/chatgpt-proxy-og-image.png',
+      ogImage: '/chatgpt-proxy-og-image.png',
     },
   },
   'https://crossroads-site.yuanx.me/',
