@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { OGInfo } from '@/common/useOGInfo';
+import type { OGInfo } from '@/components/OGCard';
 import ProjectCard from '@/components/ProjectCard';
 import { GITHUB_URL } from '@/constant';
 import axios from 'axios';
