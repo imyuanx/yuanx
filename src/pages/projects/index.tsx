@@ -69,8 +69,6 @@ export type Props = {
 };
 
 const Projects: NextPage<Props> = ({ projectsList }) => {
-  console.log('projectsList', projectsList);
-
   return (
     <>
       <Head>
