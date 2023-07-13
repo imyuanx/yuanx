@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import OGCard from '@/components/OGCard';
+import OGCard, { OGInfo } from '@/components/OGCard';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
@@ -7,9 +7,10 @@ export interface Props {
   className: string;
   target: string;
   name: string;
+  OGInfo?: OGInfo;
 }
 
-function OGA({ className, target, name }: Props) {
+function OGA({ className, target, name, OGInfo }: Props) {
   const id = useMemo(() => `og-a-${name.replaceAll(' ', '')}`, [name]);
 
   return (
@@ -29,7 +30,7 @@ function OGA({ className, target, name }: Props) {
         anchorSelect={`#${id}`}
         className="pointer-events-auto bg-[transparent] p-0 opacity-100 shadow-[0px_0px_10px_rgba(0,0,0,0.12)]"
       >
-        <OGCard target={target} />
+        <OGCard OGInfo={OGInfo} target={target} />
       </Tooltip>
     </>
   );

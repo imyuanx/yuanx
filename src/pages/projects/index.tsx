@@ -1,35 +1,74 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { OGInfo } from '@/common/useOGInfo';
+import type { OGInfo } from '@/components/OGCard';
 import ProjectCard from '@/components/ProjectCard';
 import { GITHUB_URL } from '@/constant';
+import axios from 'axios';
 
 export type PROJECTS_ITEM_TYPE = {
   link: string;
   OGInfo?: Partial<OGInfo>;
 };
 
-const PROJECTS_LIST: Array<string | PROJECTS_ITEM_TYPE> = [
+const PROJECTS_LIST: Array<PROJECTS_ITEM_TYPE> = [
   {
     link: 'https://m-calendar.yuanx.me',
     OGInfo: {
       ogModel: '/m-calendar.splinecode',
     },
   },
-  'https://worth.yuanx.me',
-  'https://sharing-gui.yuanx.me',
+  { link: 'https://worth.yuanx.me' },
+  { link: 'https://sharing-gui.yuanx.me' },
   {
     link: 'https://github.com/imyuanx/chatgpt-proxy',
     OGInfo: {
       ogImage: '/chatgpt-proxy-og-image.png',
     },
   },
-  'https://crossroads-site.yuanx.me/',
-  'https://xiatunan.yuanx.me/',
-  'https://juejin-id-card.yuanx.me/',
+  { link: 'https://crossroads-site.yuanx.me/' },
+  { link: 'https://xiatunan.yuanx.me/' },
+  { link: 'https://juejin-id-card.yuanx.me/' },
 ];
 
-const Projects: NextPage = () => {
+export async function getStaticProps() {
+  const projectsList = await Promise.all(
+    PROJECTS_LIST.map(async (project) => {
+      const { ogTitle, ogDescription, ogImage } = (
+        await axios.get(`https://yuanx.me/api/getOGInfo?target=${project.link}`)
+      ).data;
+
+      let OGInfo = null;
+      if (ogTitle && ogDescription && ogImage) {
+        OGInfo = {
+          ogTitle: project.OGInfo?.ogTitle || ogTitle,
+          ogDescription: project.OGInfo?.ogDescription || ogDescription,
+          ogImage: project.OGInfo?.ogImage || ogImage,
+          ogModel: project.OGInfo?.ogModel || '',
+        };
+      }
+
+      return {
+        OGInfo,
+        link: project.link,
+      };
+    })
+  );
+
+  return {
+    props: {
+      projectsList: projectsList,
+    },
+  };
+}
+
+export type Props = {
+  projectsList: {
+    link: string;
+    OGInfo?: OGInfo;
+  }[];
+};
+
+const Projects: NextPage<Props> = ({ projectsList }) => {
   return (
     <>
       <Head>
@@ -51,10 +90,11 @@ const Projects: NextPage = () => {
           </div>
         </div>
         <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
-          {PROJECTS_LIST.map((project) => (
+          {projectsList.map((project) => (
             <ProjectCard
-              key={typeof project === 'string' ? project : project.link}
-              project={project}
+              key={project.link}
+              link={project.link}
+              OGInfo={project.OGInfo}
             />
           ))}
         </div>
