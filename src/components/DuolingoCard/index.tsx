@@ -6,7 +6,7 @@ import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
 import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 import LoadingIcon from '@/icons/loading.svg';
-import { Area, AreaChart, XAxis } from '@yyuan_x/recharts';
+import { Area, AreaChart, XAxis } from 'recharts';
 import dayjs from 'dayjs';
 
 export type DuolingoCalendar = {
@@ -117,38 +117,38 @@ function DuolingoCard() {
   }, [duolingoInfo]);
 
   return (
-    <span className="relative box-border flex h-[254px] w-[300px] flex-col overflow-hidden rounded-[6px] bg-[#ffffff] px-[20px] py-[18px] text-[14px] font-normal text-[#121314] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:!text-white dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]">
+    <div className="relative box-border flex h-[254px] w-[300px] flex-col overflow-hidden rounded-[6px] bg-[#ffffff] px-[20px] py-[18px] text-[14px] font-normal text-[#121314] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:!text-white dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]">
       <DuolingoLogoIcon className="absolute right-[10px] top-[16px] w-[145px] opacity-[0.16]" />
-      <span className="mb-[20px] flex flex-col gap-[4px]">
-        <span className="text-[24px] font-bold">{duolingoInfo?.username}</span>
-        <span className="flex items-center gap-[2px]">
+      <div className="mb-[20px] flex flex-col gap-[4px]">
+        <div className="text-[24px] font-bold">{duolingoInfo?.username}</div>
+        <div className="flex items-center gap-[2px]">
           {`${duolingoInfo?.streak} day streak`}
           <DuolingoHotIcon className="w-[16px]" />
-        </span>
-      </span>
-      <span className="mb-[8px] flex justify-between gap-[8px]">
+        </div>
+      </div>
+      <div className="mb-[8px] flex justify-between gap-[8px]">
         {languages.map((language) => (
-          <span
+          <div
             key={language.language}
             className="box-border h-[76px] w-full rounded-[6px] border-[2px] border-solid border-[#E5E5E5] px-[10px] py-[8px] dark:border-[#E5E5E5]/20"
           >
-            <span className="flex items-center gap-[6px]">
-              <span className="h-[19px] w-[24px] overflow-hidden">
+            <div className="flex items-center gap-[6px]">
+              <div className="h-[19px] w-[24px] overflow-hidden">
                 <DuolingoIconsIcon
                   width={24}
                   style={{ marginTop: getFlagY(language.language) }}
                 />
-              </span>
-              <span className="font-medium uppercase">{language.language}</span>
-            </span>
-            <span className="my-[7.5px] block h-[1px] w-full bg-[#F2F2F2] dark:bg-[#F2F2F2]/20" />
-            <span className="flex items-center gap-[5px] text-[12px] font-normal">
+              </div>
+              <div className="font-medium uppercase">{language.language}</div>
+            </div>
+            <div className="my-[7.5px] block h-[1px] w-full bg-[#F2F2F2] dark:bg-[#F2F2F2]/20" />
+            <div className="flex items-center gap-[5px] text-[12px] font-normal">
               <DuolingoLightningIcon />
               {`${language.points} points`}
-            </span>
-          </span>
+            </div>
+          </div>
         ))}
-      </span>
+      </div>
       <AreaChart
         width={259}
         height={78}
@@ -179,16 +179,16 @@ function DuolingoCard() {
         />
       </AreaChart>
       {(isLoading || isError) && (
-        <span className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-white/30 text-xl font-light backdrop-blur dark:bg-black/30">
+        <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-white/30 text-xl font-light backdrop-blur dark:bg-black/30">
           {isLoading && (
-            <span className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <LoadingIcon /> Loading...
-            </span>
+            </div>
           )}
           {!isLoading && isError && 'Sorry, there has an error.'}
-        </span>
+        </div>
       )}
-    </span>
+    </div>
   );
 }
 
