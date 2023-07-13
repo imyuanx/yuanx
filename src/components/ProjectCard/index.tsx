@@ -1,8 +1,7 @@
-import { useMemo, useState } from 'react';
-import OGCard from '@/components/OGCard';
+import { useState } from 'react';
+import OGCard, { OGInfo } from '@/components/OGCard';
 import LoadingIcon from '@/icons/loading.svg';
 import RefreshIcon from '@/icons/refresh.svg';
-import { PROJECTS_ITEM_TYPE } from '@/pages/projects';
 import Spline from '@splinetool/react-spline';
 import { Application } from '@splinetool/runtime';
 import clsx from 'clsx';
@@ -10,16 +9,13 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 export type Props = {
-  project: string | PROJECTS_ITEM_TYPE;
+  link: string;
+  OGInfo?: OGInfo;
 };
 
-function ProjectCard({ project }: Props) {
+function ProjectCard({ link, OGInfo }: Props) {
   const [isBack, setIsBack] = useState(false);
   const [isModelLoading, setIsModelLoading] = useState(true);
-  const projectLink = useMemo(
-    () => (typeof project === 'string' ? project : project.link),
-    [project]
-  );
 
   function turnBack() {
     setIsBack(true);
@@ -47,15 +43,8 @@ function ProjectCard({ project }: Props) {
             !isBack && 'hover:scale-105'
           )}
         >
-          <OGCard
-            key={projectLink}
-            target={projectLink}
-            staticData={
-              typeof project === 'string' ? undefined : project.OGInfo
-            }
-            linkTarget
-          />
-          {typeof project !== 'string' && project?.OGInfo?.ogModel && (
+          <OGCard key={link} target={link} OGInfo={OGInfo} linkTarget />
+          {OGInfo?.ogModel && (
             <div
               className="absolute bottom-2 right-2 h-[18px] w-[18px] cursor-pointer opacity-0 transition-all duration-300 hover:!opacity-100 group-hover/front:opacity-30"
               onClick={turnBack}
@@ -71,10 +60,10 @@ function ProjectCard({ project }: Props) {
           !isBack && 'rotate-y-180'
         )}
       >
-        {typeof project !== 'string' && project?.OGInfo?.ogModel && (
+        {OGInfo?.ogModel && (
           <Spline
             className="overflow-hidden rounded-[6px]"
-            scene={project.OGInfo.ogModel}
+            scene={OGInfo.ogModel}
             onLoad={onModelLoad}
           />
         )}
@@ -88,14 +77,14 @@ function ProjectCard({ project }: Props) {
             className={clsx(
               'flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-[13px] bg-white/20 text-[18px] font-[450] text-white opacity-70 hover:opacity-100'
             )}
-            data-tooltip-id={`project-card-3d-model-${projectLink}-tips`}
+            data-tooltip-id={`project-card-3d-model-${link}-tips`}
             data-tooltip-content="It's a 3D model that you can drag or scale."
             data-tooltip-place={'bottom'}
           >
             ?
           </div>
           <Tooltip
-            id={`project-card-3d-model-${projectLink}-tips`}
+            id={`project-card-3d-model-${link}-tips`}
             className="rounded-[5px]"
           />
           <div

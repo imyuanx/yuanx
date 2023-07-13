@@ -1,8 +1,9 @@
 import { Fragment } from 'react';
-import type { NextApiRequest, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import DuolingoLogo from '@/components/DuolingoLogo';
 import OGA from '@/components/OGA';
+import type { OGInfo } from '@/components/OGCard';
 import {
   GITHUB_URL,
   JUEJIN_URL,
@@ -17,6 +18,7 @@ import TwitterFilledIcon from '@/icons/twitter-filled.svg';
 import WeiboFilledIcon from '@/icons/weibo-filled.svg';
 import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
 import { PROJECTS_ITEM_TYPE } from '@/pages/projects';
+import axios from 'axios';
 import clsx from 'clsx';
 
 const CLASS_A: string =
@@ -82,15 +84,47 @@ const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
   },
 ];
 
-export async function getServerSideProps({ req }: { req: NextApiRequest }) {
+export async function getStaticProps() {
+  const projectsList = await Promise.all(
+    PROJECTS_LIST.map(async (project) => {
+      const { ogTitle, ogDescription, ogImage } = (
+        await axios.get(`https://yuanx.me/api/getOGInfo?target=${project.link}`)
+      ).data;
+
+      let OGInfo = null;
+      if (ogTitle && ogDescription && ogImage) {
+        OGInfo = {
+          ogTitle: project.OGInfo?.ogTitle || ogTitle,
+          ogDescription: project.OGInfo?.ogDescription || ogDescription,
+          ogImage: project.OGInfo?.ogImage || ogImage,
+          ogModel: project.OGInfo?.ogModel || '',
+        };
+      }
+
+      return {
+        OGInfo,
+        name: project.name,
+        link: project.link,
+      };
+    })
+  );
+
   return {
     props: {
-      host: req.headers.host,
+      projectsList: projectsList,
     },
   };
 }
 
-const Home: NextPage<{ host: string }> = (props) => {
+export type Props = {
+  projectsList: {
+    name: string;
+    link: string;
+    OGInfo?: OGInfo;
+  }[];
+};
+
+const Home: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
@@ -103,7 +137,7 @@ const Home: NextPage<{ host: string }> = (props) => {
         />
         <meta property="og:title" content="yuanx" />
         <meta property="og:description" content="yuanx's personal website" />
-        <meta property="og:image" content={`https://${props.host}/api/og`} />
+        <meta property="og:image" content="https://yuanx.me/api/og" />
         <meta property="og:site_name" content="yuanx" />
         <meta property="og:author:username" content="yuanx" />
         <meta property="og:type" content="object" />
@@ -132,19 +166,21 @@ const Home: NextPage<{ host: string }> = (props) => {
           </p>
           <p className={CLASS_P}>
             {'Creator of '}
-            {PROJECTS_LIST.map((project, index) => {
-              return (
-                <Fragment key={project.name}>
-                  <OGA
-                    key={project.name}
-                    className={CLASS_A}
-                    target={project.link}
-                    name={project.name}
-                  />
-                  {PROJECTS_LIST.length - 1 !== index && ', '}
-                </Fragment>
-              );
-            })}
+            {Array.isArray(props.projectsList) &&
+              props.projectsList.map((project, index) => {
+                return (
+                  <Fragment key={project.name}>
+                    <OGA
+                      key={project.name}
+                      className={CLASS_A}
+                      target={project.link}
+                      name={project.name}
+                      OGInfo={project.OGInfo}
+                    />
+                    {props.projectsList.length - 1 !== index && ', '}
+                  </Fragment>
+                );
+              })}
             {' and '}
             <a
               className={CLASS_A}

@@ -1,24 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import useOGInfo, { OGInfo } from '@/common/useOGInfo';
 import LoadingIcon from '@/icons/loading.svg';
 import clsx from 'clsx';
+
+export interface OGInfo {
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+  ogModel?: string;
+}
 
 export interface Props {
   className?: string;
   target: string;
-  staticData?: Partial<OGInfo>;
+  OGInfo?: OGInfo;
   linkTarget?: boolean;
 }
 
-function OGCard({
-  className = '',
-  target,
-  staticData,
-  linkTarget = false,
-}: Props) {
-  const { OGInfo, isError, isLoading } = useOGInfo(target);
-
+function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
   return (
     <span
       className={clsx(
@@ -26,16 +25,16 @@ function OGCard({
         className
       )}
     >
-      {(!staticData && !OGInfo && !isLoading) || isError ? (
+      {!OGInfo ? (
         <span className="flex h-full w-full items-center justify-center text-[#121314] dark:text-[#ffffff]">
           No Preview
         </span>
       ) : (
         <>
           <span className="relative h-[158px] w-full overflow-hidden">
-            {(staticData?.ogImage || OGInfo?.ogImage) && (
+            {OGInfo.ogImage && (
               <Image
-                src={(staticData?.ogImage || OGInfo?.ogImage) as string}
+                src={OGInfo.ogImage}
                 alt="og image"
                 className="object-cover"
                 sizes="100vw"
@@ -51,24 +50,24 @@ function OGCard({
                   target="_blank"
                   className="text-[#121314] dark:text-[#ffffff]"
                 >
-                  {staticData?.ogTitle || OGInfo?.ogTitle}
+                  {OGInfo.ogTitle}
                 </Link>
               ) : (
-                staticData?.ogTitle || OGInfo?.ogTitle
+                OGInfo.ogTitle
               )}
             </span>
             <span className="text-[12px] text-[#737373] line-clamp-3 dark:text-[#808080]">
-              {staticData?.ogDescription || OGInfo?.ogDescription}
+              {OGInfo.ogDescription}
             </span>
           </span>
         </>
       )}
-      {isLoading && (
+      {/* {isLoading && (
         <span className="t-0 l-0 absolute flex h-full w-full items-center justify-center gap-2 bg-[rgba(255,255,255,38%)] text-[#121314] backdrop-blur-md dark:bg-[rgba(0,0,0,38%)] dark:text-[#ffffff]">
           <LoadingIcon />
           Loading...
         </span>
-      )}
+      )} */}
     </span>
   );
 }
