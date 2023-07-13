@@ -202,13 +202,13 @@ const Home: NextPage<Props> = (props) => {
               'I usually use React in my work and side projects, and I also like Vue. I am very concerned about the development experience, so I embrace all new things that can bring change.'
             }
           </p>
-          <p className={CLASS_P}>
+          <div className={CLASS_P}>
             {'Outside of programming, I persistently use '}
             <DuolingoLogo />
             {
               ' to learn English, and trying to make friends with animals, I have a cat friend who has known me for about 3 months, we will date once or twice almost every working day.'
             }
-          </p>
+          </div>
           <p className={CLASS_P}>
             {'You can find me on '}
             {SOCIAL_MEDIA.map(({ name, src, Icon }, index) => {
