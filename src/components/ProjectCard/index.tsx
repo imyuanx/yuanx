@@ -56,19 +56,19 @@ function ProjectCard({ link, OGInfo }: Props) {
       </div>
       <div
         className={clsx(
-          'absolute left-0 top-0 h-full w-full rounded-[6px] bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform duration-1000 ease-in-out backface-hidden dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
+          'absolute left-0 top-0 h-full w-full rounded-[6px] bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform duration-1000 ease-in-out backface-hidden dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
           !isBack && 'rotate-y-180'
         )}
       >
         {OGInfo?.ogModel && (
           <Spline
-            className="overflow-hidden rounded-[6px]"
+            className="bg-[#FFFFFF] dark:bg-[#121314] overflow-hidden rounded-[6px]"
             scene={OGInfo.ogModel}
             onLoad={onModelLoad}
           />
         )}
         {isModelLoading && (
-          <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center gap-2 bg-white">
+          <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center gap-2 bg-white dark:bg-[#121314]">
             <LoadingIcon /> Loading...
           </div>
         )}
