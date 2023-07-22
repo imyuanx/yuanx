@@ -35,6 +35,13 @@ module.exports = {
       },
       backgroundImage: {
         wave: 'url(/wave.png)',
+        'gradient-0':
+          'linear-gradient(-45deg, #0bd1ff 0%, #ffa3ff 50%, #ffd34e 100%)',
+        'gradient-1': 'linear-gradient(-45deg, #ffdc99 0%, #ff62c0 100%)',
+        'gradient-2': 'linear-gradient(-45deg, #eaeaea 0%, #8b8b8b 100%)',
+        'gradient-3': 'linear-gradient(-45deg, #dde4ff 0%, #8da2ee 100%)',
+        'gradient-4': 'linear-gradient(-45deg, #97e8b5 0%, #5cb67f 100%)',
+        'gradient-5': 'linear-gradient(-45deg, #b7dcff 0%, #ffa4f6 100%)',
       },
       backgroundSize: {
         '16px': '16px',
@@ -60,4 +67,12 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/line-clamp'), ThreeDimensional],
   darkMode: ['class'],
+  safelist: [
+    'bg-gradient-0',
+    'bg-gradient-1',
+    'bg-gradient-2',
+    'bg-gradient-3',
+    'bg-gradient-4',
+    'bg-gradient-5',
+  ],
 };
