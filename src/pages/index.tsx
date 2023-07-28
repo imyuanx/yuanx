@@ -164,7 +164,7 @@ const Home: NextPage<Props> = (props) => {
               ", I'm a front-end engineer and amateur designer. I like open source and building anything."
             }
           </p>
-          <p className={CLASS_P}>
+          <div className={CLASS_P}>
             {'Creator of '}
             {Array.isArray(props.projectsList) &&
               props.projectsList.map((project, index) => {
@@ -191,7 +191,7 @@ const Home: NextPage<Props> = (props) => {
               others
             </a>
             {'.'}
-          </p>
+          </div>
           <p className={CLASS_P}>
             {
               'Creativity is the fuel for my enthusiasm for coding, I focus on wild ideas and turn them into reality.'
