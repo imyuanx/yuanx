@@ -65,7 +65,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp'), ThreeDimensional],
+  plugins: [ThreeDimensional],
   darkMode: ['class'],
   safelist: [
     'bg-gradient-0',
