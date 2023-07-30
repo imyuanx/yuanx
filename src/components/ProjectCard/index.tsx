@@ -39,7 +39,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       >
         <div
           className={clsx(
-            'transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]',
+            'transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)] rounded-[6px]',
             !isBack && 'hover:scale-105'
           )}
         >
