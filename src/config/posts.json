@@ -35,6 +35,12 @@
       "title": "Open Graph Protocol（开放图谱协议）",
       "date": "2023/5/10",
       "postId": "open-graph-protocol"
+    },
+    {
+      "id": 7,
+      "title": "使用 React Native 创建一个支持动态加载、轻量化、高性能的跑马灯组件",
+      "date": "2023/8/21",
+      "postId": "how-to-create-unlimited-carousel-with-rn"
     }
   ]
 }
