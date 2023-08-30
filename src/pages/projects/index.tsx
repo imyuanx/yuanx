@@ -26,7 +26,7 @@ const PROJECTS_LIST: Array<PROJECTS_ITEM_TYPE> = [
     },
   },
   {
-    link: 'https://crossroads-site.yuanx.me/',
+    link: 'https://crossroads.yuanx.me/',
     OGInfo: {
       ogModel: '/crossroads.splinecode',
     },
