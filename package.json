@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "reduce-font": "node ./scripts/reduceFont.mjs",
-    "generate-feed": "node ./scripts/generateFeed.mjs",
+    "reduce-font": "node ./scripts/reduce-font.mjs",
+    "generate-feed": "node ./scripts/generate-feed.mjs",
     "format:write": "prettier --write \"src/**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,mdx}\" --cache"
   },
