@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import { ogData } from '../src/config/og.mjs';
 
 console.log(`Script Start - ${chalk.green('reduceFont')}`);
-const fontPath = './public/font/SmileySans-Oblique.ttf';
+const fontPath = './assets/SmileySans-Oblique.ttf';
 console.log(`Loading font file - ${fontPath}`);
 const font = opentype.loadSync(fontPath);
 const glyphs = font.glyphs.glyphs;
@@ -30,7 +30,7 @@ const newFont = new opentype.Font({
   glyphs: newGlyphs,
 });
 
-const outputPath = './public/font/SmileySans-Oblique-Reduce.ttf';
+const outputPath = './public/SmileySans-Oblique.ttf';
 if (fs.existsSync(outputPath)) {
   console.log('Removing old font file...');
   fs.rmSync(outputPath);

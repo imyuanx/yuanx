@@ -8,7 +8,7 @@ export const config = {
 
 // Make sure the font exists in the specified path:
 const font = fetch(
-  new URL('../../../public/font/SmileySans-Oblique-Reduce.ttf', import.meta.url)
+  new URL('../../../public/SmileySans-Oblique.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer());
 
 export default async function handler(req: NextRequest) {
