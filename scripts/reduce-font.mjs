@@ -3,7 +3,7 @@ import opentype from 'opentype.js';
 import chalk from 'chalk';
 import { ogData } from '../src/config/og.mjs';
 
-console.log(`Script Start - ${chalk.green('reduceFont')}`);
+console.log(`Script Start - ${chalk.green('reduce-font')}`);
 const fontPath = './assets/SmileySans-Oblique.ttf';
 console.log(`Loading font file - ${fontPath}`);
 const font = opentype.loadSync(fontPath);
