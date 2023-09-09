@@ -6,8 +6,8 @@ import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
 import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 import LoadingIcon from '@/icons/loading.svg';
-import { Area, AreaChart, XAxis } from 'recharts';
 import dayjs from 'dayjs';
+import { Area, AreaChart, XAxis } from 'recharts';
 
 export type DuolingoCalendar = {
   name: string;
