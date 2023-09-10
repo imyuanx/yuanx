@@ -1,12 +1,8 @@
-import dynamic from 'next/dynamic';
+import DuolingoCard from '@/components/DuolingoCard';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 import { animated, useSpringValue } from 'react-spring';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
-
-const DuolingoCard = dynamic(() => import('@/components/DuolingoCard'), {
-  ssr: false,
-});
 
 function DuolingoLogo() {
   const height = useSpringValue(0, { config: { duration: 200 } });
