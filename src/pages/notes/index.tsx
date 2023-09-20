@@ -35,15 +35,15 @@ const Note = ({
       bounds="parent"
       onStop={onStop}
     >
-      <div className="absolute left-0 top-0 h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white shadow">
-        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 px-3 py-1 font-semibold">
+      <div className="absolute left-0 top-0 h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white dark:bg-[#121314] shadow dark:shadow-none dark:border dark:border-solid dark:border-zinc-800">
+        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 dark:bg-yellow-500 px-3 py-1 font-semibold">
           <h1 className="m-0 flex-1 truncate text-base">{note.title}</h1>
           <div className="flex h-full items-center">
-            <MoveIcon className="mt-1 opacity-10" />
+            <MoveIcon className="mt-1 opacity-10 dark:opacity-30" />
           </div>
         </div>
         <div className="px-4 py-3 pb-5">
-          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 underline underline-offset-[6px]">
+          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 dark:text-white underline underline-offset-[6px]">
             {note.content}
           </p>
         </div>
@@ -93,13 +93,12 @@ const Notes: NextPage = () => {
               <LoadingIcon /> Loading...
             </div>
           )}
-          {isError && (
+          {isError && noteList?.length === 0 && (
             <div className="flex w-full items-center justify-center gap-2 text-xl font-light">
               Sorry, there has an error.
             </div>
           )}
           {!isLoading &&
-            !isError &&
             noteList?.map((note) => (
               <Note setNoteXY={setNoteXY} key={note.id} note={note} />
             ))}
