@@ -43,7 +43,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
             )}
           </div>
           <div className="p-[14px] pb-[10px] pt-[12px]">
-            <div className="mb-[8px] text-[14px] font-[700] text-[#121314] line-clamp-1 dark:text-[#ffffff]">
+            <div className="mb-[8px] line-clamp-1 text-[14px] font-[700] text-[#121314] dark:text-[#ffffff]">
               {linkTarget ? (
                 <Link
                   href={target}
@@ -56,7 +56,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
                 OGInfo.ogTitle
               )}
             </div>
-            <div className="text-[12px] text-[#737373] line-clamp-3 dark:text-[#808080]">
+            <div className="line-clamp-3 text-[12px] text-[#737373] dark:text-[#808080]">
               {OGInfo.ogDescription}
             </div>
           </div>
