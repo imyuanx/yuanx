@@ -7,8 +7,6 @@ import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
 import MoveIcon from '@/icons/move.svg';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
 
-export type Props = {};
-
 const Note = ({
   note,
   setNoteXY,
@@ -51,9 +49,8 @@ const Note = ({
   );
 };
 
-const Notes: NextPage<Props> = () => {
+const Notes: NextPage = () => {
   const { noteList, setNoteXY, isLoading, isError } = useNotes();
-  console.log('noteList', noteList);
 
   return (
     <>
