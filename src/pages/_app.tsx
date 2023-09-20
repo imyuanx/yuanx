@@ -26,12 +26,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [background]);
 
   useEffect(() => {
+    // TODO: refactor
     if (route === '/') {
       setActive('home');
     } else if (route.indexOf('/blog') === 0) {
       setActive('blog');
     } else if (route.indexOf('/projects') === 0) {
       setActive('projects');
+    } else if (route.indexOf('/notes') === 0) {
+      setActive('notes');
     }
   }, [route]);
 

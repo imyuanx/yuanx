@@ -19,6 +19,7 @@ const NAV_LIST = [
   { name: 'home', path: '/' },
   { name: 'blog', path: '/blog' },
   { name: 'projects', path: '/projects' },
+  { name: 'notes', path: '/notes' },
 ];
 
 const TEXT_COLOR =
