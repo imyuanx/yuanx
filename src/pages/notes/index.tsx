@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
+import LoadingIcon from '@/icons/loading.svg';
 import MoveIcon from '@/icons/move.svg';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
 
@@ -65,9 +66,20 @@ const Notes: NextPage = () => {
           </div>
         </div>
         <div className="relative mt-[40px] w-full h-full overflow-auto">
-          {noteList?.map((note) => (
-            <Note setNoteXY={setNoteXY} key={note.id} note={note} />
-          ))}
+          {isLoading && (
+            <div className="w-full flex justify-center items-center gap-2 text-xl font-light">
+              <LoadingIcon /> Loading...
+            </div>
+          )}
+          {isError && (
+            <div className="w-full flex justify-center items-center gap-2 text-xl font-light">
+              Sorry, there has an error.
+            </div>
+          )}
+          {!isLoading &&
+            noteList?.map((note) => (
+              <Note setNoteXY={setNoteXY} key={note.id} note={note} />
+            ))}
         </div>
       </main>
     </>
