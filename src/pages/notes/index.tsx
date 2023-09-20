@@ -1,9 +1,11 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
+import NoteModal from '@/components/NoteModal';
+import AddIcon from '@/icons/add.svg';
 import LoadingIcon from '@/icons/loading.svg';
 import MoveIcon from '@/icons/move.svg';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
@@ -33,15 +35,15 @@ const Note = ({
       bounds="parent"
       onStop={onStop}
     >
-      <div className="bg-white rounded-xl w-60 h-max min-h-[120px] shadow overflow-hidden absolute left-0 top-0">
-        <div className="flex justify-center items-end gap-1 py-1 px-3 bg-yellow-400 w-full h-10 box-border border-0 border-b-2 border-zinc-200 border-solid font-semibold notes-handle cursor-move">
-          <h1 className="flex-1 text-base truncate m-0">{note.title}</h1>
-          <div className="h-full flex items-center">
+      <div className="absolute left-0 top-0 h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white shadow">
+        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 px-3 py-1 font-semibold">
+          <h1 className="m-0 flex-1 truncate text-base">{note.title}</h1>
+          <div className="flex h-full items-center">
             <MoveIcon className="mt-1 opacity-10" />
           </div>
         </div>
         <div className="px-4 py-3 pb-5">
-          <p className="p-0 m-0 leading-6 underline underline-offset-[6px] dashed text-zinc-600">
+          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 underline underline-offset-[6px]">
             {note.content}
           </p>
         </div>
@@ -51,7 +53,21 @@ const Note = ({
 };
 
 const Notes: NextPage = () => {
-  const { noteList, setNoteXY, isLoading, isError } = useNotes();
+  const { noteList, setNoteXY, isLoading, isError, mutate } = useNotes();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const modalShow = () => {
+    setModalVisible(true);
+  };
+
+  const modalHide = () => {
+    setModalVisible(false);
+  };
+  const onConfirm = () => {
+    mutate();
+    modalHide();
+  };
 
   return (
     <>
@@ -60,27 +76,37 @@ const Notes: NextPage = () => {
       </Head>
       <main className="mx-auto my-0 box-content flex w-full flex-col items-center px-7 pb-7 pt-[60px]">
         <div className="mt-[0.67em] w-full min-w-[330px] max-w-[650px]">
-          <h1 className="text-[2em] font-bold">My Notes</h1>
+          <h1 className="flex items-center gap-1 text-[2em] font-bold">
+            My Notes
+            <AddIcon
+              className="mt-[2px] w-6 cursor-pointer text-[#808080] hover:text-black dark:hover:text-white"
+              onClick={modalShow}
+            />
+          </h1>
           <div className="text-[#737373] dark:text-[#808080]">
             Welcome, this is a noteboard.
           </div>
         </div>
-        <div className="relative mt-[40px] w-full h-full overflow-auto">
+        <div className="note-list-container relative mt-[40px] h-full w-full overflow-auto">
           {isLoading && (
-            <div className="w-full flex justify-center items-center gap-2 text-xl font-light">
+            <div className="flex w-full items-center justify-center gap-2 text-xl font-light">
               <LoadingIcon /> Loading...
             </div>
           )}
           {isError && (
-            <div className="w-full flex justify-center items-center gap-2 text-xl font-light">
+            <div className="flex w-full items-center justify-center gap-2 text-xl font-light">
               Sorry, there has an error.
             </div>
           )}
           {!isLoading &&
+            !isError &&
             noteList?.map((note) => (
               <Note setNoteXY={setNoteXY} key={note.id} note={note} />
             ))}
         </div>
+        {modalVisible && (
+          <NoteModal onClose={modalHide} onConfirm={onConfirm} />
+        )}
       </main>
     </>
   );

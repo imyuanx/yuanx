@@ -53,7 +53,7 @@ function Nav(props: Props) {
   };
 
   return (
-    <header className="t-0 l-0 fixed z-50 box-border flex h-[60px] w-full select-none items-center justify-between bg-[#ffffffb3] px-[30px] backdrop-blur dark:bg-[#141414b3]">
+    <header className="t-0 l-0 fixed z-40 box-border flex h-[60px] w-full select-none items-center justify-between bg-[#ffffffb3] px-[30px] backdrop-blur dark:bg-[#141414b3]">
       <div></div>
       <nav>
         <ul className="flex list-none pl-0">

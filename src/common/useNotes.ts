@@ -38,8 +38,15 @@ export type setNoteXY = (
   position: { x: number; y: number }
 ) => Promise<any>;
 
+export type addNote = (
+  title: string,
+  content: string,
+  x: number,
+  y: number
+) => Promise<any>;
+
 export default function useNotes() {
-  const { data, error, isLoading } = useSWR(BASE_URL, fetcher);
+  const { data, error, isLoading, mutate } = useSWR(BASE_URL, fetcher);
 
   const setNoteXY: setNoteXY = async (id, position) => {
     return axios.put(`${BASE_URL}/${id}`, {
@@ -47,10 +54,18 @@ export default function useNotes() {
     });
   };
 
+  const addNote: addNote = async (title, content, x, y) => {
+    return axios.post(BASE_URL, {
+      data: { title, content, x, y },
+    });
+  };
+
   return {
     noteList: data as NoteInfo[] | null,
     setNoteXY,
+    addNote,
     isLoading,
     isError: error,
+    mutate,
   };
 }

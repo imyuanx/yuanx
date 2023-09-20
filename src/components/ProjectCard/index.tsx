@@ -39,7 +39,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       >
         <div
           className={clsx(
-            'transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)] rounded-[6px]',
+            'rounded-[6px] transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]',
             !isBack && 'hover:scale-105'
           )}
         >
@@ -62,7 +62,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       >
         {OGInfo?.ogModel && (
           <Spline
-            className="bg-[#FFFFFF] dark:bg-[#121314] overflow-hidden rounded-[6px]"
+            className="overflow-hidden rounded-[6px] bg-[#FFFFFF] dark:bg-[#121314]"
             scene={OGInfo.ogModel}
             onLoad={onModelLoad}
           />

@@ -41,13 +41,13 @@ function OGA({ className, target, name, OGInfo }: Props) {
       </a>
       <Tooltip
         anchorSelect={`#${id}`}
-        className="h-[254px] pointer-events-auto bg-[transparent] p-0 opacity-100"
+        className="pointer-events-auto h-[254px] bg-[transparent] p-0 opacity-100"
         afterShow={animatedStart}
         afterHide={animatedReset}
       >
         <animated.div
           style={{ height, opacity }}
-          className="shadow-[0px_0px_10px_rgba(0,0,0,0.12)] overflow-hidden"
+          className="overflow-hidden shadow-[0px_0px_10px_rgba(0,0,0,0.12)]"
         >
           <OGCard OGInfo={OGInfo} target={target} />
         </animated.div>
