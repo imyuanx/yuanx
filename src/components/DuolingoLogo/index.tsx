@@ -23,7 +23,7 @@ function DuolingoLogo() {
       <DuolingoLogoIcon
         id="duolingo-card"
         data-tooltip-wrapper="span"
-        className="h-[22px] align-middle"
+        className="inline h-[22px] align-middle"
       />
       <Tooltip
         anchorSelect={'#duolingo-card'}
