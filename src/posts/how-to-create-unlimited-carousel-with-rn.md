@@ -8,7 +8,7 @@
 
 受到 [react-native-reanimated-carousel](https://github.com/dohooo/react-native-reanimated-carousel) 的启发，我尝试使用 3 个固定的容器做无限循环，当滑动到下一页时，队列尾端的容器移动到最前端（如下图所示）。
 
-<img class="w-full invert" src="/how-to-create-unlimited-carousel-with-rn-1.png" alt="move" />
+<img class="w-full dark-invert" src="/how-to-create-unlimited-carousel-with-rn-1.png" alt="move" />
 
 ## 实现
 
@@ -22,7 +22,7 @@
 
 由于我们只使用了 3 个容器做无限循环，所以当切换页面时我们必须快速的改变他们在视图中的位置。
 
-<img class="w-full invert" src="/how-to-create-unlimited-carousel-with-rn-2.png" alt="page" />
+<img class="w-full dark-invert" src="/how-to-create-unlimited-carousel-with-rn-2.png" alt="page" />
 
 如上图所示，我们可以通过当前页码和容器的 id 来计算出容器应该在可视页面的左边、中间还是右边。
 
@@ -57,7 +57,7 @@ getSortIndex(curPage, id); // 1，id 为 2 的容器在第 0 页时应该在 1 �
 
 拖动容器时，容器应该跟随手指拖动的 x 轴轨迹，松手时应该让容器自动滑到下一页的位置，其中容器改变排序位置时对用户来说是无感知的所以无需动画，如下图。
 
-<img class="w-full invert" src="/how-to-create-unlimited-carousel-with-rn-3.png" alt="page" />
+<img class="w-full dark-invert" src="/how-to-create-unlimited-carousel-with-rn-3.png" alt="page" />
 
 根据以上需求，我们可以将容器的 x 轴的定位分为有动画和无动画两部分，即 `x = animationOffset + offset`。
 

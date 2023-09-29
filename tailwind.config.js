@@ -65,7 +65,7 @@ module.exports = {
       },
     },
   },
-  plugins: [ThreeDimensional],
+  plugins: [ThreeDimensional, require('tailwindcss-animate')],
   darkMode: ['class'],
   safelist: [
     'bg-gradient-0',

@@ -14,7 +14,7 @@
 
 简单来说，OG 协议通过图文形式直观地展示链接指向网站的信息，以提高链接的曝光度和点击率。其中的图片、标题等信息就是 [元数据 / Metadata](https://developer.mozilla.org/en-US/docs/Glossary/Metadata)。
 
-<img class="w-full invert" src="/open-graph-protocol-2.webp" alt="Work Flow" />
+<img class="w-full dark-invert" src="/open-graph-protocol-2.webp" alt="Work Flow" />
 
 也就是说，如果想要在社交媒体平台上分享自己的网站并展示符合 OG 协议的元数据，首先需要在网站中添加 `meta` 标签，并定义好符合 OG 协议的元数据以供各大社交媒体平台获取。
 

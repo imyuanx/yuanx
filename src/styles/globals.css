@@ -3,35 +3,6 @@
   --custom-background-color-dark: #141414;
 }
 
-*,
-::before,
-::after {
-  --tw-backdrop-blur: ;
-  --tw-backdrop-brightness: ;
-  --tw-backdrop-contrast: ;
-  --tw-backdrop-grayscale: ;
-  --tw-backdrop-hue-rotate: ;
-  --tw-backdrop-invert: ;
-  --tw-backdrop-opacity: ;
-  --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia: ;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-rotate: 0;
-  --tw-brightness: ;
-  --tw-contrast: ;
-  --tw-grayscale: ;
-  --tw-hue-rotate: ;
-  --tw-invert: ;
-  --tw-saturate: ;
-  --tw-sepia: ;
-  --tw-drop-shadow: ;
-}
-
 html,
 #__next {
   min-height: 100%;
@@ -88,7 +59,7 @@ body {
   background-image: radial-gradient(#535353 0.5px, transparent 0);
 }
 
-.dark .invert {
+.dark .dark-invert {
   filter: invert(1);
 }
 
