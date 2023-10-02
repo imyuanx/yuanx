@@ -4,8 +4,7 @@ import { useRef, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
-import NoteModal from '@/components/NoteModal';
-import AddIcon from '@/icons/add.svg';
+import AddNote from '@/components/AddNote';
 import LoadingIcon from '@/icons/loading.svg';
 import MoveIcon from '@/icons/move.svg';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
@@ -53,21 +52,7 @@ const Note = ({
 };
 
 const Notes: NextPage = () => {
-  const { noteList, setNoteXY, isLoading, isError, mutate } = useNotes();
-
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const modalShow = () => {
-    setModalVisible(true);
-  };
-
-  const modalHide = () => {
-    setModalVisible(false);
-  };
-  const onConfirm = () => {
-    mutate();
-    modalHide();
-  };
+  const { noteList, setNoteXY, isLoading, isError } = useNotes();
 
   return (
     <>
@@ -78,10 +63,7 @@ const Notes: NextPage = () => {
         <div className="mt-[0.67em] w-full min-w-[330px] max-w-[650px]">
           <h1 className="flex items-center gap-1 text-[2em] font-bold">
             My Notes
-            <AddIcon
-              className="mt-[2px] w-6 cursor-pointer text-[#808080] hover:text-black dark:hover:text-white"
-              onClick={modalShow}
-            />
+            <AddNote />
           </h1>
           <div className="text-[#737373] dark:text-[#808080]">
             Welcome, this is a noteboard.
@@ -103,9 +85,6 @@ const Notes: NextPage = () => {
               <Note setNoteXY={setNoteXY} key={note.id} note={note} />
             ))}
         </div>
-        {modalVisible && (
-          <NoteModal onClose={modalHide} onConfirm={onConfirm} />
-        )}
       </main>
     </>
   );
