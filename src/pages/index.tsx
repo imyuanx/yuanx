@@ -206,7 +206,7 @@ const Home: NextPage<Props> = (props) => {
             {'Outside of programming, I persistently use '}
             <DuolingoLogo />
             {
-              ' to learn English, and trying to make friends with animals, I have a cat friend who has known me for about 3 months, we will date once or twice almost every working day.'
+              ' to learn English, If you happen to be in Shanghai, maybe we can code together.'
             }
           </div>
           <p className={CLASS_P}>
@@ -243,7 +243,7 @@ const Home: NextPage<Props> = (props) => {
             </a>
             {'.'}
           </p>
-          <p className={CLASS_P}>
+          {/* <p className={CLASS_P}>
             <a
               className={clsx(CLASS_A, 'font-medium')}
               href="mailto:lonelyuanx@gmail.com"
@@ -251,7 +251,7 @@ const Home: NextPage<Props> = (props) => {
               {"I'm waiting for a job offer"}
             </a>
             {", Let's create incredible things together."}
-          </p>
+          </p> */}
         </article>
       </main>
     </>
