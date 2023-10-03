@@ -19,7 +19,7 @@ const NAV_LIST = [
   { name: 'home', path: '/' },
   { name: 'blog', path: '/blog' },
   { name: 'projects', path: '/projects' },
-  { name: 'notes', path: '/notes' },
+  { name: 'notes', path: '/notes', className: 'hidden sm:flex' },
 ];
 
 const TEXT_COLOR =
@@ -57,21 +57,21 @@ function Nav(props: Props) {
       <div></div>
       <nav>
         <ul className="flex list-none pl-0">
-          {NAV_LIST.map((navItem, index) => {
+          {NAV_LIST.map(({ path, name, className = '' }, index) => {
             return (
               <li
-                className={clsx(index !== 0 && 'ml-[30px]')}
-                key={navItem.path}
+                className={clsx(index !== 0 && 'ml-[30px]', className)}
+                key={path}
               >
                 <Link
-                  href={navItem.path}
+                  href={path}
                   className={clsx(
                     'text-[18px] capitalize no-underline',
                     TEXT_COLOR,
-                    active === navItem.name && '!text-black dark:!text-white'
+                    active === name && '!text-black dark:!text-white'
                   )}
                 >
-                  {navItem.name}
+                  {name}
                 </Link>
               </li>
             );
@@ -91,7 +91,7 @@ function Nav(props: Props) {
               </a>
             </li>
           ))}
-          <li className="ml-[30px] flex cursor-pointer items-center">
+          <li className="ml-[24px] sm:ml-[30px] flex cursor-pointer items-center">
             <a
               onClick={toggleBackground}
               className={clsx('flex items-center', TEXT_COLOR)}
@@ -102,7 +102,7 @@ function Nav(props: Props) {
               <Tooltip id="tips" className="rounded-[5px]" />
             </a>
           </li>
-          <li className="ml-[30px] flex cursor-pointer items-center">
+          <li className="ml-[24px] sm:ml-[30px] flex cursor-pointer items-center">
             <ThemeMode />
           </li>
         </ul>
