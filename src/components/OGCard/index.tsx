@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import LoadingIcon from '@/icons/loading.svg';
 import clsx from 'clsx';
 
@@ -45,14 +44,13 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
           <div className="p-[14px] pb-[10px] pt-[12px]">
             <div className="mb-[8px] line-clamp-1 text-[14px] font-[700] text-[#121314] dark:text-[#ffffff]">
               {linkTarget ? (
-                // TODO: move to <a>
-                <Link
+                <a
                   href={target}
                   target="_blank"
                   className="text-[#121314] dark:text-[#ffffff] underline"
                 >
                   {OGInfo.ogTitle}
-                </Link>
+                </a>
               ) : (
                 OGInfo.ogTitle
               )}
