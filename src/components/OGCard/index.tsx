@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import Image from 'next/image';
-import LoadingIcon from '@/icons/loading.svg';
+import { Skeleton } from '@/components/ui/skeleton';
 import clsx from 'clsx';
 
 export interface OGInfo {
@@ -17,6 +18,11 @@ export interface Props {
 }
 
 function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
+  const [imgLoading, setImgLoading] = useState(true);
+  function imgOnLoad() {
+    setImgLoading(false);
+  }
+
   return (
     <div
       className={clsx(
@@ -32,13 +38,22 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
         <>
           <div className="relative h-[158px] w-full overflow-hidden">
             {OGInfo.ogImage && (
-              <Image
-                src={OGInfo.ogImage}
-                alt="og image"
-                className="object-cover"
-                sizes="100vw"
-                fill
-              />
+              <>
+                <Skeleton
+                  className={clsx(
+                    'absolute left-0 top-0 w-full h-full rounded-none',
+                    !imgLoading && 'hidden'
+                  )}
+                />
+                <Image
+                  src={OGInfo.ogImage}
+                  alt="og image"
+                  className="object-cover"
+                  sizes="100vw"
+                  fill
+                  onLoad={imgOnLoad}
+                />
+              </>
             )}
           </div>
           <div className="p-[14px] pb-[10px] pt-[12px]">
@@ -61,12 +76,6 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
           </div>
         </>
       )}
-      {/* {isLoading && (
-        <div className="t-0 l-0 absolute flex h-full w-full items-center justify-center gap-2 bg-[rgba(255,255,255,38%)] text-[#121314] backdrop-blur-md dark:bg-[rgba(0,0,0,38%)] dark:text-[#ffffff]">
-          <LoadingIcon />
-          Loading...
-        </div>
-      )} */}
     </div>
   );
 }
