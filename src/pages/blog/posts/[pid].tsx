@@ -165,7 +165,7 @@ const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
           <div className="mt-[30px] flex">
             <span>下一篇：</span>
             {nextPost?.postId ? (
-              <Link href={nextPost?.postId}>{nextPost?.title}</Link>
+              <Link href={nextPost?.postId} className='underline'>{nextPost?.title}</Link>
             ) : (
               <div>
                 <a>已经是最后一篇了哦</a>
