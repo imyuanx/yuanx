@@ -215,7 +215,7 @@ const Home: NextPage<Props> = (props) => {
               return (
                 <Fragment key={name}>
                   <a
-                    className={clsx(CLASS_A, 'inline-flex items-center gap-1')}
+                    className={clsx(CLASS_A, 'inline-flex items-center gap-1 align-bottom')}
                     href={src}
                     target="_blank"
                     rel="noreferrer"
@@ -235,7 +235,7 @@ const Home: NextPage<Props> = (props) => {
           <p className={CLASS_P}>
             {'Mail me at '}
             <a
-              className={clsx(CLASS_A, 'inline-flex items-center gap-1')}
+              className={clsx(CLASS_A, 'inline-flex items-center gap-1 align-bottom')}
               href="mailto:lonelyuanx@gmail.com"
             >
               <MailIcon />
