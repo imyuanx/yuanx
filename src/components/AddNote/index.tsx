@@ -46,6 +46,7 @@ function AddNote() {
     addNote(title, content, 0, 0).then(() => {
       mutate();
       setOpen(false);
+      form.reset();
     });
   };
 
