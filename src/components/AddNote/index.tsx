@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 import AddIcon from '@/icons/add.svg';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -31,6 +32,7 @@ const formSchema = z.object({
 
 function AddNote() {
   const [open, setOpen] = useState(false);
+  const { toast } = useToast();
   const { addNote, mutate } = useNotes();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -43,11 +45,23 @@ function AddNote() {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     const { title, content } = values;
-    addNote(title, content, 0, 0).then(() => {
-      mutate();
-      setOpen(false);
-      form.reset();
-    });
+    addNote(title, content, 0, 0).then(
+      () => {
+        mutate();
+        setOpen(false);
+        form.reset();
+        toast({
+          description: 'Have a good day ☀️',
+        });
+      },
+      () => {
+        toast({
+          variant: 'destructive',
+          title: 'Ooops!',
+          description: 'Please try again',
+        });
+      }
+    );
   };
 
   const onCancel = () => setOpen(false);
@@ -55,6 +69,7 @@ function AddNote() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
+        {/* // TODO: function 组件获取不到 ref，需要使用 React.forwardRef 包裹一下 */}
         <AddIcon className="mt-0.5 w-6 cursor-pointer text-[#808080] hover:text-black dark:hover:text-white" />
       </DialogTrigger>
       <DialogContent className="rounded-lg sm:max-w-[425px]">
