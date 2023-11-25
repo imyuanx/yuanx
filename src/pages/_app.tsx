@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useBackground } from '@/common/useBackground';
 import Background from '@/components/Background';
 import Nav from '@/components/Nav';
+import { Toaster } from '@/components/ui/toaster';
 import '@/styles/globals.css';
 import '@/styles/tailwind.css';
 import { create as ackeeTrackerCreate } from 'ackee-tracker';
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {showBackground && <Background pointer={route === '/'} />}
       <Nav active={active} setBackground={setBackground} />
       <Component {...pageProps} />
+      <Toaster />
     </ThemeProvider>
   );
 }
