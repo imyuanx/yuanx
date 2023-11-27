@@ -1,4 +1,5 @@
 import axios from 'axios';
+import dayjs from 'dayjs';
 import useSWR from 'swr';
 
 export type NoteInfoData = {
@@ -25,13 +26,15 @@ const fetcher = (url: string) =>
     return data?.map((item: NoteInfoData) => ({
       id: item.id,
       content: item.attributes.content,
-      createdAt: item.attributes.createdAt,
+      createdAt: dayjs(item.attributes.createdAt).format('YYYY.MM.DD'),
       publishedAt: item.attributes.publishedAt,
       title: item.attributes.title,
       updatedAt: item.attributes.updatedAt,
       x: item.attributes.x,
       y: item.attributes.y,
-      author: item.attributes?.author ? `@${item.attributes.author}`: '@visitor',
+      author: item.attributes?.author
+        ? `@${item.attributes.author}`
+        : '@visitor',
     }));
   });
 

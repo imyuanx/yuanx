@@ -7,7 +7,6 @@ import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
 import AddNote from '@/components/AddNote';
 import LoadingIcon from '@/icons/loading.svg';
 import MoveIcon from '@/icons/move.svg';
-import dayjs from 'dayjs';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
 
 const Note = ({
@@ -49,7 +48,7 @@ const Note = ({
         </div>
         <div className="flex justify-between w-full px-4 bottom-1 text-zinc-300 text-xs pb-2">
           <div>{note.author}</div>
-          <div>{dayjs(note.createdAt).format('YYYY.MM.DD')}</div>
+          <div>{note.createdAt}</div>
         </div>
       </div>
     </Draggable>
