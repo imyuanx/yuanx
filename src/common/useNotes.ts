@@ -4,6 +4,7 @@ import useSWR from 'swr';
 export type NoteInfoData = {
   id: number;
   attributes: {
+    author?: string;
     content: string;
     createdAt: string;
     publishedAt: string;
@@ -30,6 +31,7 @@ const fetcher = (url: string) =>
       updatedAt: item.attributes.updatedAt,
       x: item.attributes.x,
       y: item.attributes.y,
+      author: item.attributes?.author ? `@${item.attributes.author}`: '@visitor',
     }));
   });
 
