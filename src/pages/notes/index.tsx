@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
@@ -34,17 +34,21 @@ const Note = ({
       bounds="parent"
       onStop={onStop}
     >
-      <div className="absolute left-0 top-0 h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white dark:bg-[#121314] shadow dark:shadow-none dark:border dark:border-solid dark:border-zinc-800">
+      <div className="absolute left-0 top-0 flex flex-col h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white dark:bg-[#121314] shadow dark:shadow-none dark:border dark:border-solid dark:border-zinc-800">
         <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 dark:bg-yellow-500 px-3 py-1 font-semibold">
           <h1 className="m-0 flex-1 truncate text-base">{note.title}</h1>
           <div className="flex h-full items-center">
             <MoveIcon className="mt-1 opacity-10 dark:opacity-30" />
           </div>
         </div>
-        <div className="px-4 py-3 pb-5">
+        <div className="px-4 py-3 flex-1">
           <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 dark:text-white underline underline-offset-[6px]">
             {note.content}
           </p>
+        </div>
+        <div className="flex justify-between w-full px-4 bottom-1 text-zinc-300 text-xs pb-2">
+          <div>{note.author}</div>
+          <div>{note.createdAt}</div>
         </div>
       </div>
     </Draggable>
