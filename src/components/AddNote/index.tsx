@@ -20,8 +20,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import AddIcon from '@/icons/add.svg';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Plus } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -69,8 +69,10 @@ function AddNote() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        {/* // TODO: function 组件获取不到 ref，需要使用 React.forwardRef 包裹一下 */}
-        <AddIcon className="mt-0.5 w-6 cursor-pointer text-[#808080] hover:text-black dark:hover:text-white" />
+        <Button variant="outline" size="sm" className="h-6 px-2 pl-1.5">
+          <Plus className="mr-0.5 w-4" />
+          Add
+        </Button>
       </DialogTrigger>
       <DialogContent className="rounded-lg sm:max-w-[425px]">
         <DialogHeader>
