@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import useDuolingoInfo from '@/common/useDuolingoInfo';
 import country from '@/config/country.json';
+import DuolingoDuoWhistlingLottie from '@/icons/duolingo-duo-whistling.json';
 import DuolingoHotIcon from '@/icons/duolingo-hot.svg';
 import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
 import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
-import LoadingIcon from '@/icons/loading.svg';
 import dayjs from 'dayjs';
+import Lottie from 'lottie-react';
 import { Area, AreaChart, XAxis } from 'recharts';
 
 export type DuolingoCalendar = {
@@ -181,9 +182,12 @@ function DuolingoCard() {
       {(isLoading || isError) && (
         <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-white/30 text-xl font-light backdrop-blur dark:bg-black/30">
           {isLoading && (
-            <div className="flex items-center gap-2">
-              <LoadingIcon /> Loading...
-            </div>
+            <>
+              <Lottie className="w-44" animationData={DuolingoDuoWhistlingLottie} />
+              <span className="absolute right-2 bottom-1 text-sm text-green-400 font-medium">
+                loading...
+              </span>
+            </>
           )}
           {!isLoading && isError && 'Sorry, there has an error.'}
         </div>
