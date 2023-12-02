@@ -88,3 +88,26 @@ body {
 .note-list-container::-webkit-scrollbar-button:hover {
   background-color: #989898;
 }
+
+.duolingo-strip-light {
+  background: linear-gradient(
+    to right,
+    #4ade80 0%,
+    #4ade80 35%,
+    #00c3ff 49%,
+    #00c3ff 51%,
+    #4ade80 65%,
+    #4ade80 100%
+  );
+  background-size: 300%;
+  animation: gradientAnimation 2s linear infinite forwards;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
