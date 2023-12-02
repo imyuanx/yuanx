@@ -21,10 +21,9 @@ import { PROJECTS_ITEM_TYPE } from '@/pages/projects';
 import axios from 'axios';
 import clsx from 'clsx';
 
-const CLASS_A: string =
+const CLASS_A =
   'inline-block no-underline whitespace-nowrap text-[#121314] leading-normal bg-wave bg-16px bg-0px-bottom bg-repeat-x hover:animate-wave dark:!text-white';
-const CLASS_P: string =
-  'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
+const CLASS_P = 'text-[1.6em] font-light max-w-[28em] leading-[1.4] mt-[1em]';
 
 const SOCIAL_MEDIA = [
   {
@@ -41,27 +40,32 @@ const SOCIAL_MEDIA = [
     name: '知乎',
     src: ZHIHU_URL,
     Icon: ZhihuFilledIcon,
+    className: 'font-normal',
   },
   {
     name: '微博',
     src: WEIBO_URL,
     Icon: WeiboFilledIcon,
+    className: 'font-normal',
   },
   {
     name: '掘金',
     src: JUEJIN_URL,
     Icon: JuejinFilledIcon,
+    className: 'font-normal',
   },
 ];
 
 export type HOME_PROJECTS_ITEM_TYPE = PROJECTS_ITEM_TYPE & {
   name: string;
+  className?: string;
 };
 
 const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
   {
     name: '米历',
     link: 'https://m-calendar.yuanx.me',
+    className: 'font-normal',
   },
   {
     name: 'Sharing GUI',
@@ -105,6 +109,7 @@ export async function getStaticProps() {
         OGInfo,
         name: project.name,
         link: project.link,
+        className: project.className || null,
       };
     })
   );
@@ -121,6 +126,7 @@ export type Props = {
     name: string;
     link: string;
     OGInfo?: OGInfo;
+    className?: string;
   }[];
 };
 
@@ -172,7 +178,7 @@ const Home: NextPage<Props> = (props) => {
                   <Fragment key={project.name}>
                     <OGA
                       key={project.name}
-                      className={CLASS_A}
+                      className={clsx(CLASS_A, project.className)}
                       target={project.link}
                       name={project.name}
                       OGInfo={project.OGInfo}
@@ -211,11 +217,15 @@ const Home: NextPage<Props> = (props) => {
           </div>
           <p className={CLASS_P}>
             {'You can find me on '}
-            {SOCIAL_MEDIA.map(({ name, src, Icon }, index) => {
+            {SOCIAL_MEDIA.map(({ name, src, Icon, className }, index) => {
               return (
                 <Fragment key={name}>
                   <a
-                    className={clsx(CLASS_A, 'inline-flex items-center gap-1 align-bottom')}
+                    className={clsx(
+                      CLASS_A,
+                      'inline-flex items-center gap-1 align-bottom',
+                      className
+                    )}
                     href={src}
                     target="_blank"
                     rel="noreferrer"
@@ -235,7 +245,10 @@ const Home: NextPage<Props> = (props) => {
           <p className={CLASS_P}>
             {'Mail me at '}
             <a
-              className={clsx(CLASS_A, 'inline-flex items-center gap-1 align-bottom')}
+              className={clsx(
+                CLASS_A,
+                'inline-flex items-center gap-1 align-bottom'
+              )}
               href="mailto:lonelyuanx@gmail.com"
             >
               <MailIcon />
