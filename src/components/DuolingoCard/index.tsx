@@ -183,10 +183,11 @@ function DuolingoCard() {
         <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-white/30 text-xl font-light backdrop-blur dark:bg-black/30">
           {isLoading && (
             <>
-              <Lottie className="w-44" animationData={DuolingoDuoWhistlingLottie} />
-              <span className="absolute right-2 bottom-1 text-sm text-green-400 font-medium">
-                loading...
-              </span>
+              <Lottie
+                className="w-44"
+                animationData={DuolingoDuoWhistlingLottie}
+              />
+              <div className="absolute bottom-0 w-full h-1 duolingo-strip-light"></div>
             </>
           )}
           {!isLoading && isError && 'Sorry, there has an error.'}
