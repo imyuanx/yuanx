@@ -67,40 +67,38 @@ function DuolingoCard() {
     const calendar = duolingoInfo?.calendar;
     const languages = duolingoInfo?.languages;
     if (calendar) {
-      const newCalendar = calendar
-        .reduce((acc, cur) => {
-          const index = acc.findIndex((accItem) =>
-            dateIsSame(accItem.datetime, cur.datetime)
-          );
-          if (index === -1) {
-            acc.push({
-              name: dayjs(cur.datetime).format('D'),
-              experience: cur.improvement,
-              datetime: cur.datetime,
-            });
-          } else {
-            acc[index].experience += cur.improvement;
-          }
-          return acc;
-        }, [] as DuolingoCalendar[])
-        .sort((acc, cur) => cur.datetime - acc.datetime)
-        .reduce((acc, cur) => {
-          if (acc.length === 0) return [cur];
-          if (acc.length === 7) return acc;
-          const lastCalendar = acc[0];
-          const gap = getDayGap(cur.datetime, lastCalendar.datetime) - 1;
-          if (gap === 0) return [cur, ...acc];
-          const patchLen = 7 - acc.length - gap >= 0 ? gap : acc.length - gap;
-          const patchCalendar = Array.from({ length: patchLen }, (v, k) => {
-            const patchDay = dayjs(cur.datetime).add(k + 1, 'day');
-            return {
-              name: patchDay.format('D'),
-              experience: 0,
-              datetime: patchDay.valueOf(),
-            };
+      const dataList = calendar.reduce((acc, cur) => {
+        const index = acc.findIndex((accItem) =>
+          dateIsSame(accItem.datetime, cur.datetime)
+        );
+        if (index === -1) {
+          acc.push({
+            name: dayjs(cur.datetime).format('D'),
+            experience: cur.improvement,
+            datetime: cur.datetime,
           });
-          return [cur, ...patchCalendar, ...acc];
-        }, [] as DuolingoCalendar[]);
+        } else {
+          acc[index].experience += cur.improvement;
+        }
+        return acc;
+      }, [] as DuolingoCalendar[]);
+
+      const newCalendar = Array.from({ length: 7 }, (_, index) => {
+        const day = dayjs()
+          .subtract(6 - index, 'day')
+          .format('D');
+
+        const data = dataList.find(({ name }) => day === name);
+
+        if (data) return data;
+
+        return {
+          name: day,
+          experience: 0,
+          datetime: day.valueOf(),
+        };
+      });
+
       setCalendar(newCalendar as DuolingoCalendar[]);
     }
     if (languages) {
