@@ -39,7 +39,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       >
         <div
           className={clsx(
-            'rounded-[6px] transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]',
+            'rounded-md transition-all duration-200 hover:shadow-[0px_0px_22px_rgba(0,0,0,0.16)] hover:duration-300 hover:dark:shadow-[0px_0px_22px_rgba(255,255,255,0.16)]',
             !isBack && 'hover:scale-105'
           )}
         >
@@ -56,7 +56,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       </div>
       <div
         className={clsx(
-          'absolute left-0 top-0 h-full w-full overflow-hidden rounded-[6px] bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform backface-hidden duration-1000 ease-in-out dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
+          'absolute left-0 top-0 h-full w-full overflow-hidden rounded-md bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform backface-hidden duration-1000 ease-in-out dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
           !isBack && 'rotate-y-180'
         )}
       >
@@ -75,7 +75,7 @@ function ProjectCard({ link, OGInfo }: Props) {
         <div className="absolute bottom-2 right-2 flex justify-center gap-1">
           <div
             className={clsx(
-              'flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-[13px] bg-white/20 text-[18px] font-[450] text-white opacity-70 hover:opacity-100'
+              'flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-[13px] bg-white/20 text-lg font-[450] text-white opacity-70 hover:opacity-100'
             )}
             data-tooltip-id={`project-card-3d-model-${link}-tips`}
             data-tooltip-content="It's a 3D model that you can drag or scale."
@@ -91,7 +91,7 @@ function ProjectCard({ link, OGInfo }: Props) {
             className="flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-[13px] bg-white/20 text-white opacity-70 hover:opacity-100"
             onClick={turnFront}
           >
-            <RefreshIcon className="text-[16px]" />
+            <RefreshIcon className="text-base" />
           </div>
         </div>
       </div>

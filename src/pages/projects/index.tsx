@@ -94,7 +94,7 @@ const Projects: NextPage<Props> = ({ projectsList }) => {
             </a>
           </div>
         </div>
-        <div className="mt-[40px] grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
+        <div className="mt-10 grid w-full grid-cols-[repeat(auto-fill,300px)] justify-center gap-8">
           {projectsList.map((project) => (
             <ProjectCard
               key={project.link}

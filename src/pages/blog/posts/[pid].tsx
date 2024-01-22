@@ -64,7 +64,7 @@ const reactMarkdownComponents = {
   h3: ({ children }) => <h1 className="text-[1.8em] font-bold">{children}</h1>,
   h4: ({ children }) => <h1 className="text-[1.6em] font-bold">{children}</h1>,
   p: ({ children }) => {
-    return <p className="mt-[1em] text-[18px] leading-[1.8]">{children}</p>;
+    return <p className="mt-[1em] text-lg leading-[1.8]">{children}</p>;
   },
   a: ({ children, href }) => (
     <a
@@ -100,18 +100,18 @@ const reactMarkdownComponents = {
         </SyntaxHighlighter>
       </>
     ) : (
-      <code className="relative mx-[4px] whitespace-nowrap rounded-[6px] after:absolute after:inset-x-[-0.1em] after:bottom-[0] after:top-[66%] after:z-[-1] after:bg-[#ebebeb] after:content-[''] after:dark:bg-[#333333]">
+      <code className="relative mx-1 whitespace-nowrap rounded-[6px] after:absolute after:inset-x-[-0.1em] after:bottom-[0] after:top-[66%] after:z-[-1] after:bg-[#ebebeb] after:content-[''] after:dark:bg-[#333333]">
         {children}
       </code>
     );
   },
   blockquote: ({ children }) => (
-    <blockquote className="m-0 border-0 border-l-4 border-solid border-l-[#ebebeb] pl-[16px] text-[#555555] dark:border-l-[#7a7a7a] dark:text-[#acacac]">
+    <blockquote className="m-0 border-0 border-l-4 border-solid border-l-[#ebebeb] pl-4 text-[#555555] dark:border-l-[#7a7a7a] dark:text-[#acacac]">
       {children}
     </blockquote>
   ),
   ul: ({ children }) => (
-    <ul className="flex flex-col gap-[10px] text-[18px]">{children}</ul>
+    <ul className="flex flex-col gap-2.5 text-lg">{children}</ul>
   ),
   li: ({ children }) => <li className="leading-[1.6]">{children}</li>,
 } as Components;
@@ -153,7 +153,7 @@ const Article: NextPage<{ postMarkdown: string }> = ({ postMarkdown }) => {
         <title>{title}</title>
       </Head>
       <div className="container-article flex h-full w-full content-center justify-center">
-        <main className="article-content box-border h-full w-full max-w-[900px] px-[28px] pb-[28px] pt-[60px]">
+        <main className="article-content box-border h-full w-full max-w-[900px] px-7 pb-7 pt-[60px]">
           <article className="article">
             <ReactMarkdown
               rehypePlugins={[rehypeRaw]}
