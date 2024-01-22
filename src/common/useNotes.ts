@@ -1,6 +1,7 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
 
 export type NoteInfoData = {
   id: number;
@@ -17,6 +18,18 @@ export type NoteInfoData = {
 };
 
 export type NoteInfo = { id: number } & NoteInfoData['attributes'];
+
+type UpdateNotePosition = {
+  id: number;
+  position: { x: number; y: number };
+};
+
+export type addNote = (
+  title: string,
+  content: string,
+  x: number,
+  y: number
+) => Promise<any>;
 
 const BASE_URL = 'https://yuanx-strapi.zeabur.app/api/notes';
 
@@ -38,26 +51,19 @@ const fetcher = (url: string) =>
     }));
   });
 
-export type setNoteXY = (
-  id: number,
-  position: { x: number; y: number }
-) => Promise<any>;
-
-export type addNote = (
-  title: string,
-  content: string,
-  x: number,
-  y: number
-) => Promise<any>;
-
 export default function useNotes() {
   const { data, error, isLoading, mutate } = useSWR(BASE_URL, fetcher);
+  const { trigger: setNotePositionTrigger } = useSWRMutation(
+    BASE_URL,
+    updateNotePosition
+  );
 
-  const setNoteXY: setNoteXY = async (id, position) => {
-    return axios.put(`${BASE_URL}/${id}`, {
-      data: { x: position.x, y: position.y },
-    });
-  };
+  function updateNotePosition(
+    url: string,
+    { arg: { id, position } }: { arg: UpdateNotePosition }
+  ) {
+    return axios.put(`${url}/${id}`, { data: position });
+  }
 
   const addNote: addNote = async (title, content, x, y) => {
     return axios.post(BASE_URL, {
@@ -67,7 +73,7 @@ export default function useNotes() {
 
   return {
     noteList: data as NoteInfo[] | null,
-    setNoteXY,
+    setNotePositionTrigger,
     addNote,
     isLoading,
     isError: error,
