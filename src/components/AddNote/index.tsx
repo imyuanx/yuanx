@@ -33,7 +33,7 @@ const formSchema = z.object({
 function AddNote() {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
-  const { addNote, mutate } = useNotes();
+  const { addNoteTrigger, mutate } = useNotes();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,14 +45,12 @@ function AddNote() {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     const { title, content } = values;
-    addNote(title, content, 0, 0).then(
+    addNoteTrigger({ title, content, x: 0, y: 0 }).then(
       () => {
         mutate();
         setOpen(false);
         form.reset();
-        toast({
-          description: 'Have a good day ☀️',
-        });
+        toast({ description: 'Have a good day ☀️' });
       },
       () => {
         toast({
