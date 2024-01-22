@@ -66,7 +66,7 @@ function Nav(props: Props) {
                 <Link
                   href={path}
                   className={clsx(
-                    'text-[18px] capitalize no-underline',
+                    'text-lg capitalize no-underline',
                     TEXT_COLOR,
                     active === name && '!text-black dark:!text-white'
                   )}
@@ -91,7 +91,7 @@ function Nav(props: Props) {
               </a>
             </li>
           ))}
-          <li className="ml-[24px] flex cursor-pointer items-center sm:ml-[30px]">
+          <li className="ml-6 flex cursor-pointer items-center sm:ml-[30px]">
             <a
               onClick={toggleBackground}
               className={clsx('flex items-center', TEXT_COLOR)}
@@ -102,7 +102,7 @@ function Nav(props: Props) {
               <Tooltip id="tips" className="rounded-[5px]" />
             </a>
           </li>
-          <li className="ml-[24px] flex cursor-pointer items-center sm:ml-[30px]">
+          <li className="ml-6 flex cursor-pointer items-center sm:ml-[30px]">
             <ThemeMode />
           </li>
         </ul>

@@ -68,7 +68,7 @@ const Notes: NextPage = () => {
             Welcome, this is a noteboard.
           </div>
         </div>
-        <div className="note-list-container relative mt-[40px] h-full w-full overflow-auto">
+        <div className="note-list-container relative mt-10 h-full w-full overflow-auto">
           {isLoading && (
             <div className="flex w-full items-center justify-center gap-2 text-xl font-light">
               <LoadingIcon /> Loading...

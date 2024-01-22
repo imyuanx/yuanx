@@ -116,23 +116,23 @@ function DuolingoCard() {
   }, [duolingoInfo]);
 
   return (
-    <div className="relative box-border flex h-[254px] w-[300px] flex-col overflow-hidden rounded-[6px] bg-[#ffffff] px-[20px] py-[18px] text-[14px] font-normal text-[#121314] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:!text-white dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]">
-      <DuolingoLogoIcon className="absolute right-[10px] top-[16px] w-[145px] opacity-[0.16]" />
-      <div className="mb-[20px] flex flex-col gap-[4px]">
-        <div className="text-[24px] font-bold">{duolingoInfo?.username}</div>
-        <div className="flex items-center gap-[2px]">
+    <div className="relative box-border flex h-[254px] w-[300px] flex-col overflow-hidden rounded-md bg-[#ffffff] px-5 py-[18px] text-sm font-normal text-[#121314] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:!text-white dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]">
+      <DuolingoLogoIcon className="absolute right-2.5 top-4 w-[145px] opacity-[0.16]" />
+      <div className="mb-5 flex flex-col gap-1">
+        <div className="text-2xl font-bold">{duolingoInfo?.username}</div>
+        <div className="flex items-center gap-0.5">
           {`${duolingoInfo?.streak} day streak`}
-          <DuolingoHotIcon className="w-[16px]" />
+          <DuolingoHotIcon className="w-4" />
         </div>
       </div>
-      <div className="mb-[8px] flex justify-between gap-[8px]">
+      <div className="mb-2 flex justify-between gap-2">
         {languages.map((language) => (
           <div
             key={language.language}
-            className="box-border h-[76px] w-full rounded-[6px] border-[2px] border-solid border-[#E5E5E5] px-[10px] py-[8px] dark:border-[#E5E5E5]/20"
+            className="box-border h-[76px] w-full rounded-md border-[2px] border-solid border-[#E5E5E5] px-2.5 py-2 dark:border-[#E5E5E5]/20"
           >
-            <div className="flex items-center gap-[6px]">
-              <div className="h-[19px] w-[24px] overflow-hidden">
+            <div className="flex items-center gap-1.5">
+              <div className="h-[19px] w-6 overflow-hidden">
                 <DuolingoIconsIcon
                   width={24}
                   style={{ marginTop: getFlagY(language.language) }}
@@ -141,7 +141,7 @@ function DuolingoCard() {
               <div className="font-medium uppercase">{language.language}</div>
             </div>
             <div className="my-[7.5px] block h-[1px] w-full bg-[#F2F2F2] dark:bg-[#F2F2F2]/20" />
-            <div className="flex items-center gap-[5px] text-[12px] font-normal">
+            <div className="flex items-center gap-[5px] text-xs font-normal">
               <DuolingoLightningIcon />
               {`${language.points} points`}
             </div>

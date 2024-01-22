@@ -26,7 +26,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
   return (
     <div
       className={clsx(
-        'relative flex h-[254px] w-[300px] flex-col overflow-hidden rounded-[6px] bg-[#ffffff] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
+        'relative flex h-[254px] w-[300px] flex-col overflow-hidden rounded-md bg-[#ffffff] shadow-[0px_0px_10px_rgba(0,0,0,0.12)] dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
         className
       )}
     >
@@ -56,8 +56,8 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
               </>
             )}
           </div>
-          <div className="p-[14px] pb-[10px] pt-[12px]">
-            <div className="mb-[8px] line-clamp-1 text-[14px] font-[700] text-[#121314] dark:text-[#ffffff]">
+          <div className="p-[14px] pb-2.5 pt-3">
+            <div className="mb-2 line-clamp-1 text-sm font-bold text-[#121314] dark:text-[#ffffff]">
               {linkTarget ? (
                 <a
                   href={target}
@@ -70,7 +70,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
                 OGInfo.ogTitle
               )}
             </div>
-            <div className="line-clamp-3 text-[12px] text-[#737373] dark:text-[#808080]">
+            <div className="line-clamp-3 text-xs text-[#737373] dark:text-[#808080]">
               {OGInfo.ogDescription}
             </div>
           </div>

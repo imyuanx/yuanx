@@ -38,7 +38,7 @@ const Blog: NextPage = () => {
                 );
                 return (
                   <div key={year}>
-                    <div className="mb-4 text-[36px] font-light">{year}</div>
+                    <div className="mb-4 text-4xl font-light">{year}</div>
                     {ARTICLES_YEAR.map((articleItem) => {
                       return (
                         <li className="mb-[30px]" key={articleItem.postId}>
@@ -46,10 +46,10 @@ const Blog: NextPage = () => {
                             href={`/blog/posts/${articleItem.postId}`}
                             className="no-underline"
                           >
-                            <span className="article-title mr-[10px] text-[18px] text-[#121314] no-underline hover:text-[#000000] hover:underline dark:!text-white">
+                            <span className="article-title mr-2.5 text-lg text-[#121314] no-underline hover:text-[#000000] hover:underline dark:!text-white">
                               {articleItem.title}
                             </span>
-                            <span className="article-date text-[16px] italic text-[#808080]">
+                            <span className="article-date text-base italic text-[#808080]">
                               {articleItem.date}
                             </span>
                           </Link>
