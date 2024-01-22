@@ -22,7 +22,7 @@ const Blog: NextPage = () => {
   return (
     <>
       <Head>
-        <title>x Yuan | Blog</title>
+        <title>yuanx | Blog</title>
       </Head>
       <main className="mx-auto my-0 box-content flex w-full flex-col items-center px-7 pb-7 pt-[60px]">
         <div className="mt-[0.67em] w-full min-w-[330px] max-w-[650px]">
