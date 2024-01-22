@@ -3,19 +3,14 @@
 import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import useNotes, { NoteInfo, setNoteXY } from '@/common/useNotes';
+import useNotes, { NoteInfo } from '@/common/useNotes';
 import AddNote from '@/components/AddNote';
 import LoadingIcon from '@/icons/loading.svg';
 import MoveIcon from '@/icons/move.svg';
 import Draggable, { DraggableEventHandler } from 'react-draggable';
 
-const Note = ({
-  note,
-  setNoteXY,
-}: {
-  note: NoteInfo;
-  setNoteXY: setNoteXY;
-}) => {
+const Note = ({ note }: { note: NoteInfo }) => {
+  const { setNotePositionTrigger } = useNotes();
   const position = useRef({ x: note.x, y: note.y }).current;
 
   const onStop: DraggableEventHandler = (_, data) => {
@@ -23,7 +18,7 @@ const Note = ({
     if (x !== position.x && y !== position.y) {
       position.x = x;
       position.y = y;
-      setNoteXY(note.id, position);
+      setNotePositionTrigger({ id: note.id, position });
     }
   };
 
@@ -56,7 +51,7 @@ const Note = ({
 };
 
 const Notes: NextPage = () => {
-  const { noteList, setNoteXY, isLoading, isError } = useNotes();
+  const { noteList, isLoading, isError } = useNotes();
 
   return (
     <>
@@ -85,9 +80,7 @@ const Notes: NextPage = () => {
             </div>
           )}
           {!isLoading &&
-            noteList?.map((note) => (
-              <Note setNoteXY={setNoteXY} key={note.id} note={note} />
-            ))}
+            noteList?.map((note) => <Note key={note.id} note={note} />)}
         </div>
       </main>
     </>
