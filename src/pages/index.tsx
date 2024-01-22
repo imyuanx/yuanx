@@ -134,7 +134,7 @@ const Home: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
-        <title>x Yuan</title>
+        <title>yuanx</title>
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -158,7 +158,7 @@ const Home: NextPage<Props> = (props) => {
       </Head>
       <main className="relative w-full px-[10vw] pb-[3vh] pt-[10vh]">
         <h1 className="absolute z-[-5] my-0 select-none text-[6rem] font-medium text-[#ffffff] dark:text-[#141414]">
-          {"I'm x Yuan."}
+          {"I'm yuanx"}
         </h1>
         <article>
           <p className={CLASS_P}>
@@ -251,7 +251,7 @@ const Home: NextPage<Props> = (props) => {
               )}
               href="mailto:lonelyuanx@gmail.com"
             >
-              <MailIcon />
+              <MailIcon className="scale-[1.2]" />
               lonelyuanx@gmail.com
             </a>
             {'.'}
