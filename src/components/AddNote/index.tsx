@@ -103,7 +103,7 @@ function AddNote() {
                   <FormControl>
                     <Textarea
                       placeholder="Just write something..."
-                      className="w-full min-h-[120px]"
+                      className="min-h-[120px] w-full"
                       {...field}
                     />
                   </FormControl>

@@ -91,7 +91,7 @@ function Nav(props: Props) {
               </a>
             </li>
           ))}
-          <li className="ml-[24px] sm:ml-[30px] flex cursor-pointer items-center">
+          <li className="ml-[24px] flex cursor-pointer items-center sm:ml-[30px]">
             <a
               onClick={toggleBackground}
               className={clsx('flex items-center', TEXT_COLOR)}
@@ -102,7 +102,7 @@ function Nav(props: Props) {
               <Tooltip id="tips" className="rounded-[5px]" />
             </a>
           </li>
-          <li className="ml-[24px] sm:ml-[30px] flex cursor-pointer items-center">
+          <li className="ml-[24px] flex cursor-pointer items-center sm:ml-[30px]">
             <ThemeMode />
           </li>
         </ul>

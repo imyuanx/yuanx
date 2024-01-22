@@ -29,19 +29,19 @@ const Note = ({ note }: { note: NoteInfo }) => {
       bounds="parent"
       onStop={onStop}
     >
-      <div className="absolute left-0 top-0 flex flex-col h-max min-h-[120px] w-60 overflow-hidden rounded-xl bg-white dark:bg-[#121314] shadow dark:shadow-none dark:border dark:border-solid dark:border-zinc-800">
-        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 dark:bg-yellow-500 px-3 py-1 font-semibold">
+      <div className="absolute left-0 top-0 flex h-max min-h-[120px] w-60 flex-col overflow-hidden rounded-xl bg-white shadow dark:border dark:border-solid dark:border-zinc-800 dark:bg-[#121314] dark:shadow-none">
+        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 px-3 py-1 font-semibold dark:bg-yellow-500">
           <h1 className="m-0 flex-1 truncate text-base">{note.title}</h1>
           <div className="flex h-full items-center">
             <MoveIcon className="mt-1 opacity-10 dark:opacity-30" />
           </div>
         </div>
-        <div className="px-4 py-3 flex-1">
-          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 dark:text-white underline underline-offset-[6px]">
+        <div className="flex-1 px-4 py-3">
+          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 underline underline-offset-[6px] dark:text-white">
             {note.content}
           </p>
         </div>
-        <div className="flex justify-between w-full px-4 bottom-1 text-zinc-300 text-xs pb-2">
+        <div className="bottom-1 flex w-full justify-between px-4 pb-2 text-xs text-zinc-300">
           <div>{note.author}</div>
           <div>{note.createdAt}</div>
         </div>
