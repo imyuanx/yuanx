@@ -24,12 +24,14 @@ type UpdateNotePosition = {
   position: { x: number; y: number };
 };
 
-export type addNote = (
-  title: string,
-  content: string,
-  x: number,
-  y: number
-) => Promise<any>;
+export type AddNote = {
+  arg: {
+    title: string;
+    content: string;
+    x: number;
+    y: number;
+  };
+};
 
 const BASE_URL = 'https://yuanx-strapi.zeabur.app/api/notes';
 
@@ -57,24 +59,24 @@ export default function useNotes() {
     BASE_URL,
     updateNotePosition
   );
+  const { trigger: addNoteTrigger } = useSWRMutation(BASE_URL, addNote);
 
   function updateNotePosition(
     url: string,
-    { arg: { id, position } }: { arg: UpdateNotePosition }
+    { arg }: { arg: UpdateNotePosition }
   ) {
+    const { id, position } = arg;
     return axios.put(`${url}/${id}`, { data: position });
   }
 
-  const addNote: addNote = async (title, content, x, y) => {
-    return axios.post(BASE_URL, {
-      data: { title, content, x, y },
-    });
-  };
+  function addNote(url: string, { arg }: AddNote) {
+    return axios.post(url, { data: arg });
+  }
 
   return {
     noteList: data as NoteInfo[] | null,
     setNotePositionTrigger,
-    addNote,
+    addNoteTrigger,
     isLoading,
     isError: error,
     mutate,
