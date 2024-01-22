@@ -127,7 +127,7 @@ function Footer() {
       >
         CC BY-NC-SA 4.0
       </a>
-      <span className="text-[#808080]">{' 2022-PRESENT © x Yuan'}</span>
+      <span className="text-[#808080]">{' 2022-PRESENT © yuanx'}</span>
     </footer>
   );
 }
