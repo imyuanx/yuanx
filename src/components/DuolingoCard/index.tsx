@@ -185,7 +185,7 @@ function DuolingoCard() {
                 className="w-44"
                 animationData={DuolingoDuoWhistlingLottie}
               />
-              <div className="absolute bottom-0 w-full h-1 duolingo-strip-light"></div>
+              <div className="duolingo-strip-light absolute bottom-0 h-1 w-full"></div>
             </>
           )}
           {!isLoading && isError && 'Sorry, there has an error.'}

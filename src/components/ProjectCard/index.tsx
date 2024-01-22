@@ -33,7 +33,7 @@ function ProjectCard({ link, OGInfo }: Props) {
     <div className="relative perspective-1000 hover:z-10">
       <div
         className={clsx(
-          'group/front transition-transform duration-1000 ease-in-out backface-hidden',
+          'group/front transition-transform backface-hidden duration-1000 ease-in-out',
           isBack && 'rotate-y-180-reverse'
         )}
       >
@@ -56,7 +56,7 @@ function ProjectCard({ link, OGInfo }: Props) {
       </div>
       <div
         className={clsx(
-          'absolute left-0 top-0 h-full w-full rounded-[6px] overflow-hidden bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform duration-1000 ease-in-out backface-hidden dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
+          'absolute left-0 top-0 h-full w-full overflow-hidden rounded-[6px] bg-white shadow-[0px_0px_10px_rgba(0,0,0,0.12)] transition-transform backface-hidden duration-1000 ease-in-out dark:bg-[#121314] dark:shadow-[0px_0px_10px_rgba(255,255,255,0.12)]',
           !isBack && 'rotate-y-180'
         )}
       >

@@ -41,7 +41,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
               <>
                 <Skeleton
                   className={clsx(
-                    'absolute left-0 top-0 w-full h-full rounded-none',
+                    'absolute left-0 top-0 h-full w-full rounded-none',
                     !imgLoading && 'hidden'
                   )}
                 />
@@ -62,7 +62,7 @@ function OGCard({ className = '', target, OGInfo, linkTarget = false }: Props) {
                 <a
                   href={target}
                   target="_blank"
-                  className="text-[#121314] dark:text-[#ffffff] underline"
+                  className="text-[#121314] underline dark:text-[#ffffff]"
                 >
                   {OGInfo.ogTitle}
                 </a>

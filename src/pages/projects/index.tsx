@@ -88,7 +88,7 @@ const Projects: NextPage<Props> = ({ projectsList }) => {
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#121314] dark:text-white underline"
+              className="text-[#121314] underline dark:text-white"
             >
               GitHub
             </a>
