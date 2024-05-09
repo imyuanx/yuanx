@@ -28,7 +28,7 @@ const Blog: NextPage = () => {
         <div className="mt-[0.67em] w-full min-w-[330px] max-w-[650px]">
           <h1 className="text-[2em] font-bold">My Blog</h1>
         </div>
-        <article className="w-full min-w-[330px] max-w-[650px]">
+        <article className="mt-10 w-full min-w-[330px] max-w-[650px]">
           <ul className="list-none p-0">
             {Object.keys(ARTICLES_GROUP)
               .sort((a, b) => dayjs(b).valueOf() - dayjs(a).valueOf())
