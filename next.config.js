@@ -51,6 +51,14 @@ const nextConfig = {
       'juejin-id-card.yuanx.me',
     ],
   },
+  rewrites: () => {
+    return [
+      {
+        source: '/api/notes',
+        destination: `https://yuanx-strapi.zeabur.app/api/notes`,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

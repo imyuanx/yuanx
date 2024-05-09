@@ -33,7 +33,7 @@ export type AddNote = {
   };
 };
 
-const BASE_URL = 'https://yuanx-strapi.zeabur.app/api/notes';
+const BASE_URL = '/api/notes';
 
 const fetcher = (url: string) =>
   axios.get(url).then((res) => {
