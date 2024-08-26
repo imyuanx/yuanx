@@ -54,8 +54,8 @@ const nextConfig = {
   rewrites: () => {
     return [
       {
-        source: '/api/notes',
-        destination: `https://yuanx-strapi.zeabur.app/api/notes`,
+        source: '/api/notes/:path*',
+        destination: `https://yuanx-strapi.zeabur.app/api/notes/:path*`,
       },
     ];
   },
