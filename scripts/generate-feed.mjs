@@ -1,8 +1,15 @@
-import fs from 'fs';
-import RSS from 'rss';
-import markdownIt from 'markdown-it';
 import chalk from 'chalk';
-import articleEnv from '../src/config/posts.json' assert { type: 'json' };
+import fs from 'fs';
+import markdownIt from 'markdown-it';
+import { dirname, join } from 'path';
+import RSS from 'rss';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const articleEnvPath = join(__dirname, '..', 'src', 'config', 'posts.json');
+const articleEnv = JSON.parse(fs.readFileSync(articleEnvPath, 'utf8'));
 
 console.log(`Script Start - ${chalk.green('generate-feed')}`);
 const md = markdownIt({ html: true });
