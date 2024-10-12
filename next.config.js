@@ -39,6 +39,7 @@ const nextConfig = {
   images: {
     domains: [
       'yuanx.me',
+      'sharee.app',
       'm-calendar.yuanx.me',
       'framerusercontent.com',
       'worth.yuanx.me',
