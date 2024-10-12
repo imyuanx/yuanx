@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import useDuolingoInfo from '@/common/useDuolingoInfo';
 import country from '@/config/country.json';
 import DuolingoDuoWhistlingLottie from '@/icons/duolingo-duo-whistling.json';
@@ -7,8 +8,12 @@ import DuolingoIconsIcon from '@/icons/duolingo-icons.svg';
 import DuolingoLightningIcon from '@/icons/duolingo-lightning.svg';
 import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 import dayjs from 'dayjs';
-import Lottie from 'lottie-react';
 import { Area, AreaChart, XAxis } from 'recharts';
+
+// Not supported SSR
+// https://github.com/airbnb/lottie-web/issues/2739
+// https://github.com/airbnb/lottie-web/pull/3096
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export type DuolingoCalendar = {
   name: string;
