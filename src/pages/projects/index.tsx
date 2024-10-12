@@ -11,6 +11,7 @@ export type PROJECTS_ITEM_TYPE = {
 };
 
 const PROJECTS_LIST: Array<PROJECTS_ITEM_TYPE> = [
+  { link: 'https://sharee.app' },
   {
     link: 'https://m-calendar.yuanx.me',
     OGInfo: {

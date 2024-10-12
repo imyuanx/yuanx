@@ -36,24 +36,6 @@ const SOCIAL_MEDIA = [
     src: TWITTER_URL,
     Icon: TwitterFilledIcon,
   },
-  {
-    name: '知乎',
-    src: ZHIHU_URL,
-    Icon: ZhihuFilledIcon,
-    className: 'font-normal',
-  },
-  {
-    name: '微博',
-    src: WEIBO_URL,
-    Icon: WeiboFilledIcon,
-    className: 'font-normal',
-  },
-  {
-    name: '掘金',
-    src: JUEJIN_URL,
-    Icon: JuejinFilledIcon,
-    className: 'font-normal',
-  },
 ];
 
 export type HOME_PROJECTS_ITEM_TYPE = PROJECTS_ITEM_TYPE & {
@@ -63,13 +45,12 @@ export type HOME_PROJECTS_ITEM_TYPE = PROJECTS_ITEM_TYPE & {
 
 const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
   {
-    name: '米历',
-    link: 'https://m-calendar.yuanx.me',
-    className: 'font-normal',
+    name: 'Sharee',
+    link: 'https://sharee.app',
   },
   {
-    name: 'Sharing GUI',
-    link: 'https://sharing-gui.yuanx.me',
+    name: 'M Calendar',
+    link: 'https://m-calendar.yuanx.me',
   },
   {
     name: 'Worth',
@@ -217,30 +198,23 @@ const Home: NextPage<Props> = (props) => {
           </div>
           <p className={CLASS_P}>
             {'You can find me on '}
-            {SOCIAL_MEDIA.map(({ name, src, Icon, className }, index) => {
-              return (
-                <Fragment key={name}>
-                  <a
-                    className={clsx(
-                      CLASS_A,
-                      'inline-flex items-center gap-1 align-bottom',
-                      className
-                    )}
-                    href={src}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {Icon && <Icon />}
-                    {name}
-                  </a>
-                  {index === SOCIAL_MEDIA.length - 2
-                    ? ' or '
-                    : index === SOCIAL_MEDIA.length - 1
-                    ? '.'
-                    : ', '}
-                </Fragment>
-              );
-            })}
+            {SOCIAL_MEDIA.map(({ name, src, Icon }, index) => (
+              <Fragment key={name}>
+                <a
+                  className={clsx(
+                    CLASS_A,
+                    'inline-flex items-center gap-1 align-bottom'
+                  )}
+                  href={src}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {Icon && <Icon />}
+                  {name}
+                </a>
+                {index < SOCIAL_MEDIA.length - 1 ? ', ' : '.'}
+              </Fragment>
+            ))}
           </p>
           <p className={CLASS_P}>
             {'Mail me at '}
