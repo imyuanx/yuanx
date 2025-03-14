@@ -41,6 +41,12 @@
       "title": "使用 React Native 创建一个支持动态加载、轻量化、高性能的跑马灯组件",
       "date": "2023/8/21",
       "postId": "how-to-create-unlimited-carousel-with-rn"
+    },
+    {
+      "id": 8,
+      "title": "AI 的神经系统 - MCP",
+      "date": "2025/3/14",
+      "postId": "ai-nervous-system-mcp"
     }
   ]
 }
