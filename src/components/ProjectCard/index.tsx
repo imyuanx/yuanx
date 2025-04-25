@@ -78,7 +78,7 @@ function ProjectCard({ link, OGInfo }: Props) {
               'flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-[13px] bg-white/20 text-lg font-[450] text-white opacity-70 hover:opacity-100'
             )}
             data-tooltip-id={`project-card-3d-model-${link}-tips`}
-            data-tooltip-content="It's a 3D model that you can drag or scale."
+            data-tooltip-content="Try dragging or zooming"
             data-tooltip-place={'bottom'}
           >
             ?

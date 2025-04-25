@@ -26,12 +26,12 @@ const PROJECTS_LIST: Array<PROJECTS_ITEM_TYPE> = [
       ogImage: '/chatgpt-proxy-og-image.png',
     },
   },
-  {
-    link: 'https://crossroads.yuanx.me/',
-    OGInfo: {
-      ogModel: '/crossroads.splinecode',
-    },
-  },
+  // {
+  //   link: 'https://crossroads.yuanx.me/',
+  //   OGInfo: {
+  //     ogModel: '/crossroads.splinecode',
+  //   },
+  // },
   { link: 'https://xiatunan.yuanx.me/' },
   { link: 'https://juejin-id-card.yuanx.me/' },
 ];
