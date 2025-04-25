@@ -36,7 +36,7 @@ articleEnv.ARTICLES.map((article) => {
     description: postHtml,
     url: `https://yuanx.me/blog/posts/${article.postId}`,
     guid: `https://yuanx.me/blog/posts/${article.postId}`,
-    author: 'lonelyuanx@gmail.com (yuanx / 袁先)',
+    author: 'yuanx.me@gmail.com (yuanx)',
     date: new Date(article.date),
   });
 });
