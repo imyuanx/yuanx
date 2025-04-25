@@ -1,57 +1,63 @@
 'use client';
 
-import { useRef } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import useNotes, { NoteInfo } from '@/common/useNotes';
+import useNotes from '@/common/useNotes';
 import AddNote from '@/components/AddNote';
+import NoteNode from '@/components/NoteNode';
 import LoadingIcon from '@/icons/loading.svg';
-import MoveIcon from '@/icons/move.svg';
-import Draggable, { DraggableEventHandler } from 'react-draggable';
+import {
+  Background,
+  Controls,
+  ReactFlow,
+  applyNodeChanges,
+} from '@xyflow/react';
+import type { Node, NodeChange } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
 
-const Note = ({ note }: { note: NoteInfo }) => {
-  const { setNotePositionTrigger } = useNotes();
-  const position = useRef({ x: note.x, y: note.y }).current;
-
-  const onStop: DraggableEventHandler = (_, data) => {
-    const { x, y } = data;
-    if (x !== position.x && y !== position.y) {
-      position.x = x;
-      position.y = y;
-      setNotePositionTrigger({ id: note.id, position });
-    }
-  };
-
-  return (
-    <Draggable
-      handle=".notes-handle"
-      defaultPosition={{ x: note.x, y: note.y }}
-      bounds="parent"
-      onStop={onStop}
-    >
-      <div className="absolute left-0 top-0 flex h-max min-h-[120px] w-60 flex-col overflow-hidden rounded-xl bg-white shadow dark:border dark:border-solid dark:border-zinc-800 dark:bg-[#121314] dark:shadow-none">
-        <div className="notes-handle box-border flex h-10 w-full cursor-move items-end justify-center gap-1 border-0 border-b-2 border-solid border-zinc-200 bg-yellow-400 px-3 py-1 font-semibold dark:bg-yellow-500">
-          <h1 className="m-0 flex-1 truncate text-base">{note.title}</h1>
-          <div className="flex h-full items-center">
-            <MoveIcon className="mt-1 opacity-10 dark:opacity-30" />
-          </div>
-        </div>
-        <div className="flex-1 px-4 py-3">
-          <p className="dashed m-0 whitespace-pre-line p-0 leading-6 text-zinc-600 underline underline-offset-[6px] dark:text-white">
-            {note.content}
-          </p>
-        </div>
-        <div className="bottom-1 flex w-full justify-between px-4 pb-2 text-xs text-zinc-300">
-          <div>{note.author}</div>
-          <div>{note.createdAt}</div>
-        </div>
-      </div>
-    </Draggable>
-  );
+const nodeTypes = {
+  note: NoteNode,
 };
 
 const Notes: NextPage = () => {
-  const { noteList, isLoading, isError } = useNotes();
+  const { noteList, isLoading, isError, setNotePositionTrigger } = useNotes();
+
+  const [nodes, setNodes] = useState<Node[]>([]);
+
+  useEffect(() => {
+    const nodes: Node[] =
+      noteList?.map((note) => {
+        return {
+          id: note.id.toString(),
+          type: 'note',
+          position: { x: note.x, y: note.y },
+          data: {
+            title: note.title,
+            content: note.content,
+            author: note.author,
+            createdAt: note.createdAt,
+          },
+        };
+      }) ?? [];
+    setNodes(nodes);
+  }, [noteList]);
+
+  const onNodesChange = useCallback(
+    (changes: NodeChange[]) =>
+      setNodes((nds) => applyNodeChanges(changes, nds)),
+    []
+  );
+
+  const onNodeDragStop = useCallback((event: React.MouseEvent, node: Node) => {
+    setNotePositionTrigger({
+      id: Number(node.id),
+      position: {
+        x: node.position.x,
+        y: node.position.y,
+      },
+    });
+  }, []);
 
   return (
     <>
@@ -79,8 +85,17 @@ const Notes: NextPage = () => {
               Sorry, there has an error.
             </div>
           )}
-          {!isLoading &&
-            noteList?.map((note) => <Note key={note.id} note={note} />)}
+          {!isLoading && (
+            <ReactFlow
+              nodes={nodes}
+              nodeTypes={nodeTypes}
+              onNodesChange={onNodesChange}
+              onNodeDragStop={onNodeDragStop}
+            >
+              <Background />
+              <Controls />
+            </ReactFlow>
+          )}
         </div>
       </main>
     </>

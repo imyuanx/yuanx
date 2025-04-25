@@ -2,9 +2,9 @@ import { NextRequest } from 'next/server';
 import { ogData } from '@/config/og.mjs';
 import { ImageResponse } from '@vercel/og';
 
-export const config = {
-  runtime: 'edge',
-};
+// export const config = {
+//   runtime: 'edge',
+// };
 
 // Make sure the font exists in the specified path:
 const font = fetch(

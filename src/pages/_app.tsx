@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [active, setActive] = useState('home');
   const [background, setBackground] = useBackground();
   const [showBackground, setShowBackground] = useState(background);
+  const isNotes = route.indexOf('/notes') === 0;
 
   useEffect(() => {
     ackeeTrackerCreate('https://ackee.yuanx.me').record(
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class">
-      {showBackground && <Background pointer={route === '/'} />}
+      {showBackground && !isNotes && <Background pointer={route === '/'} />}
       <Nav active={active} setBackground={setBackground} />
       <Component {...pageProps} />
       <Toaster />
