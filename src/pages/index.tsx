@@ -4,19 +4,10 @@ import Head from 'next/head';
 import DuolingoLogo from '@/components/DuolingoLogo';
 import OGA from '@/components/OGA';
 import type { OGInfo } from '@/components/OGCard';
-import {
-  GITHUB_URL,
-  JUEJIN_URL,
-  TWITTER_URL,
-  WEIBO_URL,
-  ZHIHU_URL,
-} from '@/constant';
+import { EMAIL, GITHUB_URL, TWITTER_URL } from '@/constant';
 import GithubFilledIcon from '@/icons/github-filled.svg';
-import JuejinFilledIcon from '@/icons/juejin-filled.svg';
 import MailIcon from '@/icons/mail.svg';
 import TwitterFilledIcon from '@/icons/twitter-filled.svg';
-import WeiboFilledIcon from '@/icons/weibo-filled.svg';
-import ZhihuFilledIcon from '@/icons/zhihu-filled.svg';
 import { PROJECTS_ITEM_TYPE } from '@/pages/projects';
 import axios from 'axios';
 import clsx from 'clsx';
@@ -223,17 +214,17 @@ const Home: NextPage<Props> = (props) => {
                 CLASS_A,
                 'inline-flex items-center gap-1 align-bottom'
               )}
-              href="mailto:lonelyuanx@gmail.com"
+              href={`mailto:${EMAIL}`}
             >
               <MailIcon className="scale-[1.2]" />
-              lonelyuanx@gmail.com
+              {EMAIL}
             </a>
             {'.'}
           </p>
           {/* <p className={CLASS_P}>
             <a
               className={clsx(CLASS_A, 'font-medium')}
-              href="mailto:lonelyuanx@gmail.com"
+              href={`mailto:${EMAIL}`}
             >
               {"I'm waiting for a job offer"}
             </a>

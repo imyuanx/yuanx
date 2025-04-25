@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
 import { animated, useSpring } from 'react-spring';
 
 export interface Props {
@@ -11,8 +10,6 @@ export interface ColorBlockData {
   mouseY: number;
   firstMove: boolean;
 }
-
-const COLOR_NUM = 5;
 
 function Background({ pointer }: Props) {
   const colorBlockRef = useRef<HTMLDivElement>(null);
@@ -30,11 +27,9 @@ function Background({ pointer }: Props) {
     top: colorBlockData.mouseY - (colorBlockRef.current?.clientHeight || 0) / 2,
     opacity: colorBlockData.firstMove === false ? 1 : 0,
     config: {
-      duration: colorBlockData.firstMove === false ? 200 : 0,
+      duration: colorBlockData.firstMove === false ? 150 : 0,
     },
   });
-  const [bgIndex, setBgIndex] = useState(0);
-  const blockColor = useMemo(() => `bg-gradient-${bgIndex}`, [bgIndex]);
 
   useEffect(() => {
     const moveFollow = (e: { clientX: number; clientY: number }) => {
@@ -49,14 +44,8 @@ function Background({ pointer }: Props) {
       });
     };
     document.addEventListener('mousemove', moveFollow);
-
-    const changeColor = () => {
-      setBgIndex((preValue) => (preValue < COLOR_NUM ? preValue + 1 : 0));
-    };
-    document.addEventListener('mousedown', changeColor);
     return () => {
       document.removeEventListener('mousemove', moveFollow);
-      document.removeEventListener('mousedown', changeColor);
     };
   }, []);
 
@@ -67,10 +56,7 @@ function Background({ pointer }: Props) {
         <animated.div
           ref={colorBlockRef}
           style={animatedProps}
-          className={clsx(
-            blockColor,
-            `absolute z-[-6] h-[180px] w-[180px] opacity-0`
-          )}
+          className="absolute z-[-6] h-[180px] w-[180px] bg-gradient opacity-0"
         />
       )}
     </div>
