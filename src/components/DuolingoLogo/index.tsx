@@ -5,20 +5,17 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 function DuolingoLogo() {
-  const height = useSpringValue(0, { config: { duration: 200 } });
   const scale = useSpringValue(0.95, {
     config: { duration: 200, easing: easings.linear },
   });
   const opacity = useSpringValue(0, { config: { duration: 200 } });
 
   function animatedStart() {
-    height.start(254);
     scale.start(1);
     opacity.start(1);
   }
 
   function animatedReset() {
-    height.start(0);
     scale.start(0.95);
     opacity.start(0.5);
   }

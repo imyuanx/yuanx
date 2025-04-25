@@ -13,20 +13,17 @@ export interface Props {
 
 function OGA({ className, target, name, OGInfo }: Props) {
   const id = useMemo(() => `og-a-${name.replaceAll(' ', '')}`, [name]);
-  const height = useSpringValue(0, { config: { duration: 200 } });
   const scale = useSpringValue(0.95, {
     config: { duration: 200, easing: easings.linear },
   });
   const opacity = useSpringValue(0.5, { config: { duration: 200 } });
 
   function animatedStart() {
-    height.start(254);
     scale.start(1);
     opacity.start(1);
   }
 
   function animatedReset() {
-    height.start(0);
     scale.start(0.95);
     opacity.start(0.5);
   }
