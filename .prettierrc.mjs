@@ -12,8 +12,8 @@ const config = {
   arrowParens: 'always',
   importOrder: [
     '^(react/(.*)$)|^(react$)',
-    '<THIRD_PARTY_MODULES>',
     '^(next/(.*)$)|^(next$)',
+    '<THIRD_PARTY_MODULES>',
     '^types$',
     '^@/types/(.*)$',
     '^@/config/(.*)$',
