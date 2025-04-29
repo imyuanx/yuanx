@@ -1,17 +1,19 @@
-/** @type {import('prettier').Config} */
-module.exports = {
+/**
+ * @see https://prettier.io/docs/configuration
+ * @type {import("prettier").Config}
+ */
+
+const config = {
   endOfLine: 'lf',
   trailingComma: 'es5',
   tabWidth: 2,
   semi: true,
   singleQuote: true,
   arrowParens: 'always',
-  plugins: ['@trivago/prettier-plugin-sort-imports'],
   importOrder: [
     '^(react/(.*)$)|^(react$)',
     '^(next/(.*)$)|^(next$)',
     '<THIRD_PARTY_MODULES>',
-    '',
     '^types$',
     '^@/types/(.*)$',
     '^@/config/(.*)$',
@@ -23,7 +25,13 @@ module.exports = {
     '^@/app/(.*)$',
     '^[./]',
   ],
-  importOrderSeparation: false,
+  importOrderSeparation: true,
   importOrderSortSpecifiers: true,
-  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
+  importOrderParserPlugins: ['typescript', 'tsx', 'jsx', 'decorators-legacy'],
+  plugins: [
+    '@trivago/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss',
+  ],
 };
+
+export default config;
