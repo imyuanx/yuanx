@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import country from '@/config/country.json';
 
@@ -91,13 +91,16 @@ function LanguageInfoSection({
 
 // 活动图表组件
 function ActivityChart({ calendar }: { calendar: DuolingoCalendar[] }) {
+  // 固定的网格线数量
+  const gridLineCount = 4;
+
   return (
     <div className="-mx-1 -mb-3.5">
       <AreaChart
         width={259 + 10}
         height={100}
         data={calendar}
-        margin={{ top: 3, right: 10, left: 10, bottom: 0 }}
+        margin={{ top: 6, right: 10, left: 10, bottom: 0 }}
       >
         <defs>
           <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
@@ -118,6 +121,15 @@ function ActivityChart({ calendar }: { calendar: DuolingoCalendar[] }) {
           tick={{ fontSize: 10 }}
           type="category"
           interval="preserveStartEnd"
+        />
+        <YAxis
+          type="number"
+          domain={[0, 'dataMax']}
+          interval={0}
+          tickCount={gridLineCount}
+          axisLine={false}
+          tickLine={false}
+          hide={true}
         />
         <Area
           type="monotone"
