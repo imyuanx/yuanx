@@ -11,7 +11,7 @@ export default function useDuolingoInfo() {
   const { data, error, isLoading } = useSWR('/api/getDuolingoInfo', fetcher);
 
   return {
-    duolingoInfo: data as DuolingoInfo | null,
+    duolingoInfo: data as DuolingoInfo,
     isLoading,
     isError: error,
   };
