@@ -1,8 +1,10 @@
-import DuolingoCard from '@/components/DuolingoCard';
-import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 import { animated, easings, useSpringValue } from 'react-spring';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+
+import DuolingoCard from '@/components/DuolingoCard';
+
+import DuolingoLogoIcon from '@/icons/duolingo-logo.svg';
 
 function DuolingoLogo() {
   const scale = useSpringValue(0.95, {
