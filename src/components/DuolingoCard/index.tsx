@@ -91,9 +91,6 @@ function LanguageInfoSection({
 
 // 活动图表组件
 function ActivityChart({ calendar }: { calendar: DuolingoCalendar[] }) {
-  // 固定的网格线数量
-  const gridLineCount = 4;
-
   return (
     <div className="-mx-1 -mb-3.5">
       <AreaChart
@@ -123,10 +120,8 @@ function ActivityChart({ calendar }: { calendar: DuolingoCalendar[] }) {
           interval="preserveStartEnd"
         />
         <YAxis
-          type="number"
-          domain={[0, 'dataMax']}
+          domain={[0, 'dataMax + 5']}
           interval={0}
-          tickCount={gridLineCount}
           axisLine={false}
           tickLine={false}
           hide={true}
