@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { Area, AreaChart, XAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 
 import country from '@/config/country.json';
 
@@ -105,6 +105,12 @@ function ActivityChart({ calendar }: { calendar: DuolingoCalendar[] }) {
             <stop offset="100%" stopColor="#93F4A5" stopOpacity={0.1} />
           </linearGradient>
         </defs>
+        <CartesianGrid
+          stroke="#F1F4F8"
+          horizontal={true}
+          vertical={false}
+          strokeDasharray="4 4"
+        />
         <XAxis
           dataKey="name"
           axisLine={false}
