@@ -39,6 +39,7 @@ const nextConfig = {
   images: {
     domains: [
       'yuanx.me',
+      'recdio.com',
       'sharee.app',
       'm-calendar.yuanx.me',
       'framerusercontent.com',

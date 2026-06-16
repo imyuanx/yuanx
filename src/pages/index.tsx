@@ -36,6 +36,10 @@ export type HOME_PROJECTS_ITEM_TYPE = PROJECTS_ITEM_TYPE & {
 
 const PROJECTS_LIST: Array<HOME_PROJECTS_ITEM_TYPE> = [
   {
+    name: 'Recdio',
+    link: 'https://recdio.com',
+  },
+  {
     name: 'Sharee',
     link: 'https://sharee.app',
   },
