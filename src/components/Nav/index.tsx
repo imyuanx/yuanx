@@ -15,11 +15,12 @@ interface Props {
   setBackground: Function;
 }
 
-const NAV_LIST = [
+const NAV_LIST: { name: string; path: string; className?: string }[] = [
   { name: 'home', path: '/' },
   { name: 'blog', path: '/blog' },
   { name: 'projects', path: '/projects' },
-  { name: 'notes', path: '/notes', className: 'hidden sm:flex' },
+  // Temporarily offline while the notes backend is being migrated.
+  // { name: 'notes', path: '/notes', className: 'hidden sm:flex' },
 ];
 
 const TEXT_COLOR =
