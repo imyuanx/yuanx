@@ -15,7 +15,7 @@ interface Props {
   setBackground: Function;
 }
 
-const NAV_LIST = [
+const NAV_LIST: { name: string; path: string; className?: string }[] = [
   { name: 'home', path: '/' },
   { name: 'blog', path: '/blog' },
   { name: 'projects', path: '/projects' },
