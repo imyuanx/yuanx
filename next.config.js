@@ -61,6 +61,23 @@ const nextConfig = {
       },
     ];
   },
+  // Temporarily take the notes section offline while the backend is migrated.
+  // To re-enable: remove this redirects block and uncomment the nav entry in
+  // src/components/Nav/index.tsx.
+  redirects: () => {
+    return [
+      {
+        source: '/notes',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/notes/:path*',
+        destination: '/',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
